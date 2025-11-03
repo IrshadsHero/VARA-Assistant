@@ -986,15 +986,24 @@
     <script>
         class VARAAssistant {
             constructor() {
+                console.log('VARAAssistant constructor started');
                 this.apiKey = this.getAPIKey();
                 this.messagesContainer = document.getElementById('chatMessages');
                 this.messageInput = document.getElementById('messageInput');
                 this.sendBtn = document.getElementById('sendBtn');
                 this.chatForm = document.getElementById('chatForm');
                 
+                console.log('Elements found:', {
+                    messagesContainer: !!this.messagesContainer,
+                    messageInput: !!this.messageInput,
+                    sendBtn: !!this.sendBtn,
+                    chatForm: !!this.chatForm
+                });
+                
                 this.initializeEventListeners();
                 this.checkAPIConnection();
                 this.loadVARAContext();
+                console.log('VARAAssistant initialization complete');
             }
 
             getAPIKey() {
@@ -1066,28 +1075,59 @@
             }
 
             initializeEventListeners() {
-                this.chatForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    this.sendMessage();
-                });
-
-                this.messageInput.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' && !e.shiftKey) {
+                console.log('Setting up event listeners...');
+                
+                if (this.chatForm) {
+                    this.chatForm.addEventListener('submit', (e) => {
+                        console.log('Form submit event triggered');
                         e.preventDefault();
+                        e.stopPropagation();
                         this.sendMessage();
-                    }
-                });
+                        return false;
+                    });
+                    console.log('Form submit listener added');
+                }
 
-                // Auto-resize textarea
-                this.messageInput.addEventListener('input', () => {
-                    this.messageInput.style.height = 'auto';
-                    this.messageInput.style.height = this.messageInput.scrollHeight + 'px';
-                });
+                if (this.messageInput) {
+                    this.messageInput.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' && !e.shiftKey) {
+                            console.log('Enter key pressed');
+                            e.preventDefault();
+                            e.stopPropagation();
+                            this.sendMessage();
+                            return false;
+                        }
+                    });
+                    
+                    // Auto-resize textarea
+                    this.messageInput.addEventListener('input', () => {
+                        this.messageInput.style.height = 'auto';
+                        this.messageInput.style.height = this.messageInput.scrollHeight + 'px';
+                    });
+                    console.log('Input event listeners added');
+                }
+                
+                if (this.sendBtn) {
+                    this.sendBtn.addEventListener('click', (e) => {
+                        console.log('Send button clicked');
+                        e.preventDefault();
+                        e.stopPropagation();
+                        this.sendMessage();
+                        return false;
+                    });
+                    console.log('Send button listener added');
+                }
             }
 
             async sendMessage() {
+                console.log('sendMessage called');
                 const message = this.messageInput.value.trim();
-                if (!message || !this.apiKey) return;
+                console.log('Message:', message);
+                
+                if (!message) {
+                    console.log('No message to send');
+                    return;
+                }
 
                 // Add user message
                 this.addMessage(message, 'user');
