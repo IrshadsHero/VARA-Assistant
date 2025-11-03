@@ -850,24 +850,24 @@
     <header class="header">
         <div class="header-content">
             <h1>
-                <div class="ai-icon">🤖</div>
+                <div class="ai-icon">AI</div>
                 VARA AI Assistant
             </h1>
             <div class="header-actions">
                 <a href="deloitte_vara_faq.html" class="btn btn-secondary">
-                    📚 FAQ Guide
+                    FAQ Guide
                 </a>
                 <a href="digital_assets_team_interactive.html" class="btn btn-secondary">
-                    👥 Digital Assets Team
+                    Digital Assets Team
                 </a>
                 <a href="audit_interactive.html" class="btn btn-secondary">
-                    🔍 Audit Tools
+                    Audit Tools
                 </a>
                 <a href="valuation_interactive.html" class="btn btn-secondary">
-                    💰 Valuation Tools
+                    Valuation Tools
                 </a>
                 <a href="FI - Audit of VASP Walkthrough.html" class="btn btn-secondary">
-                    📋 VASP Walkthrough
+                    VASP Walkthrough
                 </a>
             </div>
         </div>
@@ -878,14 +878,14 @@
             <h3>Quick Questions</h3>
             
             <div class="api-status" id="apiStatus">
-                <span class="status-icon" id="statusIndicator">🔴</span>
+                <span class="status-icon" id="statusIndicator">●</span>
                 <span id="statusText">Checking API connection...</span>
             </div>
 
             <div class="quick-actions">
                 <div class="quick-action" onclick="askQuestion('What are the minimum capital requirements for a Full VASP license?')">
                     <h4>
-                        <div class="action-icon">💰</div>
+                        <div class="action-icon">$</div>
                         Capital Requirements
                     </h4>
                     <p>Minimum capital for different VASP license categories</p>
@@ -893,7 +893,7 @@
 
                 <div class="quick-action" onclick="askQuestion('What audit procedures are required for virtual asset custody verification?')">
                     <h4>
-                        <div class="action-icon">🔍</div>
+                        <div class="action-icon">?</div>
                         Audit Procedures
                     </h4>
                     <p>Required procedures for VA custody and proof of reserves</p>
@@ -901,7 +901,7 @@
 
                 <div class="quick-action" onclick="askQuestion('Which VASPs need external audits and what is the scope?')">
                     <h4>
-                        <div class="action-icon">📋</div>
+                        <div class="action-icon">✓</div>
                         Audit Requirements
                     </h4>
                     <p>External audit mandates and scope requirements</p>
@@ -944,7 +944,7 @@
 
             <div class="chat-messages" id="chatMessages">
                 <div class="message assistant">
-                    <strong>🤖 Welcome to the VARA AI Assistant!</strong><br><br>
+                    <strong>Welcome to the VARA AI Assistant!</strong><br><br>
                     I'm your specialized AI companion trained on the complete VARA Rulebook. I can provide expert guidance on:
                     <br><br>
                     <strong>🏦 VASP Licensing & Operations</strong>
@@ -1025,7 +1025,7 @@
                 
                 if (!this.apiKey) {
                     statusElement.className = 'api-status disconnected';
-                    indicatorElement.textContent = '🔴';
+                    indicatorElement.textContent = '●';
                     textElement.textContent = 'API key required';
                     return;
                 }
@@ -1071,7 +1071,7 @@
 
                             if (response.ok) {
                                 statusElement.className = 'api-status connected';
-                                indicatorElement.textContent = '🟢';
+                                indicatorElement.textContent = '●';
                                 textElement.textContent = 'Connected to Gemini API';
                                 return; // Success, exit the loop
                             }
@@ -1086,7 +1086,7 @@
                     
                 } catch (error) {
                     statusElement.className = 'api-status disconnected';
-                    indicatorElement.textContent = '🔴';
+                    indicatorElement.textContent = '●';
                     textElement.textContent = 'Connection failed - Check API key';
                 }
             }
