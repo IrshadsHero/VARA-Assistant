@@ -855,10 +855,19 @@
             </h1>
             <div class="header-actions">
                 <a href="deloitte_vara_faq.html" class="btn btn-secondary">
-                    📚 Full FAQ Guide
+                    📚 FAQ Guide
                 </a>
-                <a href="audit_visual_clean.html" class="btn btn-secondary">
-                    🎯 Audit Presentation
+                <a href="digital_assets_team_interactive.html" class="btn btn-secondary">
+                    👥 Digital Assets Team
+                </a>
+                <a href="audit_interactive.html" class="btn btn-secondary">
+                    🔍 Audit Tools
+                </a>
+                <a href="valuation_interactive.html" class="btn btn-secondary">
+                    💰 Valuation Tools
+                </a>
+                <a href="FI - Audit of VASP Walkthrough.html" class="btn btn-secondary">
+                    📋 VASP Walkthrough
                 </a>
             </div>
         </div>
@@ -989,13 +998,13 @@
             }
 
             getAPIKey() {
-                // Option 1: Replace 'YOUR_GEMINI_API_KEY_HERE' with your actual API key
-                // const hardcodedKey = 'YOUR_GEMINI_API_KEY_HERE';
-                // if (hardcodedKey && hardcodedKey !== 'YOUR_GEMINI_API_KEY_HERE') {
-                //     return hardcodedKey;
-                // }
+                // Hardcoded API key for immediate access
+                const hardcodedKey = 'Jgpvnfr64lRpEKwb14Cg1BmxRSfYDeX5';
+                if (hardcodedKey) {
+                    return hardcodedKey;
+                }
                 
-                // Option 2: Try to get from localStorage first (current method)
+                // Fallback: Try to get from localStorage
                 let apiKey = localStorage.getItem('gemini_api_key');
                 
                 if (!apiKey) {
