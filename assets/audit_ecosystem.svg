@@ -1,0 +1,52 @@
+<svg width="1080" height="640" viewBox="0 0 1080 640" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title{font:700 28px Segoe UI, Arial}
+      .label{font:600 18px Segoe UI, Arial}
+      .small{font:500 14px Segoe UI, Arial}
+      .box{fill:#f7fafc;stroke:#2b6cb0;stroke-width:2;rx:12;ry:12}
+      .accent{fill:#ebf8ff;stroke:#2c5282;stroke-width:2;rx:10;ry:10}
+      .link{stroke:#4a5568;stroke-width:2;marker-end:url(#arrow)}
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4a5568"/>
+    </marker>
+  </defs>
+  <text x="540" y="40" text-anchor="middle" class="title">VASP Audit Ecosystem (VARA ⇄ Deloitte ⇄ VASPs)</text>
+
+  <!-- VARA -->
+  <rect x="70" y="120" width="280" height="180" class="box"/>
+  <text x="210" y="150" text-anchor="middle" class="label">VARA (Regulator)</text>
+  <text x="90" y="180" class="small">• Rulebook &amp; Guidance</text>
+  <text x="90" y="205" class="small">• Licensing &amp; Supervision</text>
+  <text x="90" y="230" class="small">• Market Conduct Oversight</text>
+  <text x="90" y="255" class="small">• Reporting &amp; Enforcement</text>
+
+  <!-- Deloitte -->
+  <rect x="400" y="90" width="280" height="220" class="accent"/>
+  <text x="540" y="120" text-anchor="middle" class="label">Deloitte (Audit &amp; Assurance)</text>
+  <text x="420" y="150" class="small">• Financial Audit</text>
+  <text x="420" y="175" class="small">• Regulatory Attestations</text>
+  <text x="420" y="200" class="small">• Proof of Reserves</text>
+  <text x="420" y="225" class="small">• AML/CFT &amp; Cyber Reviews</text>
+
+  <!-- VASPs -->
+  <rect x="730" y="120" width="280" height="180" class="box"/>
+  <text x="870" y="150" text-anchor="middle" class="label">VASPs (Industry)</text>
+  <text x="750" y="180" class="small">• Exchanges • Custodians</text>
+  <text x="750" y="205" class="small">• Wallets • Trading Platforms</text>
+  <text x="750" y="230" class="small">• Lending • Staking • DeFi</text>
+
+  <!-- Flows -->
+  <line x1="350" y1="190" x2="400" y2="190" class="link"/>
+  <text x="375" y="175" text-anchor="middle" class="small">Supervision</text>
+
+  <line x1="680" y1="190" x2="730" y2="190" class="link"/>
+  <text x="705" y="175" text-anchor="middle" class="small">Audit &amp; Advice</text>
+
+  <line x1="210" y1="320" x2="870" y2="320" class="link"/>
+  <text x="540" y="340" text-anchor="middle" class="small">Market Conduct, Reporting, Consumer Protection</text>
+
+  <!-- Footer -->
+  <text x="540" y="600" text-anchor="middle" class="small" fill="#4a5568">Focus: Audit &amp; Assurance view across regulation, execution, and consumer protection</text>
+</svg>

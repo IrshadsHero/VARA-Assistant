@@ -1,0 +1,43 @@
+<svg width="1080" height="520" viewBox="0 0 1080 520" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title{font:700 32px Segoe UI, Arial}
+      .label{font:600 20px Segoe UI, Arial}
+      .small{font:500 16px Segoe UI, Arial}
+      .stock{fill:#f0fdf4;stroke:#15803d;stroke-width:3;rx:12;ry:12}
+      .crypto{fill:#fef3c7;stroke:#d97706;stroke-width:3;rx:12;ry:12}
+    </style>
+  </defs>
+  
+  <text x="540" y="50" text-anchor="middle" class="title">Valuing Stocks vs Valuing Crypto</text>
+  
+  <!-- STOCK VALUATION -->
+  <rect x="60" y="120" width="440" height="320" class="stock"/>
+  <text x="280" y="160" text-anchor="middle" class="label">Stock on NYSE</text>
+  
+  <text x="90" y="200" class="small" font-weight="600">How We Value It:</text>
+  <text x="110" y="230" class="small">Closing price at 4pm ET</text>
+  <text x="110" y="255" class="small">Regulated exchange</text>
+  <text x="110" y="280" class="small">Market hours: 9:30am-4pm</text>
+  
+  <text x="90" y="320" class="small" font-weight="600">Audit Approach:</text>
+  <text x="110" y="350" class="small">Check Bloomberg/Reuters</text>
+  <text x="110" y="375" class="small">Confirm with broker</text>
+  <text x="110" y="400" class="small">Easy: 1 official price</text>
+  
+  <!-- CRYPTO VALUATION -->
+  <rect x="580" y="120" width="440" height="320" class="crypto"/>
+  <text x="800" y="160" text-anchor="middle" class="label">Bitcoin / Crypto</text>
+  
+  <text x="610" y="200" class="small" font-weight="600">How We Value It:</text>
+  <text x="630" y="230" class="small">Which price? 100+ exchanges</text>
+  <text x="630" y="255" class="small">Unregulated, global markets</text>
+  <text x="630" y="280" class="small">Trades 24/7 (no closing bell)</text>
+  
+  <text x="610" y="320" class="small" font-weight="600">Audit Approach:</text>
+  <text x="630" y="350" class="small">Which exchange price to use?</text>
+  <text x="630" y="375" class="small">What UTC time = "period end"?</text>
+  <text x="630" y="400" class="small">HARD: Prices vary widely</text>
+
+  <text x="540" y="490" text-anchor="middle" class="small" fill="#4a5568" font-style="italic">Stocks = 1 official price. Crypto = choose from 100+ prices across different exchanges</text>
+</svg>

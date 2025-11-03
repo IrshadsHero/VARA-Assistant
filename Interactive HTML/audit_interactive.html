@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VARA & VASP Audit Guide | Deloitte</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #2c3e50;
+      background: linear-gradient(135deg, #0b1020 0%, #0f172a 100%);
+      min-height: 100vh;
+    }
+    .ambient-bg { position: fixed; inset: 0; z-index: 0; pointer-events:none;
+      background-image: radial-gradient(rgba(134,194,50,0.08) 2px, transparent 2px), radial-gradient(rgba(134,194,50,0.06) 1.5px, transparent 1.5px);
+      background-size: 50px 50px, 50px 50px; background-position: 0 0, 25px 25px; animation: drift 45s linear infinite; }
+    @keyframes drift { 0%{background-position:0 0,25px 25px;} 100%{background-position:1200px 0,1225px 25px;} }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      background: #ffffff;
+      min-height: 100vh;
+      box-shadow: 0 0 40px rgba(0,0,0,0.3);
+      position: relative; z-index: 1;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+      color: white;
+      padding: 2.5rem 3rem;
+      border-bottom: 4px solid #86c232;
+    }
+    
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+    
+    .deloitte-badge {
+      display: inline-block;
+      background: #86c232;
+      color: #0d1b2a;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+    
+    nav {
+      background: #f8f9fa;
+      padding: 1rem 3rem;
+      border-bottom: 1px solid #e0e0e0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: #415a77;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+    
+    nav a:hover, nav a.active {
+      color: #86c232;
+    }
+    
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #86c232;
+    }
+    
+    main {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 0;
+    }
+    
+    aside {
+      background: #f8f9fa;
+      padding: 2rem 1.5rem;
+      border-right: 1px solid #e0e0e0;
+      height: calc(100vh - 280px);
+      overflow-y: auto;
+      position: sticky;
+      top: 60px;
+    }
+    
+    aside h3 {
+      color: #0d1b2a;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      border-bottom: 2px solid #86c232;
+      padding-bottom: 0.5rem;
+    }
+    
+    aside ul {
+      list-style: none;
+    }
+    
+    aside li {
+      margin-bottom: 0.5rem;
+    }
+    
+    aside a {
+      text-decoration: none;
+      color: #415a77;
+      display: block;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      transition: all 0.3s;
+      font-size: 0.95rem;
+    }
+    
+    aside a:hover {
+      background: #e8f5e9;
+      color: #2e7d32;
+      padding-left: 1rem;
+    }
+    
+    aside a.active {
+      background: #86c232;
+      color: white;
+      font-weight: 600;
+    }
+    
+    .content {
+      padding: 3rem;
+    }
+    
+    section {
+      margin-bottom: 4rem;
+      scroll-margin-top: 80px;
+    }
+    
+    h2 {
+      color: #0d1b2a;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      border-left: 5px solid #86c232;
+      padding-left: 1rem;
+    }
+    
+    h3 {
+      color: #1b263b;
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem 0;
+    }
+    
+    h4 {
+      color: #415a77;
+      font-size: 1.2rem;
+      margin: 1.5rem 0 0.75rem 0;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+    
+    .card {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+    
+    .card-header {
+      background: linear-gradient(135deg, #415a77 0%, #1b263b 100%);
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 8px 8px 0 0;
+      margin: -2rem -2rem 1.5rem -2rem;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    
+    .highlight-box {
+      background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+      border-left: 5px solid #66bb6a;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    
+    .warning-box {
+      background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+      border-left: 5px solid #ff9800;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    
+    .critical-box {
+      background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+      border-left: 5px solid #f44336;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    
+    .info-box {
+      background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+      border-left: 5px solid #2196f3;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    
+    ul.checklist {
+      list-style: none;
+      margin: 1rem 0;
+    }
+    
+    ul.checklist li {
+      padding: 0.75rem 0 0.75rem 2.5rem;
+      position: relative;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    
+    ul.checklist li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      width: 28px;
+      height: 28px;
+      background: #86c232;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .visual-section {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    
+    .visual-section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    
+    thead {
+      background: linear-gradient(135deg, #415a77 0%, #1b263b 100%);
+      color: white;
+    }
+    
+    th {
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+    
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    tbody tr:hover {
+      background: #f8f9fa;
+    }
+    
+    .accordion {
+      margin: 1.5rem 0;
+    }
+    
+    .accordion-item {
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    
+    .accordion-header {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s;
+    }
+    
+    .accordion-header:hover {
+      background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+    }
+    
+    .accordion-header::after {
+      content: '+';
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #86c232;
+      transition: transform 0.3s;
+    }
+    
+    .accordion-header.active::after {
+      transform: rotate(45deg);
+    }
+    
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      background: white;
+    }
+    
+    .accordion-content-inner {
+      padding: 1.5rem;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin: 0.25rem;
+    }
+    
+    .badge-primary {
+      background: #e3f2fd;
+      color: #1976d2;
+    }
+    
+    .badge-success {
+      background: #e8f5e9;
+      color: #388e3c;
+    }
+    
+    .badge-warning {
+      background: #fff3e0;
+      color: #f57c00;
+    }
+    
+    .badge-danger {
+      background: #ffebee;
+      color: #d32f2f;
+    }
+    
+    @media (max-width: 1024px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+      
+      aside {
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+      }
+      
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header, nav, .content {
+        padding: 1.5rem;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-bg" aria-hidden="true"></div>
+  <div class="container">
+    <header>
+      <h1>VARA & VASP Audit Guide</h1>
+      <p>Comprehensive audit framework for virtual asset service providers</p>
+      <span class="deloitte-badge">Deloitte Audit & Assurance</span>
+    </header>
+    
+    <nav id="mainNav">
+      <ul>
+        <li><a href="#overview" class="nav-link">Overview</a></li>
+        <li><a href="#capabilities" class="nav-link">Our Capabilities</a></li>
+        <li><a href="#approach" class="nav-link">Audit Approach</a></li>
+        <li><a href="#procedures" class="nav-link">Procedures</a></li>
+        <li><a href="#deliverables" class="nav-link">Deliverables</a></li>
+      </ul>
+    </nav>
+    
+    <main>
+      <aside>
+        <h3>Quick Navigation</h3>
+        <ul>
+          <li><a href="#overview" class="sidebar-link">Overview</a></li>
+          <li><a href="#what-we-do" class="sidebar-link">What We Can Do</a></li>
+          <li><a href="#what-needs-doing" class="sidebar-link">What Needs Doing</a></li>
+          <li><a href="#how-we-execute" class="sidebar-link">How We Execute</a></li>
+          <li><a href="#blockchain-verification" class="sidebar-link">Blockchain Verification</a></li>
+          <li><a href="#proof-of-reserves" class="sidebar-link">Proof of Reserves</a></li>
+          <li><a href="#aml-testing" class="sidebar-link">AML/CFT Testing</a></li>
+          <li><a href="#cybersecurity" class="sidebar-link">Cybersecurity</a></li>
+          <li><a href="#governance" class="sidebar-link">Governance</a></li>
+          <li><a href="#engagement-model" class="sidebar-link">Engagement Model</a></li>
+          <li><a href="#team-requirements" class="sidebar-link">Team Requirements</a></li>
+        </ul>
+      </aside>
+      
+      <div class="content">
+        <section id="tldr-summary" style="margin-bottom:3rem;">
+          <h2 style="color:#1a365d;">Summary: Digital Asset Audit Made Simple</h2>
+          <div class="two-column" style="margin-bottom:2rem;">
+            <div class="card">
+              <div class="card-header">Bank vs Crypto: The Vault Analogy</div>
+              <img src="assets/bank_vault_vs_crypto_wallets.svg" alt="Bank Vault vs Crypto Wallets" style="max-width:90%;margin-bottom:1rem;">
+              <ul class="checklist">
+                <li><b>Bank:</b> Cash is kept in a physical vault. Auditors count the cash and check the locks.</li>
+                <li><b>Crypto:</b> Digital assets are kept in wallets (like digital vaults). Auditors check the blockchain and test who controls the keys.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="card-header">Proof of Reserves: The Balance Analogy</div>
+              <img src="assets/proof_of_reserves_flow.svg" alt="Proof of Reserves Flow" style="max-width:90%;margin-bottom:1rem;">
+              <ul class="checklist">
+                <li>Does the company have enough crypto to cover what it owes customers?</li>
+                <li>Auditors check the blockchain and company records to make sure the numbers match.</li>
+                <li>If the balance is short, it’s a big red flag.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">How Auditors Check Crypto</div>
+            <ul class="checklist">
+              <li>Get a list of wallets (like account numbers).</li>
+              <li>Ask the company to prove they control the wallets (like signing a message or moving a small amount).</li>
+              <li>Look up wallet balances on the blockchain (public ledger).</li>
+              <li>Compare blockchain balances to company records.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-header">AML: Stopping Bad Actors</div>
+            <img src="assets/audit_ecosystem.svg" alt="VASP Audit Ecosystem" style="max-width:90%;margin-bottom:1rem;">
+            <ul class="checklist">
+              <li>Just like banks, crypto companies must check who their customers are (KYC).</li>
+              <li>They watch for suspicious transactions and report them.</li>
+              <li>Crypto adds extra tech to trace anonymous wallets and transactions.</li>
+            </ul>
+          </div>
+          <div class="highlight-box" style="margin-top:2rem;">
+            <h3 style="margin-top:0;">Key Takeaways (Simple)</h3>
+            <ul class="checklist">
+              <li>Crypto audits are like bank audits, but use blockchain instead of cash.</li>
+              <li>Auditors check who controls the wallets and if the company has enough assets.</li>
+              <li>Extra tech is needed to trace crypto transactions and stop bad actors.</li>
+              <li>If you understand bank audits, you’re halfway to understanding crypto audits!</li>
+            </ul>
+          </div>
+        </section>
+        
+        <section id="overview">
+          <h2>Overview</h2>
+          <p>Virtual Asset Service Providers operate in a regulated environment that combines traditional financial services with blockchain technology. As auditors, we apply established assurance principles while adapting our evidence-gathering and testing procedures to account for the unique characteristics of digital assets.</p>
+          
+          <div class="highlight-box">
+            <h4>Regulatory Context</h4>
+            <p>VARA (Virtual Assets Regulatory Authority) in Dubai has established a comprehensive regulatory framework that requires VASPs to maintain robust financial reporting, customer asset protection, AML/CFT compliance, and cybersecurity controls. Our audit engagements address both IFRS financial statement audits and regulatory attestation requirements.</p>
+          </div>
+          
+          <div class="visual-section">
+            <img src="assets/audit_ecosystem.svg" alt="VASP Audit Ecosystem">
+            <p style="margin-top: 1rem; color: #666; font-size: 0.95rem;">The VASP audit ecosystem showing key stakeholders and relationships</p>
+          </div>
+        </section>
+        
+        <section id="what-we-do">
+          <h2>What We Can Do as Deloitte</h2>
+          
+          <div class="two-column">
+            <div class="card">
+              <div class="card-header">Traditional Audit Services</div>
+              <ul class="checklist">
+                <li>IFRS financial statement audits</li>
+                <li>Internal control assessments (SOC 1, SOC 2)</li>
+                <li>AML/CFT compliance audits</li>
+                <li>Regulatory reporting assurance</li>
+                <li>Management letter observations and recommendations</li>
+              </ul>
+            </div>
+            
+            <div class="card">
+              <div class="card-header">Specialized VASP Services</div>
+              <ul class="checklist">
+                <li>Proof of Reserves attestations</li>
+                <li>Blockchain transaction verification</li>
+                <li>Cryptographic signature validation</li>
+                <li>Smart contract audit support</li>
+                <li>Digital asset custody control testing</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">Deloitte's Unique Value Proposition</div>
+            <div class="two-column">
+              <div>
+                <h4>Technical Capabilities</h4>
+                <ul class="checklist">
+                  <li>Blockchain forensics and analytics</li>
+                  <li>Proprietary audit tools for on-chain verification</li>
+                  <li>Smart contract review expertise</li>
+                  <li>Integration with leading analytics platforms (Chainalysis, Elliptic)</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Industry Expertise</h4>
+                <ul class="checklist">
+                  <li>Global crypto audit experience</li>
+                  <li>VARA regulatory framework knowledge</li>
+                  <li>Cross-border coordination capabilities</li>
+                  <li>Specialized digital asset valuation teams</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section id="what-needs-doing">
+          <h2>What Needs to Be Done</h2>
+          
+          <p>A comprehensive VASP audit addresses seven core areas, each with specific objectives and testing requirements:</p>
+          
+          <div class="accordion">
+            <div class="accordion-item">
+              <div class="accordion-header">1. Financial Statement Verification</div>
+              <div class="accordion-content">
+                <div class="accordion-content-inner">
+                  <h4>Objectives</h4>
+                  <p>Verify that digital assets are accurately recorded, properly valued, and adequately disclosed in accordance with IFRS.</p>
+                  
+                  <h4>Key Requirements</h4>
+                  <ul class="checklist">
+                    <li>Confirm existence and ownership of all custodial assets</li>
+                    <li>Validate fair value measurements at reporting date</li>
+                    <li>Test completeness of customer liabilities</li>
+                    <li>Verify segregation of customer vs proprietary assets</li>
+                    <li>Assess adequacy of disclosures for digital asset holdings</li>
+                  </ul>
+                  
+                  <div class="info-box">
+                    <strong>Deloitte Approach:</strong> We independently query public blockchains to verify asset existence, obtain cryptographic proof of control, and reconcile on-chain balances to the general ledger and sub-ledgers.
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <div class="accordion-header">2. Proof of Reserves Attestation</div>
+              <div class="accordion-content">
+                <div class="accordion-content-inner">
+                  <h4>Objectives</h4>
+                  <p>Provide independent assurance that the VASP maintains sufficient digital assets to cover all customer balances (target: reserve ratio of 100% or greater).</p>
+                  
+                  <h4>Key Requirements</h4>
+                  <ul class="checklist">
+                    <li>Obtain complete listing of all custodial wallet addresses</li>
+                    <li>Request and verify cryptographic signatures proving control</li>
+                    <li>Query blockchain at the specified cutoff date and time</li>
+                    <li>Calculate total customer liabilities from the platform database</li>
+                    <li>Compute reserve ratio and assess adequacy</li>
+                  </ul>
+                  
+                  <div class="visual-section">
+                    <img src="assets/proof_of_reserves_flow.svg" alt="Proof of Reserves Flow">
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <div class="accordion-header">3. AML/CFT Compliance Testing</div>
+              <div class="accordion-content">
+                <div class="accordion-content-inner">
+                  <h4>Objectives</h4>
+                  <p>Assess the design and operating effectiveness of AML/CFT controls, including KYC, transaction monitoring, sanctions screening, and Travel Rule compliance.</p>
+                  
+                  <h4>Key Requirements</h4>
+                  <ul class="checklist">
+                    <li>Test KYC onboarding procedures and documentation</li>
+                    <li>Evaluate transaction monitoring system parameters and alerts</li>
+                    <li>Review suspicious activity report (SAR) filings</li>
+                    <li>Validate sanctions screening against OFAC and other lists</li>
+                    <li>Assess Travel Rule implementation for cross-VASP transfers</li>
+                    <li>Review blockchain analytics tool integration and usage</li>
+                  </ul>
+                  
+                  <div class="warning-box">
+                    <strong>Risk Area:</strong> VASPs face heightened AML risk due to pseudonymous nature of blockchain transactions and potential for cross-border illicit activity. Robust controls are mandatory under VARA regulations.
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <div class="accordion-header">4. Cybersecurity & IT Controls</div>
+              <div class="accordion-content">
+                <div class="accordion-content-inner">
+                  <h4>Objectives</h4>
+                  <p>Evaluate IT general controls and cybersecurity measures protecting digital asset custody and trading infrastructure.</p>
+                  
+                  <h4>Key Requirements</h4>
+                  <ul class="checklist">
+                    <li>Test access controls for wallet management systems</li>
+                    <li>Review multi-signature approval workflows for cold storage</li>
+                    <li>Assess hot-to-cold wallet sweep automation</li>
+                    <li>Evaluate key generation and secure storage practices</li>
+                    <li>Review disaster recovery and business continuity plans</li>
+                    <li>Test incident response procedures</li>
+                    <li>Assess penetration testing frequency and remediation</li>
+                  </ul>
+                  
+                  <div class="visual-section">
+                    <img src="assets/hot_cold_wallets.svg" alt="Hot and Cold Wallet Architecture">
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <div class="accordion-header">5. Governance & Oversight</div>
+              <div class="accordion-content">
+                <div class="accordion-content-inner">
+                  <h4>Objectives</h4>
+                  <p>Assess board and management oversight, risk management framework, and compliance with VARA governance requirements.</p>
+                  
+                  <h4>Key Requirements</h4>
+                  <ul class="checklist">
+                    <li>Review board composition and meeting minutes</li>
+                    <li>Evaluate risk committee effectiveness</li>
+                    <li>Assess internal audit function scope and independence</li>
+                    <li>Review compliance function organization and reporting</li>
+                    <li>Test three lines of defense model implementation</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <div class="accordion-header">6. Customer Asset Protection</div>
+              <div class="accordion-content">
+                <div class="accordion-content-inner">
+                  <h4>Objectives</h4>
+                  <p>Verify segregation of customer assets, test reconciliation controls, and assess insurance coverage.</p>
+                  
+                  <h4>Key Requirements</h4>
+                  <ul class="checklist">
+                    <li>Confirm legal segregation of customer vs proprietary wallets</li>
+                    <li>Test daily reconciliation of sub-ledger to blockchain</li>
+                    <li>Review terms of service and custody agreements</li>
+                    <li>Assess adequacy of insurance coverage (crime, D&O, cyber)</li>
+                    <li>Evaluate customer complaint handling procedures</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <div class="accordion-header">7. Market Conduct & Fair Dealing</div>
+              <div class="accordion-content">
+                <div class="accordion-content-inner">
+                  <h4>Objectives</h4>
+                  <p>Test controls over trading operations, pricing, and prevention of market manipulation.</p>
+                  
+                  <h4>Key Requirements</h4>
+                  <ul class="checklist">
+                    <li>Review trading surveillance system configuration</li>
+                    <li>Test pricing methodology and reference data sources</li>
+                    <li>Assess conflicts of interest policies (proprietary trading vs customer orders)</li>
+                    <li>Evaluate disclosure of fees and charges</li>
+                    <li>Review marketing materials for accuracy and compliance</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section id="how-we-execute">
+          <h2>How We Execute as Deloitte</h2>
+          
+          <h3>Engagement Phases</h3>
+          
+          <table>
+            <thead>
+              <tr>
+                <th>Phase</th>
+                <th>Duration</th>
+                <th>Key Activities</th>
+                <th>Deliverables</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Planning & Risk Assessment</strong></td>
+                <td>2-3 weeks</td>
+                <td>
+                  • Understand business model and revenue streams<br>
+                  • Identify significant accounts and disclosures<br>
+                  • Assess inherent and control risks<br>
+                  • Determine materiality thresholds<br>
+                  • Scope blockchain verification procedures
+                </td>
+                <td>
+                  Audit plan<br>
+                  Risk assessment memo<br>
+                  Engagement letter
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Controls Testing</strong></td>
+                <td>4-5 weeks</td>
+                <td>
+                  • Walkthrough key processes<br>
+                  • Test IT general controls<br>
+                  • Test business process controls<br>
+                  • Evaluate control design and operating effectiveness<br>
+                  • Document deficiencies
+                </td>
+                <td>
+                  Controls testing workpapers<br>
+                  Deficiency tracking log
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Substantive Testing</strong></td>
+                <td>3-4 weeks</td>
+                <td>
+                  • Execute blockchain verification procedures<br>
+                  • Perform Proof of Reserves attestation<br>
+                  • Test transaction samples<br>
+                  • Validate fair value measurements<br>
+                  • Test cut-off and completeness
+                </td>
+                <td>
+                  Substantive testing workpapers<br>
+                  Blockchain verification evidence<br>
+                  PoR report (draft)
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Year-End & Reporting</strong></td>
+                <td>2-3 weeks</td>
+                <td>
+                  • Update testing for year-end balances<br>
+                  • Perform analytical procedures<br>
+                  • Review subsequent events<br>
+                  • Evaluate going concern<br>
+                  • Draft audit opinion and reports
+                </td>
+                <td>
+                  Audit opinion<br>
+                  Management letter<br>
+                  PoR report (final)<br>
+                  Regulatory filings
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <h3 id="blockchain-verification">Blockchain Verification Methodology</h3>
+          
+          <div class="card">
+            <div class="card-header">Step-by-Step Execution</div>
+            
+            <h4>Step 1: Wallet Address Collection</h4>
+            <p>Obtain a complete listing of all wallet addresses under the VASP's control. This includes hot wallets, cold wallets, and any third-party custodian addresses.</p>
+            <div class="info-box">
+              <strong>Deloitte Procedure:</strong> Request a machine-readable export (CSV or JSON) containing all addresses, asset type, and purpose (customer custody, proprietary, operational). Verify completeness by reviewing wallet generation logs and comparing to prior period.
+            </div>
+            
+            <h4>Step 2: Cryptographic Signature Request</h4>
+            <p>For each wallet address, request that the VASP generate a signed message proving control of the private key.</p>
+            <div class="info-box">
+              <strong>Deloitte Procedure:</strong> Provide a unique nonce (e.g., "Deloitte Audit 2025-12-31 PoR Verification [random string]"). The VASP signs this message using each private key. We verify the signature using publicly available cryptographic libraries.
+            </div>
+            
+            <h4>Step 3: Independent Blockchain Query</h4>
+            <p>At the specified cutoff date and time, independently query the blockchain to capture balances for all verified addresses.</p>
+            <div class="info-box">
+              <strong>Deloitte Procedure:</strong> Use Deloitte-controlled nodes or trusted third-party API providers (e.g., Etherscan, Blockchain.com). Capture screenshots and export raw data. Archive blockchain block headers to establish cutoff timestamp.
+            </div>
+            
+            <div class="visual-section">
+              <img src="assets/blockchain_verification_steps.svg" alt="Blockchain Verification Steps">
+            </div>
+            
+            <h4>Step 4: Reconciliation to Books and Records</h4>
+            <p>Reconcile on-chain balances to the VASP's general ledger and customer sub-ledgers.</p>
+            <div class="info-box">
+              <strong>Deloitte Procedure:</strong> Obtain GL trial balance and customer account database export at cutoff. Sum customer liabilities by asset type. Compare blockchain-verified assets to GL. Investigate and resolve discrepancies (common items: in-transit transactions, incorrect block height, locked/staked assets).
+            </div>
+            
+            <h4>Step 5: Reserve Ratio Calculation</h4>
+            <p>Calculate the reserve ratio and assess adequacy.</p>
+            <div class="info-box">
+              <strong>Formula:</strong> Reserve Ratio = (Total Assets Verified on Blockchain) ÷ (Total Customer Liabilities per Sub-Ledger)<br>
+              <strong>Target:</strong> ≥ 100%<br>
+              <strong>Action if < 100%:</strong> Immediate escalation to engagement partner; consider qualification or disclaimer of opinion.
+            </div>
+            
+            <h4>Step 6: Blockchain Reliability Assessment</h4>
+            <p>Evaluate the effectiveness of the underlying blockchain technology and mechanisms that validate transactions.</p>
+            <div class="warning-box">
+              <strong>Risk Factors to Evaluate:</strong>
+              <ul class="checklist">
+                <li>Does the blockchain sufficiently check transaction integrity to prevent double-spending?</li>
+                <li>Does the incentivization structure encourage ethical behavior or enable malicious activity?</li>
+                <li>Is the blockchain sufficiently decentralized and proven in production use?</li>
+                <li>What is the consensus mechanism and historical uptime/security record?</li>
+              </ul>
+              <p><strong>Documentation Required:</strong> Blockchain reliability assessment memo retained in engagement files.</p>
+            </div>
+          </div>
+        </section>
+        
+        <section id="audit-assertions">
+          <h2>Audit Assertions for Digital Assets</h2>
+          
+          <p>Testing digital assets requires addressing the same financial statement assertions as traditional assets, but with blockchain-specific evidence and procedures.</p>
+          
+          <h3>Existence, Completeness, and Ownership (ECO)</h3>
+          
+          <div class="card">
+            <div class="card-header">Existence Testing</div>
+            
+            <h4>Objective</h4>
+            <p>Verify that digital assets recorded in the financial statements actually exist and are held at the reporting date.</p>
+            
+            <h4>Four-Step Approach</h4>
+            <ol style="margin-left: 2rem;">
+              <li><strong>Understand and identify the population</strong>
+                <ul>
+                  <li>Nature of digital asset types held or transacted by the entity</li>
+                  <li>Management's accounting conclusions</li>
+                  <li>Completeness and accuracy of population</li>
+                </ul>
+              </li>
+              <li><strong>Determine method of storage</strong>
+                <ul>
+                  <li>Self-custody or third-party custodian</li>
+                  <li>Availability of public address information</li>
+                  <li>Commingled or segregated wallets</li>
+                </ul>
+              </li>
+              <li><strong>Define the test objective</strong>
+                <ul>
+                  <li>Ending balance at period end (e.g., December 31, 20XX)</li>
+                  <li>Transaction balance at point in time during audit period</li>
+                  <li>Specific block height and timestamp</li>
+                </ul>
+              </li>
+              <li><strong>Obtain sufficient audit evidence</strong>
+                <ul>
+                  <li>Evaluate reliability of evidence obtained from blockchains</li>
+                  <li>Obtain confirmations with third-parties; review SOC reports</li>
+                  <li>Perform rollforward of activity using COINIA</li>
+                </ul>
+              </li>
+            </ol>
+            
+            <div class="info-box">
+              <strong>Deloitte COINIA:</strong> Our proprietary public blockchain reader tool enables independent verification of digital asset balances and transactions without reliance on client-provided data.
+            </div>
+            
+            <h4>Additional Considerations</h4>
+            <div class="warning-box">
+              <strong>When Substantive Procedures Alone May Not Provide Sufficient Evidence:</strong>
+              <ul class="checklist">
+                <li>High transaction volumes make sampling impractical</li>
+                <li>Complex private key management requires control testing</li>
+                <li>Commingled wallet environments necessitate allocation control testing</li>
+                <li>Multiple custody arrangements increase control reliance needs</li>
+              </ul>
+              <p><strong>Response:</strong> Test operating effectiveness of controls over wallet creation, transaction authorization, and reconciliation in addition to substantive procedures.</p>
+            </div>
+          </div>
+          
+          <h3>Completeness Testing</h3>
+          
+          <div class="card">
+            <div class="card-header">Completeness of Balances and Keys</div>
+            
+            <h4>Completeness of Balances</h4>
+            <p>Verify that all digital assets owned by the entity are recorded in the financial statements.</p>
+            
+            <h4>Testing Procedures</h4>
+            <ul class="checklist">
+              <li><strong>Test operating effectiveness of controls:</strong>
+                <ul style="margin-left: 2rem;">
+                  <li>Digital asset reconciliation or rollforward controls</li>
+                  <li>Controls over authorization of digital asset transactions</li>
+                  <li>Controls over the creation of digital wallets</li>
+                  <li>Controls over commingled wallets and segregation between corporate and customer balances</li>
+                </ul>
+              </li>
+              <li><strong>Independent rollforward recreation:</strong>
+                <ul style="margin-left: 2rem;">
+                  <li>Obtain details of all digital asset transactions from the blockchain using COINIA</li>
+                  <li>Reconcile the activity to the recorded balance</li>
+                  <li>Investigate discrepancies (timing differences, locked assets, in-transit transactions)</li>
+                </ul>
+              </li>
+              <li><strong>Reciprocal population testing:</strong>
+                <ul style="margin-left: 2rem;">
+                  <li>Build case of facts: wallets, transaction activity, contract terms</li>
+                  <li>Identify reciprocal populations (independently pulled transaction data vs. client records)</li>
+                  <li>Use open-ended confirmations requesting wallet addresses used</li>
+                  <li>Test for presence of side agreements or undisclosed arrangements</li>
+                </ul>
+              </li>
+            </ul>
+            
+            <h4>Completeness of Keys (Self-Custody)</h4>
+            <p>Obtain evidence that the list of private keys is complete.</p>
+            <ul class="checklist">
+              <li>Review wallet generation logs and compare to prior periods</li>
+              <li>Test controls over wallet creation and recordkeeping</li>
+              <li>Evaluate segregation between corporate and customer wallets</li>
+              <li>Assess commingled wallet allocation controls</li>
+              <li>Confirm no wallets have been created outside documented procedures</li>
+            </ul>
+            
+            <div class="info-box">
+              <strong>Designing Completeness Tests:</strong> Start with the client's wallet listing, then work backwards to verify completeness using independent evidence from blockchain queries, open-ended confirmations, and control testing.
+            </div>
+          </div>
+          
+          <h3>Rights and Obligations (R&O)</h3>
+          
+          <div class="card">
+            <div class="card-header">Proving Ownership and Control</div>
+            
+            <h4>Fundamental Principle</h4>
+            <p><strong>The party that controls the private key owns the digital assets.</strong></p>
+            
+            <h4>Key Questions to Address</h4>
+            <ul class="checklist">
+              <li>How does the entity safeguard the private keys required to access their digital assets?</li>
+              <li>Can the entity demonstrate control of the private keys?</li>
+              <li>Are there any restrictions on the entity's ability to use the assets?</li>
+              <li>Are customer assets properly segregated from proprietary assets?</li>
+            </ul>
+            
+            <h4>Testing Approach: Third-Party Custodian</h4>
+            <div class="two-column">
+              <div>
+                <h4>Commingled Wallets</h4>
+                <ul class="checklist">
+                  <li>Obtain SOC 1 report (if available)</li>
+                  <li>Confirm allocation methodology</li>
+                  <li>Test entity's balance allocation controls</li>
+                  <li>Verify segregation from other customers</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Segregated Wallets</h4>
+                <ul class="checklist">
+                  <li>Confirm wallet addresses are dedicated to entity</li>
+                  <li>Verify security over private keys</li>
+                  <li>Test movement of funds (if applicable)</li>
+                  <li>Confirm no side agreements exist</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4>Testing Approach: Self-Custody</h4>
+            
+            <h4>Establishing Evidence of Ownership</h4>
+            <p><strong>On-Chain Methods (Movement of Assets):</strong></p>
+            <ul class="checklist">
+              <li>Observe live transfer of assets in and out of a wallet</li>
+              <li>Verify transaction hash using COINIA</li>
+              <li>Confirm sender and receiver addresses</li>
+              <li>Verify operational use aligns with policy matrix</li>
+            </ul>
+            
+            <p><strong>Off-Chain Methods (Message Signing):</strong></p>
+            <ul class="checklist">
+              <li>Request client to send a signed message from each tested wallet</li>
+              <li>Provide unique nonce (e.g., "Deloitte Audit 2025-12-31 [random string]")</li>
+              <li>Verify the signature using COINIA without moving funds</li>
+              <li>Confirm cryptographic proof of private key control</li>
+            </ul>
+            
+            <h4>Control Testing Considerations (Self-Custody)</h4>
+            <div class="warning-box">
+              <p><strong>Focus Areas:</strong></p>
+              <ul class="checklist">
+                <li>Quality of evidence obtained (stronger for controls testing in high-volume environments)</li>
+                <li>IT focus: systems, configurations, access controls</li>
+                <li>Policy-type controls to address segregation of duties</li>
+                <li>Testing is point-in-time; consider frequency and monitoring</li>
+              </ul>
+            </div>
+            
+            <h4>Attribute Sampling Approach</h4>
+            <p>Use nonmonetary attribute sampling when testing control effectiveness:</p>
+            <ul class="checklist">
+              <li><strong>Key creation process:</strong> Test controls over when and how keys are created</li>
+              <li><strong>Key encryption/decryption:</strong> Verify encryption standards and access controls</li>
+              <li><strong>Transaction signing:</strong> Test authorization workflows and multi-signature requirements</li>
+              <li><strong>Point-in-time nature:</strong> Document control operation at specific dates/times</li>
+            </ul>
+            
+            <div class="info-box">
+              <strong>Tips & Troubleshooting:</strong> Facilitate detailed follow-ups between COINIA specialists and the client's engineering team to understand cryptographic implementations and resolve technical questions.
+            </div>
+          </div>
+        </section>
+        
+        <section id="valuation-allocation">
+          <h2>Valuation and Allocation (V&A)</h2>
+          
+          <h3>Types of Digital Assets</h3>
+          
+          <div class="card">
+            <div class="card-header">Digital Asset Classification</div>
+            
+            <table>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Examples</th>
+                  <th>Characteristics</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Cryptocurrencies</strong></td>
+                  <td>Bitcoin (BTC), Ethereum (ETH)</td>
+                  <td>Decentralized, market-driven pricing, typically Level 1 fair value</td>
+                </tr>
+                <tr>
+                  <td><strong>Stablecoins</strong></td>
+                  <td>USDC, GUSD (fiat-backed)<br>Tether (asset-backed)<br>Algorithmic (Metronome)</td>
+                  <td>Pegged to fiat currency or assets; evaluate backing and redemption rights</td>
+                </tr>
+                <tr>
+                  <td><strong>Utility Tokens</strong></td>
+                  <td>ZRX, BAT</td>
+                  <td>Used within specific platforms; valuation may require discounts for liquidity</td>
+                </tr>
+                <tr>
+                  <td><strong>DeFi/Exchange Tokens</strong></td>
+                  <td>Uniswap, Chainlink, Binance Coin</td>
+                  <td>Governance or exchange functionality; active trading markets</td>
+                </tr>
+                <tr>
+                  <td><strong>Digital Securities</strong></td>
+                  <td>Equity tokens, security tokens, derivative tokens</td>
+                  <td>Represent ownership or returns; may be Level 2 or 3 depending on market</td>
+                </tr>
+                <tr>
+                  <td><strong>NFTs</strong></td>
+                  <td>Beeple artworks, NBA Top Shots</td>
+                  <td>Unique digital items; typically Level 3 fair value requiring specialized valuation</td>
+                </tr>
+                <tr>
+                  <td><strong>CBDCs</strong></td>
+                  <td>Digital Yuan, Digital Ruble</td>
+                  <td>Central bank-issued digital currencies; pegged to national currency</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <h3>Valuation Approach</h3>
+          
+          <div class="card">
+            <div class="card-header">Fair Value Measurement</div>
+            
+            <h4>1. Understand Client's Pricing Source</h4>
+            <ul class="checklist">
+              <li>Evaluate relevance of their defined principal market</li>
+              <li>Assess pricing hierarchy (Level 1, 2, or 3 inputs)</li>
+              <li>Understand cutoff convention (UTC timestamp, block height, market close)</li>
+              <li>Review pricing policy documentation and approval</li>
+            </ul>
+            
+            <h4>2. Independently Obtain Pricing</h4>
+            <div class="info-box">
+              <strong>Deloitte Approach:</strong> Use vendor data from CoinMetrics or other approved sources. Vendor due diligence is performed centrally by our valuation specialists.
+            </div>
+            <ul class="checklist">
+              <li>Obtain pricing for all digital assets held at reporting date</li>
+              <li>Use consistent timestamp with client's defined cutoff</li>
+              <li>Document pricing source and reliability assessment</li>
+            </ul>
+            
+            <h4>3. Test Reasonableness of Pricing</h4>
+            <ul class="checklist">
+              <li>Compare client pricing to independently obtained pricing</li>
+              <li>Investigate variances exceeding threshold (e.g., >5%)</li>
+              <li>Compare pricing trends to comparative currencies</li>
+              <li>Evaluate consistency of principal market definition</li>
+              <li>Test cutoff timing and verify alignment with blockchain timestamp</li>
+            </ul>
+          </div>
+          
+          <h3>Allocation Testing (FIFO/Impairment)</h3>
+          
+          <div class="card">
+            <div class="card-header">Cost Allocation and Impairment</div>
+            
+            <h4>Rollforward Approach</h4>
+            <p>Obtain the client's digital asset rollforward showing:</p>
+            <ul class="checklist">
+              <li><strong>Beginning balance:</strong> Cost basis by asset type</li>
+              <li><strong>Inflows (Day 1):</strong> Acquisitions, purchases, mining, staking rewards</li>
+              <li><strong>Outflows (Day 2):</strong> Sales, transfers out, disposals</li>
+              <li><strong>Ending holdings:</strong> Remaining cost basis and fair value</li>
+            </ul>
+            
+            <h4>Testing Procedures</h4>
+            
+            <p><strong>1. Test Pricing Application</strong></p>
+            <ul class="checklist">
+              <li>Verify date and quantity of inflows from blockchain or confirmations</li>
+              <li>Test pricing applied to acquisitions (spot price at transaction date)</li>
+              <li>Evaluate reasonableness of Day 1 pricing</li>
+            </ul>
+            
+            <p><strong>2. Test FIFO Allocation</strong></p>
+            <ul class="checklist">
+              <li>Verify client has documented and consistently applied FIFO methodology</li>
+              <li>Sample transactions and recalculate cost of goods sold</li>
+              <li>Test allocation of earliest costs to outflows</li>
+              <li>Verify mathematical accuracy of rollforward</li>
+            </ul>
+            
+            <p><strong>3. Test Approach Selection</strong></p>
+            <div class="two-column">
+              <div>
+                <h4>Substantive Analytical Procedures</h4>
+                <ul class="checklist">
+                  <li>Design expectation based on weighted average activity</li>
+                  <li>Calculate monthly or quarterly average pricing</li>
+                  <li>Compare expected cost allocation to client's calculation</li>
+                  <li>Investigate differences exceeding threshold</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Test of Details</h4>
+                <ul class="checklist">
+                  <li>Sample individual transactions</li>
+                  <li>Recalculate FIFO allocation</li>
+                  <li>Verify pricing applied</li>
+                  <li>Trace to source documents and blockchain</li>
+                </ul>
+              </div>
+            </div>
+            
+            <p><strong>4. Leverage Transaction-Level Testing</strong></p>
+            <ul class="checklist">
+              <li>Use ECO testing procedures to verify transaction dates and quantities</li>
+              <li>Cross-reference pricing applied in valuation to transaction-level evidence</li>
+              <li>Assess consistency of pricing methodology across transaction types</li>
+            </ul>
+            
+            <div class="warning-box">
+              <strong>Note:</strong> Many entities use vendor solutions (e.g., Lukka, CoinTracker) for FIFO allocation and tax lot management. Evaluate the reliability and controls over these systems as part of IT audit procedures.
+            </div>
+          </div>
+        </section>
+        
+        <section id="revenue-testing">
+          <h2>Revenue Auditing for VASPs</h2>
+          
+          <h3>Transaction Revenue (Trading Fees)</h3>
+          
+          <div class="card">
+            <div class="card-header">Common Characteristics</div>
+            <ul class="checklist">
+              <li><strong>High volume:</strong> Quantitatively small individual transactions aggregated to material revenue</li>
+              <li><strong>Highly automated:</strong> Fee calculation engines process transactions in real-time</li>
+              <li><strong>No estimates or judgment:</strong> Fee rates are pre-determined in terms of service</li>
+              <li><strong>Established fee structure:</strong> Based on customer agreement or public fee schedule</li>
+              <li><strong>No individually significant customers:</strong> Revenue is diversified across user base</li>
+              <li><strong>Immediate authorization:</strong> Customers authorize trade terms prior to execution</li>
+              <li><strong>Correlation with trading volume:</strong> Revenue should be predictable based on activity levels</li>
+            </ul>
+            
+            <h4>Risk Assessment</h4>
+            <div class="highlight-box">
+              <p><strong>Typically Lower Risk:</strong> Due to automation, lack of judgment, and high volume of small transactions.</p>
+              <p><strong>Focus Areas:</strong> Completeness and accuracy of fee capture; proper functioning of IT application controls.</p>
+            </div>
+          </div>
+          
+          <h3>Gross vs. Net Presentation</h3>
+          
+          <div class="card">
+            <div class="card-header">Principal vs. Agent Considerations</div>
+            
+            <h4>Key Questions</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Question</th>
+                  <th>Gross (Principal)</th>
+                  <th>Net (Agent)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Is another party involved in providing the digital assets?</td>
+                  <td>Entity sources and delivers assets</td>
+                  <td>Third party provides assets</td>
+                </tr>
+                <tr>
+                  <td>Is the company primarily responsible for providing the digital assets?</td>
+                  <td>Yes - entity is responsible to customer</td>
+                  <td>No - facilitates transaction only</td>
+                </tr>
+                <tr>
+                  <td>Does the company bear inventory risk?</td>
+                  <td>Yes - holds assets before sale</td>
+                  <td>No - matches buyers and sellers</td>
+                </tr>
+                <tr>
+                  <td>Does the company have pricing discretion?</td>
+                  <td>Yes - sets or negotiates prices</td>
+                  <td>No - market determines pricing</td>
+                </tr>
+                <tr>
+                  <td>Does the company control the crypto assets before delivery to customer?</td>
+                  <td>Yes - obtains control then transfers</td>
+                  <td>No - never controls assets</td>
+                </tr>
+                <tr>
+                  <td>Is the company using inventory or matching trades?</td>
+                  <td>Using inventory (proprietary trading)</td>
+                  <td>Matching trades (exchange model)</td>
+                </tr>
+                <tr>
+                  <td>What is the promise: matchmaking service or digital assets?</td>
+                  <td>Promise is to deliver assets</td>
+                  <td>Promise is to provide platform/matching</td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <div class="info-box">
+              <strong>Common Scenarios:</strong>
+              <ul>
+                <li><strong>Custodial exchange (matching):</strong> Agent - recognize net trading fees</li>
+                <li><strong>Broker-dealer (inventory):</strong> Principal - recognize gross revenue and cost of sales</li>
+                <li><strong>Custody-only:</strong> Agent - recognize custody fees as net revenue</li>
+              </ul>
+            </div>
+          </div>
+          
+          <h3>Audit Procedures for Revenue</h3>
+          
+          <div class="card">
+            <div class="card-header">Testing Approach</div>
+            
+            <h4>Substantive Analytical Procedures</h4>
+            <ul class="checklist">
+              <li>Obtain trading volume data by period (daily, weekly, monthly)</li>
+              <li>Obtain fee schedule by customer tier or transaction type</li>
+              <li>Recalculate expected fee revenue based on volume and rates</li>
+              <li>Compare expected revenue to recorded revenue</li>
+              <li>Investigate variances exceeding threshold</li>
+              <li>Evaluate trends and correlation with market activity</li>
+            </ul>
+            
+            <h4>Test of Details</h4>
+            <ul class="checklist">
+              <li>Sample individual transactions from blockchain or trading system</li>
+              <li>Verify fee calculation based on applicable fee schedule</li>
+              <li>Test allocation of fees between entity and customer</li>
+              <li>Verify revenue recognition timing (at point of trade execution)</li>
+              <li>Trace sampled transactions to revenue ledger</li>
+            </ul>
+            
+            <h4>IT Application Controls Testing</h4>
+            <ul class="checklist">
+              <li>Test controls over fee calculation engine configuration</li>
+              <li>Verify fee schedule updates are properly authorized and tested</li>
+              <li>Test interface controls between trading system and general ledger</li>
+              <li>Assess completeness of fee capture (no transactions bypassed)</li>
+              <li>Test accuracy of customer tier assignment</li>
+            </ul>
+          </div>
+        </section>
+        
+        <section id="custody-models">
+          <h2>Understanding Custody Models</h2>
+          
+          <p>The custody model significantly impacts our audit approach. VASPs may use self-custody, third-party custodians, or hybrid arrangements.</p>
+          
+          <h3>Native Crypto Custodians (Segregated Wallets)</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Custodian</th>
+                <th>Asset Coverage</th>
+                <th>Storage Model</th>
+                <th>Regulator</th>
+                <th>Third-Party Assurance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>BitGo</strong></td>
+                <td>400+ assets</td>
+                <td>Multi-sig, segregated wallets</td>
+                <td>South Dakota</td>
+                <td>SOC 1 Type 1</td>
+              </tr>
+              <tr>
+                <td><strong>Coinbase Custody</strong></td>
+                <td>300+ assets</td>
+                <td>Varied, segregated wallets</td>
+                <td>NYDFS</td>
+                <td>SOC 1 Type 2, SOC 2 Type 2</td>
+              </tr>
+              <tr>
+                <td><strong>Gemini</strong></td>
+                <td>60+ assets</td>
+                <td>Varied, segregated wallets</td>
+                <td>NYDFS / CFTC</td>
+                <td>SOC 1 Type 2, SOC 2 Type 2</td>
+              </tr>
+              <tr>
+                <td><strong>Anchorage</strong></td>
+                <td>40+ assets</td>
+                <td>Bio-metric authentication, segregated</td>
+                <td>OCC</td>
+                <td>SOC 1 Type 1</td>
+              </tr>
+              <tr>
+                <td><strong>NYDIG</strong></td>
+                <td>5+ assets</td>
+                <td>Varied, segregated wallets</td>
+                <td>NYDFS</td>
+                <td>SOC 2 Type 2</td>
+              </tr>
+              <tr>
+                <td><strong>Fireblocks</strong></td>
+                <td>Customizable</td>
+                <td>MPC (multi-party computation)</td>
+                <td>N/A</td>
+                <td>SOC 2 Type 2</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <h3>Retail/Commingled Platforms</h3>
+          <p>Platforms like PayPal (outsourced to Paxos), Coinbase Prime, Binance, and Deribit use commingled or varied custody models. These require additional testing of allocation controls and customer balance segregation.</p>
+          
+          <h3>Audit Approach by Custody Model</h3>
+          <div class="two-column">
+            <div class="card">
+              <div class="card-header">Self-Custody</div>
+              <h4>Key Focus Areas:</h4>
+              <ul class="checklist">
+                <li>Private key management lifecycle (generation, storage, usage, backup, destruction)</li>
+                <li>Authorization controls and segregation of duties</li>
+                <li>Wallet security mechanisms (multi-sig, MPC, HSM, air-gapped)</li>
+                <li>Access controls and policy implementation</li>
+                <li>Proving ownership via on-chain or off-chain methods</li>
+              </ul>
+              <h4>Testing Procedures:</h4>
+              <ul class="checklist">
+                <li>Test controls over wallet creation and recordkeeping</li>
+                <li>Observe live asset movement (on-chain verification)</li>
+                <li>Request signed messages from wallets (off-chain verification)</li>
+                <li>Test IT controls over key generation, encryption, and storage</li>
+                <li>Verify segregation between hot and cold wallets</li>
+              </ul>
+            </div>
+            
+            <div class="card">
+              <div class="card-header">Third-Party Custodian</div>
+              <h4>Key Focus Areas:</h4>
+              <ul class="checklist">
+                <li>Availability and scope of SOC 1 report</li>
+                <li>Custodian's controls over safeguarding and reconciliation</li>
+                <li>Management's controls over service organization selection and monitoring</li>
+                <li>Reconciliation between custodian balances and internal books</li>
+                <li>Presence of side agreements or undisclosed arrangements</li>
+              </ul>
+              <h4>Testing Procedures:</h4>
+              <ul class="checklist">
+                <li>Obtain and review SOC 1 Type 2 report (if available)</li>
+                <li>Send open-ended confirmations requesting wallet addresses and balances</li>
+                <li>Confirm no side agreements exist</li>
+                <li>Test management's reconciliation controls</li>
+                <li>Evaluate custodian cutoff procedures and timing</li>
+                <li>Assess custodian's reliability as a source of audit evidence</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        
+        <section id="aml-testing">
+          <h2>AML/CFT Testing Procedures</h2>
+          
+          <h3>AML: Banks vs Crypto (Follow the Money)</h3>
+          <table style="width:100%; border-collapse:separate; border-spacing:0; margin:2rem 0;">
+            <thead>
+              <tr>
+                <th style="background:#e3f0ff; color:#2b6cb0; border:2px solid #4299e1; border-radius:12px 0 0 0; padding:1rem; font-size:1.15em;">Traditional Bank AML</th>
+                <th style="background:#ffe3f0; color:#b83280; border:2px solid #d53f8c; border-radius:0 12px 0 0; padding:1rem; font-size:1.15em;">Crypto VASP AML</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="vertical-align:top; padding:1rem; border-left:2px solid #4299e1; border-bottom:1px solid #cbd5e1;">
+                  <b>Know Your Customer (KYC)</b><br>
+                  ID, proof of address, selfie
+                </td>
+                <td style="vertical-align:top; padding:1rem; border-right:2px solid #d53f8c; border-bottom:1px solid #fbb6ce;">
+                  <b>Enhanced KYC (Harder)</b><br>
+                  Same documents plus blockchain transaction history
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top; padding:1rem; border-left:2px solid #4299e1; border-bottom:1px solid #cbd5e1;">
+                  <b>Monitor Transactions</b><br>
+                  Watch for large or unusual transfers<br>
+                  $10,000 or more triggers automatic flag
+                </td>
+                <td style="vertical-align:top; padding:1rem; border-right:2px solid #d53f8c; border-bottom:1px solid #fbb6ce;">
+                  <b>On-chain Surveillance</b><br>
+                  Track crypto across blockchains<br>
+                  Use analytics tools (Chainalysis, Elliptic, TRM Labs)
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top; padding:1rem; border-left:2px solid #4299e1; border-bottom:1px solid #cbd5e1;">
+                  <b>Report Suspicious Activity</b><br>
+                  File a Suspicious Activity Report (SAR) if warranted
+                </td>
+                <td style="vertical-align:top; padding:1rem; border-right:2px solid #d53f8c; border-bottom:1px solid #fbb6ce;">
+                  <b>Travel Rule</b><br>
+                  Share sender and receiver information with other VASPs (similar to wire transfers)
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top; padding:1rem; border-left:2px solid #4299e1; border-bottom:2px solid #4299e1;">
+                  <b>Audit Focus:</b><br>
+                  Test KYC documentation and follow up on alerts
+                </td>
+                <td style="vertical-align:top; padding:1rem; border-right:2px solid #d53f8c; border-bottom:2px solid #d53f8c;">
+                  <b>Audit Focus:</b><br>
+                  Includes blockchain analytics and transaction monitoring
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="text-align:center; margin-top:1.5rem; color:#444; font-size:1.05em;">
+            Same goal (stop bad actors), but crypto requires additional technology to trace anonymous wallets.
+          </div>
+          
+          <div class="card">
+            <div class="card-header">Deloitte AML Testing Approach</div>
+            
+            <h4>Sample Selection Criteria</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Test Area</th>
+                  <th>Sample Size</th>
+                  <th>Selection Method</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>KYC Files (Individual)</td>
+                  <td>25-40</td>
+                  <td>Random + risk-based (high-value, PEP, high-risk jurisdiction)</td>
+                </tr>
+                <tr>
+                  <td>KYC Files (Corporate)</td>
+                  <td>15-25</td>
+                  <td>Random + risk-based (complex structures, offshore)</td>
+                </tr>
+                <tr>
+                  <td>Transaction Monitoring Alerts</td>
+                  <td>30-50</td>
+                  <td>Stratified by alert type; include escalated and closed alerts</td>
+                </tr>
+                <tr>
+                  <td>Suspicious Activity Reports</td>
+                  <td>100%</td>
+                  <td>Review all SARs filed during period</td>
+                </tr>
+                <tr>
+                  <td>Travel Rule Transfers</td>
+                  <td>25-40</td>
+                  <td>Sample both inbound and outbound; verify data exchange</td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <h4>Blockchain Analytics Integration</h4>
+            <div class="highlight-box">
+              <p>We verify that the VASP has integrated blockchain analytics tools (e.g., Chainalysis, Elliptic, TRM Labs) and is actively using them to:</p>
+              <ul class="checklist">
+                <li>Screen deposits and withdrawals against known illicit addresses</li>
+                <li>Assess transaction risk scores based on on-chain activity</li>
+                <li>Investigate alerts flagged by the analytics platform</li>
+                <li>Generate reports for regulatory filings and internal escalation</li>
+              </ul>
+            </div>
+            
+            <h4>Testing Procedures</h4>
+            <ul class="checklist">
+              <li>Review tool configuration and rule sets</li>
+              <li>Test alert generation by selecting sample transactions</li>
+              <li>Verify analyst investigation and resolution documentation</li>
+              <li>Assess false positive rates and tuning activities</li>
+              <li>Confirm escalation to compliance and SAR filing where appropriate</li>
+            </ul>
+          </div>
+        </section>
+        
+        <section id="cybersecurity">
+          <h2>Cybersecurity & Wallet Security Testing</h2>
+          
+          <div class="two-column">
+            <div class="card">
+              <div class="card-header">Hot Wallet Controls</div>
+              <ul class="checklist">
+                <li>Maximum balance thresholds defined and monitored</li>
+                <li>Automated sweeps to cold storage configured and operating</li>
+                <li>Multi-factor authentication for all access</li>
+                <li>IP whitelisting and geographic restrictions</li>
+                <li>Real-time balance monitoring and alerts</li>
+                <li>Rate limiting on withdrawal transactions</li>
+              </ul>
+            </div>
+            
+            <div class="card">
+              <div class="card-header">Cold Wallet Controls</div>
+              <ul class="checklist">
+                <li>Air-gapped key generation and storage</li>
+                <li>Multi-signature approval (minimum 2-of-3 or 3-of-5)</li>
+                <li>Physical security (secure vault, biometric access)</li>
+                <li>Segregation of duties (no single person holds quorum)</li>
+                <li>Hardware security modules (HSM) for key storage</li>
+                <li>Regular key backup and recovery testing</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="critical-box">
+            <h4>Critical Control: Private Key Management</h4>
+            <p>Loss or compromise of private keys can result in immediate and irreversible loss of digital assets. We perform detailed testing of key lifecycle management:</p>
+            <ul class="checklist">
+              <li>Key generation (entropy source, randomness)</li>
+              <li>Key storage (encryption, HSM, offline)</li>
+              <li>Key usage (approval workflows, logging)</li>
+              <li>Key backup (redundancy, geographic distribution)</li>
+              <li>Key recovery (tested procedures, documented responsibilities)</li>
+              <li>Key destruction (secure deletion, audit trail)</li>
+            </ul>
+          </div>
+        </section>
+        
+        <section id="governance">
+          <h2>Governance & Risk Management</h2>
+          
+          <div class="card">
+            <div class="card-header">Three Lines of Defense Model</div>
+            
+            <table>
+              <thead>
+                <tr>
+                  <th>Line</th>
+                  <th>Function</th>
+                  <th>Our Testing Focus</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>First Line</strong></td>
+                  <td>Business Operations<br>(Trading, Custody, Customer Service)</td>
+                  <td>
+                    • Test operational controls embedded in processes<br>
+                    • Verify staff training and competency<br>
+                    • Review incident logs and resolution
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Second Line</strong></td>
+                  <td>Risk & Compliance<br>(Risk Management, Compliance, Legal)</td>
+                  <td>
+                    • Assess independence and reporting lines<br>
+                    • Review risk assessment methodology<br>
+                    • Test compliance monitoring programs<br>
+                    • Evaluate escalation to board/committees
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Third Line</strong></td>
+                  <td>Internal Audit</td>
+                  <td>
+                    • Evaluate internal audit charter and scope<br>
+                    • Review audit plan risk-based approach<br>
+                    • Assess findings and management response<br>
+                    • Confirm reporting to audit committee
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        
+        <section id="engagement-model">
+          <h2>Engagement Model & Commercials</h2>
+          
+          <h3>Typical Engagement Structure</h3>
+          
+          <div class="two-column">
+            <div class="card">
+              <div class="card-header">Core Audit Services</div>
+              <ul class="checklist">
+                <li>IFRS financial statement audit (annual)</li>
+                <li>VARA regulatory reporting assurance (annual)</li>
+                <li>Proof of Reserves attestation (quarterly or annual)</li>
+                <li>Management letter with observations and recommendations</li>
+              </ul>
+              <div class="info-box" style="margin-top: 1rem;">
+                <strong>Estimated Duration:</strong> 10-14 weeks for annual audit cycle<br>
+                <strong>Team Size:</strong> 4-6 professionals (mix of audit and specialists)
+              </div>
+            </div>
+            
+            <div class="card">
+              <div class="card-header">Optional Add-On Services</div>
+              <ul class="checklist">
+                <li>SOC 1 Type II (controls over financial reporting)</li>
+                <li>SOC 2 Type II (security, availability, confidentiality)</li>
+                <li>Smart contract audit and code review</li>
+                <li>AML/CFT independent testing program</li>
+                <li>Cybersecurity maturity assessment</li>
+              </ul>
+              <div class="info-box" style="margin-top: 1rem;">
+                <strong>Pricing:</strong> Quoted separately based on scope<br>
+                <strong>Value:</strong> Enhanced credibility with customers and regulators
+              </div>
+            </div>
+          </div>
+          
+          <h3>Fee Drivers</h3>
+          <ul class="checklist">
+            <li><strong>Transaction volume:</strong> Higher volumes require larger sample sizes and extended testing</li>
+            <li><strong>Number of digital assets supported:</strong> Each blockchain requires specific verification procedures</li>
+            <li><strong>Complexity of custody arrangements:</strong> Third-party custodians, DeFi protocols, staking add complexity</li>
+            <li><strong>Quality of internal controls:</strong> Weak controls require more substantive testing</li>
+            <li><strong>Geographic footprint:</strong> Multi-jurisdiction operations require coordination and travel</li>
+            <li><strong>Prior audit findings:</strong> Remediation verification adds scope</li>
+          </ul>
+        </section>
+        
+        <section id="team-requirements">
+          <h2>Team Composition & Skills</h2>
+          
+          <div class="card">
+            <div class="card-header">Core Audit Team</div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Role</th>
+                  <th>Responsibilities</th>
+                  <th>Required Skills</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Engagement Partner</strong></td>
+                  <td>
+                    • Overall engagement direction and quality<br>
+                    • Client relationship and risk assessment<br>
+                    • Opinion signing and regulatory interaction
+                  </td>
+                  <td>
+                    • Audit partner certification<br>
+                    • Financial services experience<br>
+                    • VARA framework knowledge
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Audit Manager</strong></td>
+                  <td>
+                    • Day-to-day engagement management<br>
+                    • Team supervision and review<br>
+                    • Client deliverables and reporting
+                  </td>
+                  <td>
+                    • CPA/CA/ACCA qualified<br>
+                    • 5+ years audit experience<br>
+                    • Digital asset audit background preferred
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Audit Seniors (2-3)</strong></td>
+                  <td>
+                    • Execute testing procedures<br>
+                    • Prepare workpapers and documentation<br>
+                    • Client interaction and data requests
+                  </td>
+                  <td>
+                    • 2-4 years audit experience<br>
+                    • Strong analytical and Excel skills<br>
+                    • Willingness to learn blockchain concepts
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">Specialist Team</div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Specialist</th>
+                  <th>Involvement</th>
+                  <th>Key Contributions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Blockchain Specialist</strong></td>
+                  <td>Planning + quarterly PoR</td>
+                  <td>
+                    • Execute blockchain verification procedures<br>
+                    • Validate cryptographic signatures<br>
+                    • Query nodes and archive evidence<br>
+                    • Advise on emerging blockchain risks
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>IT Audit Specialist</strong></td>
+                  <td>Controls testing phase</td>
+                  <td>
+                    • Test IT general controls<br>
+                    • Assess cybersecurity framework<br>
+                    • Review access controls and change management<br>
+                    • Evaluate DR/BCP arrangements
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Valuation Specialist</strong></td>
+                  <td>Year-end close</td>
+                  <td>
+                    • Assess fair value methodology<br>
+                    • Review pricing sources and hierarchy<br>
+                    • Test mark-to-market calculations<br>
+                    • Evaluate illiquid asset valuations
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Forensics/AML Specialist</strong></td>
+                  <td>AML testing phase</td>
+                  <td>
+                    • Review KYC and CDD procedures<br>
+                    • Test transaction monitoring systems<br>
+                    • Assess blockchain analytics integration<br>
+                    • Evaluate SAR quality and timeliness
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="highlight-box">
+            <h4>Training & Development</h4>
+            <p>Deloitte invests in continuous upskilling for VASP audit teams:</p>
+            <ul class="checklist">
+              <li>Blockchain fundamentals and cryptography training</li>
+              <li>Hands-on workshops with blockchain explorers and wallets</li>
+              <li>VARA regulatory framework deep-dives</li>
+              <li>Industry certifications (e.g., Certified Bitcoin Professional, Blockchain Council credentials)</li>
+              <li>Secondments to Deloitte's global crypto center of excellence</li>
+            </ul>
+          </div>
+        </section>
+        
+        <section id="deliverables">
+          <h2>Deliverables & Reporting</h2>
+          
+          <div class="accordion">
+            <div class="accordion-item">
+              <div class="accordion-header">Audit Opinion (IFRS Financial Statements)</div>
+              <div class="accordion-content">
+                <div class="accordion-content-inner">
+                  <p>Independent auditor's report expressing an opinion on whether the financial statements present fairly, in all material respects, the financial position and results of operations in accordance with IFRS.</p>
+                  
+                  <h4>Key Audit Matters (KAMs) - Typical for VASPs</h4>
+                  <ul class="checklist">
+                    <li>Existence and valuation of digital assets</li>
+                    <li>Completeness of customer liabilities</li>
+                    <li>Revenue recognition for trading and custody fees</li>
+                    <li>Going concern assessment (particularly for newer VASPs)</li>
+                  </ul>
+                  
+                  <div class="info-box">
+                    <strong>Timing:</strong> Issued within 90 days of year-end (subject to VARA filing deadlines)
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <div class="accordion-header">Proof of Reserves Report</div>
+              <div class="accordion-content">
+                <div class="accordion-content-inner">
+                  <p>Independent attestation report confirming that the VASP held sufficient digital assets to meet customer obligations as of the report date.</p>
+                  
+                  <h4>Report Components</h4>
+                  <ul class="checklist">
+                    <li>Scope and methodology description</li>
+                    <li>Summary of assets verified by blockchain and asset type</li>
+                    <li>Total customer liabilities by asset type</li>
+                    <li>Calculated reserve ratio for each asset and in aggregate</li>
+                    <li>Conclusion on adequacy of reserves</li>
+                    <li>Appendices: wallet addresses, cryptographic signatures, blockchain evidence</li>
+                  </ul>
+                  
+                  <div class="info-box">
+                    <strong>Frequency:</strong> Quarterly or annual (based on VARA requirements and client preference)<br>
+                    <strong>Public Disclosure:</strong> Many VASPs publish PoR reports to enhance customer confidence
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <div class="accordion-header">Management Letter</div>
+              <div class="accordion-content">
+                <div class="accordion-content-inner">
+                  <p>Detailed observations and recommendations arising from our audit, categorized by severity and functional area.</p>
+                  
+                  <h4>Typical Observation Categories</h4>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Severity</th>
+                        <th>Definition</th>
+                        <th>Example</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><span class="badge badge-danger">Critical</span></td>
+                        <td>Significant deficiency or material weakness</td>
+                        <td>Insufficient cold wallet multi-sig controls; single person could transfer customer funds</td>
+                      </tr>
+                      <tr>
+                        <td><span class="badge badge-warning">High</span></td>
+                        <td>Important control gap requiring prompt remediation</td>
+                        <td>Transaction monitoring system not configured to detect structuring patterns</td>
+                      </tr>
+                      <tr>
+                        <td><span class="badge badge-primary">Medium</span></td>
+                        <td>Control improvement opportunity</td>
+                        <td>KYC documentation incomplete for certain customer files (non-material sample)</td>
+                      </tr>
+                      <tr>
+                        <td><span class="badge badge-success">Low</span></td>
+                        <td>Best practice suggestion</td>
+                        <td>Consider implementing automated reconciliation to reduce manual effort</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  
+                  <div class="info-box">
+                    <strong>Format:</strong> Formal written report with management responses and action plans<br>
+                    <strong>Timing:</strong> Issued with final audit opinion
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <div class="accordion-header">VARA Regulatory Returns</div>
+              <div class="accordion-content">
+                <div class="accordion-content-inner">
+                  <p>Assurance over regulatory returns filed with VARA, including periodic financial reports, AML/CFT compliance certificates, and risk management disclosures.</p>
+                  
+                  <h4>Scope</h4>
+                  <ul class="checklist">
+                    <li>Verify accuracy of data submitted to VARA</li>
+                    <li>Confirm compliance with filing deadlines</li>
+                    <li>Assess completeness of required disclosures</li>
+                    <li>Test controls over regulatory reporting process</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <div class="highlight-box" style="margin-top: 3rem;">
+          <h3 style="margin-top: 0;">Summary: Deloitte's VASP Audit Value Proposition</h3>
+          <p>We bring together deep audit expertise, specialized blockchain capabilities, and VARA regulatory knowledge to deliver comprehensive assurance services. Our approach balances rigorous professional standards with practical understanding of the operational realities facing VASPs.</p>
+          
+          <div class="two-column" style="margin-top: 1.5rem;">
+            <div>
+              <h4>What Sets Us Apart</h4>
+              <ul class="checklist">
+                <li>Global network of blockchain specialists</li>
+                <li>Proprietary audit tools and methodologies</li>
+                <li>Track record with leading crypto exchanges</li>
+                <li>Proactive regulatory engagement</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Client Benefits</h4>
+              <ul class="checklist">
+                <li>Enhanced credibility with customers and investors</li>
+                <li>Regulatory compliance and reduced enforcement risk</li>
+                <li>Actionable insights to strengthen controls</li>
+                <li>Scalable engagement model as business grows</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+    
+    // Active link highlighting
+    function updateActiveLinks() {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-link');
+      const sidebarLinks = document.querySelectorAll('.sidebar-link');
+      
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.pageYOffset >= sectionTop - 150) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+      
+      sidebarLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+    
+    window.addEventListener('scroll', updateActiveLinks);
+    window.addEventListener('load', updateActiveLinks);
+    
+    // Accordion functionality
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        const isActive = this.classList.contains('active');
+        
+        // Close all accordions
+        document.querySelectorAll('.accordion-header').forEach(h => {
+          h.classList.remove('active');
+          h.nextElementSibling.style.maxHeight = null;
+        });
+        
+        // Open clicked accordion if it wasn't active
+        if (!isActive) {
+          this.classList.add('active');
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

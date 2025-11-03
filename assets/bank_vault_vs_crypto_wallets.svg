@@ -1,0 +1,53 @@
+<svg width="1080" height="600" viewBox="0 0 1080 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title{font:700 32px Segoe UI, Arial}
+      .label{font:600 20px Segoe UI, Arial}
+      .small{font:500 16px Segoe UI, Arial}
+      .bank{fill:#e6fffa;stroke:#2c7a7b;stroke-width:3;rx:12;ry:12}
+      .crypto{fill:#fef5e7;stroke:#d97706;stroke-width:3;rx:12;ry:12}
+    </style>
+  </defs>
+  
+  <text x="540" y="50" text-anchor="middle" class="title">Bank Vault vs Crypto Wallets</text>
+  
+  <!-- TRADITIONAL BANK -->
+  <rect x="60" y="120" width="440" height="400" class="bank"/>
+  <text x="280" y="160" text-anchor="middle" class="label">Traditional Bank</text>
+  
+  <text x="90" y="210" class="small" font-weight="600">Cash in Teller Drawer (Hot)</text>
+  <text x="110" y="240" class="small">Small amount for daily operations</text>
+  <text x="110" y="265" class="small">Risk: Robbery, theft</text>
+  <text x="110" y="290" class="small">Control: CCTV, dual count</text>
+  
+  <line x1="90" y1="310" x2="470" y2="310" stroke="#2c7a7b" stroke-width="2"/>
+  
+  <text x="90" y="340" class="small" font-weight="600">Cash in Vault (Cold)</text>
+  <text x="110" y="370" class="small">Large reserves, time-locked</text>
+  <text x="110" y="395" class="small">Risk: Physical breach</text>
+  <text x="110" y="420" class="small">Control: 2-person rule, logs</text>
+  
+  <text x="90" y="460" class="small" font-weight="600">How We Audit:</text>
+  <text x="110" y="490" class="small">Cash count, vault access logs</text>
+  
+  <!-- CRYPTO VASP -->
+  <rect x="580" y="120" width="440" height="400" class="crypto"/>
+  <text x="800" y="160" text-anchor="middle" class="label">Crypto VASP</text>
+  
+  <text x="610" y="210" class="small" font-weight="600">Hot Wallet (Online)</text>
+  <text x="630" y="240" class="small">2-5% of crypto for withdrawals</text>
+  <text x="630" y="265" class="small">Risk: Hacking, key theft</text>
+  <text x="630" y="290" class="small">Control: Velocity limits, alerts</text>
+  
+  <line x1="610" y1="310" x2="990" y2="310" stroke="#d97706" stroke-width="2"/>
+  
+  <text x="610" y="340" class="small" font-weight="600">Cold Wallet (Offline)</text>
+  <text x="630" y="370" class="small">95%+ stored offline (USB/paper)</text>
+  <text x="630" y="395" class="small">Risk: Lost keys = lost forever</text>
+  <text x="630" y="420" class="small">Control: Multi-sig, vault storage</text>
+  
+  <text x="610" y="460" class="small" font-weight="600">How We Audit:</text>
+  <text x="630" y="490" class="small">Blockchain proof, signed messages</text>
+
+  <text x="540" y="570" text-anchor="middle" class="small" fill="#4a5568" font-style="italic">Same idea: Small amount accessible daily, big reserves locked away safely</text>
+</svg>

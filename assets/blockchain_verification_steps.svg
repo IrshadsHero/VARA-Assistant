@@ -1,0 +1,47 @@
+<svg width="1080" height="640" viewBox="0 0 1080 640" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title{font:700 28px Segoe UI, Arial}
+      .label{font:600 18px Segoe UI, Arial}
+      .small{font:500 14px Segoe UI, Arial}
+      .step{fill:#fffaf0;stroke:#b7791f;stroke-width:2;rx:10;ry:10}
+      .link{stroke:#b7791f;stroke-width:2;marker-end:url(#arrow)}
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b7791f"/>
+    </marker>
+  </defs>
+  <text x="540" y="50" text-anchor="middle" class="title">Blockchain Address Verification - Audit Steps</text>
+
+  <rect x="80" y="140" width="260" height="120" class="step"/>
+  <text x="210" y="170" text-anchor="middle" class="label">1. Inventory</text>
+  <text x="100" y="200" class="small">• Obtain complete address list</text>
+  <text x="100" y="224" class="small">• Hot vs Cold vs Custodian</text>
+
+  <rect x="360" y="140" width="260" height="120" class="step"/>
+  <text x="490" y="170" text-anchor="middle" class="label">2. Ownership</text>
+  <text x="380" y="200" class="small">• Signed message per address</text>
+  <text x="380" y="224" class="small">• Verify signature</text>
+
+  <rect x="640" y="140" width="260" height="120" class="step"/>
+  <text x="770" y="170" text-anchor="middle" class="label">3. Balance</text>
+  <text x="660" y="200" class="small">• Query chain at cutoff</text>
+  <text x="660" y="224" class="small">• Reconcile to GL</text>
+
+  <line x1="340" y1="200" x2="360" y2="200" class="link"/>
+  <line x1="620" y1="200" x2="640" y2="200" class="link"/>
+
+  <rect x="220" y="320" width="320" height="120" class="step"/>
+  <text x="380" y="350" text-anchor="middle" class="label">4. Transactions</text>
+  <text x="240" y="380" class="small">• Sample inflows/outflows</text>
+  <text x="240" y="404" class="small">• Trace on-chain details</text>
+
+  <rect x="560" y="320" width="320" height="120" class="step"/>
+  <text x="720" y="350" text-anchor="middle" class="label">5. Analytics</text>
+  <text x="580" y="380" class="small">• Identify mixers, sanctions</text>
+  <text x="580" y="404" class="small">• Investigate anomalies</text>
+
+  <line x1="540" y1="380" x2="560" y2="380" class="link"/>
+
+  <text x="540" y="590" text-anchor="middle" class="small" fill="#744210">Evidence: signed messages, explorer screenshots, queries saved to WP</text>
+</svg>

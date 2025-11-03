@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Assets Valuation | Revenue Opportunity</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #2c3e50;
+      background: linear-gradient(135deg, #0b1020 0%, #0f172a 100%);
+      min-height: 100vh;
+    }
+    /* Subtle Deloitte-green ambient dots */
+    .ambient-bg { position: fixed; inset: 0; z-index: 0; pointer-events:none;
+      background-image: radial-gradient(rgba(134,194,50,0.08) 2px, transparent 2px), radial-gradient(rgba(134,194,50,0.06) 1.5px, transparent 1.5px);
+      background-size: 50px 50px, 50px 50px; background-position: 0 0, 25px 25px; animation: drift 45s linear infinite; }
+    @keyframes drift { 0%{background-position:0 0,25px 25px;} 100%{background-position:1200px 0,1225px 25px;} }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      background: #ffffff;
+      min-height: 100vh;
+      box-shadow: 0 0 40px rgba(0,0,0,0.3);
+      position: relative; z-index: 1;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+      color: white;
+      padding: 2.5rem 3rem;
+      border-bottom: 4px solid #86c232;
+    }
+    
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+    
+    .deloitte-badge {
+      display: inline-block;
+      background: #86c232;
+      color: #0d1b2a;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+    
+    nav {
+      background: #f8f9fa;
+      padding: 1rem 3rem;
+      border-bottom: 1px solid #e0e0e0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: #415a77;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+    
+    nav a:hover, nav a.active {
+      color: #86c232;
+    }
+    
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #86c232;
+    }
+    
+    main {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 0;
+    }
+    
+    aside {
+      background: #f8f9fa;
+      padding: 2rem 1.5rem;
+      border-right: 1px solid #e0e0e0;
+      height: calc(100vh - 280px);
+      overflow-y: auto;
+      position: sticky;
+      top: 60px;
+    }
+    
+    aside h3 {
+      color: #0d1b2a;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      border-bottom: 2px solid #86c232;
+      padding-bottom: 0.5rem;
+    }
+    
+    aside ul {
+      list-style: none;
+    }
+    
+    aside li {
+      margin-bottom: 0.5rem;
+    }
+    
+    aside a {
+      text-decoration: none;
+      color: #415a77;
+      display: block;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      transition: all 0.3s;
+      font-size: 0.95rem;
+    }
+    
+    aside a:hover {
+      background: #e8f5e9;
+      color: #2e7d32;
+      padding-left: 1rem;
+    }
+    
+    aside a.active {
+      background: #86c232;
+      color: white;
+      font-weight: 600;
+    }
+    
+    .content {
+      padding: 3rem;
+    }
+    
+    section {
+      margin-bottom: 4rem;
+      scroll-margin-top: 80px;
+    }
+    
+    h2 {
+      color: #0d1b2a;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      border-left: 5px solid #86c232;
+      padding-left: 1rem;
+    }
+    
+    h3 {
+      color: #1b263b;
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem 0;
+    }
+    
+    h4 {
+      color: #415a77;
+      font-size: 1.2rem;
+      margin: 1.5rem 0 0.75rem 0;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+    
+    .card {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+    
+    .card-header {
+      background: linear-gradient(135deg, #415a77 0%, #1b263b 100%);
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 8px 8px 0 0;
+      margin: -2rem -2rem 1.5rem -2rem;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    
+    .highlight-box {
+      background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+      border-left: 5px solid #66bb6a;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    
+    .warning-box {
+      background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+      border-left: 5px solid #ff9800;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    
+    .critical-box {
+      background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+      border-left: 5px solid #f44336;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    
+    .info-box {
+      background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+      border-left: 5px solid #2196f3;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    
+    .revenue-box {
+      background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+      border-left: 5px solid #9c27b0;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    
+    ul.checklist {
+      list-style: none;
+      margin: 1rem 0;
+    }
+    
+    ul.checklist li {
+      padding: 0.75rem 0 0.75rem 2.5rem;
+      position: relative;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    
+    ul.checklist li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      width: 28px;
+      height: 28px;
+      background: #86c232;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .three-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    
+    thead {
+      background: linear-gradient(135deg, #415a77 0%, #1b263b 100%);
+      color: white;
+    }
+    
+    th {
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+    
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    tbody tr:hover {
+      background: #f8f9fa;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin: 0.25rem;
+    }
+    
+    .badge-revenue {
+      background: #f3e5f5;
+      color: #7b1fa2;
+    }
+    
+    .badge-quick-win {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+    
+    .badge-strategic {
+      background: #e3f2fd;
+      color: #1565c0;
+    }
+    
+    @media (max-width: 1024px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+      
+      aside {
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+      }
+      
+      .two-column, .three-column {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-bg" aria-hidden="true"></div>
+  <div class="container">
+    <header>
+      <h1>Digital Assets Valuation Services</h1>
+      <p>Revenue opportunity for valuation practice</p>
+      <span class="deloitte-badge">Deloitte Financial Advisory</span>
+    </header>
+    
+    <nav id="mainNav">
+      <ul>
+  <li><a href="#tldr" class="nav-link">Summary</a></li>
+        <li><a href="#opportunity" class="nav-link">Revenue Opportunity</a></li>
+        <li><a href="#services" class="nav-link">Service Offerings</a></li>
+        <li><a href="#implementation" class="nav-link">Implementation</a></li>
+      </ul>
+    </nav>
+    
+    <main>
+      <aside>
+        <h3>Quick Navigation</h3>
+        <ul>
+          <li><a href="#tldr" class="sidebar-link">Summary</a></li>
+          <li><a href="#opportunity" class="sidebar-link">Market Opportunity</a></li>
+          <li><a href="#revenue-drivers" class="sidebar-link">Revenue Drivers</a></li>
+          <li><a href="#services" class="sidebar-link">Service Portfolio</a></li>
+          <li><a href="#pricing" class="sidebar-link">Pricing Models</a></li>
+          <li><a href="#go-to-market" class="sidebar-link">Go-to-Market</a></li>
+        </ul>
+        </ul>
+      </aside>
+      
+      <div class="content">
+        <section id="tldr">
+          <h2>Summary: Digital Assets Valuation Opportunity</h2>
+          
+          <div class="revenue-box">
+            <h3 style="margin-top:0;">Top 3 Revenue Drivers (Short Term)</h3>
+            <ol style="margin-left:2rem;font-size:1.1rem;">
+              <li><strong>Proof of Reserves (PoR) Support:</strong> $50-150K per engagement, quarterly recurring</li>
+              <li><strong>Fair Value Advisory:</strong> $75-200K per audit, annual + ad-hoc</li>
+              <li><strong>Portfolio Valuation for Funds:</strong> $100-300K annually, monthly/quarterly recurring</li>
+            </ol>
+          </div>
+          
+          <div class="two-column">
+            <div class="card">
+              <div class="card-header">Why Now?</div>
+              <ul class="checklist">
+                <li>VARA requires independent valuation attestations</li>
+                <li>VASPs need fair value expertise for IFRS compliance</li>
+                <li>Crypto funds require NAV calculations</li>
+                <li>Limited competition (most valuation firms lack crypto expertise)</li>
+              </ul>
+            </div>
+            
+            <div class="card">
+              <div class="card-header">What We Need</div>
+              <ul class="checklist">
+                <li>1-2 valuation specialists with crypto training</li>
+                <li>Access to pricing data vendors (CoinMetrics, Kaiko)</li>
+                <li>Collaboration with audit blockchain specialists</li>
+                <li>4-6 weeks to build initial capabilities</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="highlight-box">
+            <h4>Bottom Line</h4>
+            <p><strong>Low barrier to entry, high demand, recurring revenue model.</strong> We can leverage existing audit relationships and valuation methodology, with minimal incremental investment to add digital asset pricing capabilities.</p>
+          </div>
+        </section>
+        
+        <section id="opportunity">
+          <h2>Market Opportunity</h2>
+          
+          <h3>Dubai/VARA Market Sizing</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Client Type</th>
+                <th>Number of Entities</th>
+                <th>Avg Annual Fees</th>
+                <th>Total Market</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>VASPs (Exchanges/Custodians)</strong></td>
+                <td>50-75</td>
+                <td>$150-250K</td>
+                <td>$7.5-18.75M</td>
+              </tr>
+              <tr>
+                <td><strong>Crypto Funds</strong></td>
+                <td>100-150</td>
+                <td>$100-200K</td>
+                <td>$10-30M</td>
+              </tr>
+              <tr>
+                <td><strong>Tokenization Projects</strong></td>
+                <td>200-300</td>
+                <td>$50-150K</td>
+                <td>$10-45M</td>
+              </tr>
+              <tr>
+                <td><strong>Corporate Treasury (BTC/ETH holdings)</strong></td>
+                <td>50-100</td>
+                <td>$30-75K</td>
+                <td>$1.5-7.5M</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div class="revenue-box">
+            <h4>Deloitte Addressable Market (Next 12 Months)</h4>
+            <p><strong>Conservative Target:</strong> $2-4M in new valuation revenue from digital assets</p>
+            <p><strong>Optimistic Target:</strong> $5-8M with aggressive BD and team expansion</p>
+          </div>
+        </section>
+        
+        <section id="revenue-drivers">
+          <h2>Revenue Drivers (Ranked by Near-Term Potential)</h2>
+          
+          <div class="card">
+            <div class="card-header">1. Proof of Reserves Support <span class="badge badge-quick-win">Quick Win</span></div>
+            
+            <h4>Service Description</h4>
+            <p>Provide pricing and valuation support for auditor's Proof of Reserves attestations. Auditors verify on-chain balances; we provide fair value pricing at cutoff date.</p>
+            
+            <h4>Revenue Model</h4>
+            <ul class="checklist">
+              <li><strong>Pricing:</strong> $50-150K per PoR engagement (depending on number of assets and complexity)</li>
+              <li><strong>Frequency:</strong> Quarterly or annual (many VASPs publish quarterly PoR)</li>
+              <li><strong>Scope:</strong> Pricing data validation, principal market analysis, Level 1/2 classification</li>
+            </ul>
+            
+            <h4>Why It's a Quick Win</h4>
+            <ul class="checklist">
+              <li>Direct collaboration with our audit teams (built-in referral source)</li>
+              <li>Straightforward scope (pricing only, no complex modeling)</li>
+              <li>Recurring revenue (quarterly PoR cycles)</li>
+              <li>Can be delivered remotely (no on-site requirements)</li>
+            </ul>
+            
+            <div class="revenue-box">
+              <strong>12-Month Revenue Potential:</strong> $500K-1.5M (assuming 10-15 PoR engagements at $50-100K each)
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">2. Fair Value Advisory for IFRS Audits <span class="badge badge-quick-win">Quick Win</span></div>
+            
+            <h4>Service Description</h4>
+            <p>Support audit teams with fair value measurement for digital assets held by VASPs, corporates, and funds. Includes pricing hierarchy assessment, valuation methodology review, and independent price testing.</p>
+            
+            <h4>Revenue Model</h4>
+            <ul class="checklist">
+              <li><strong>Pricing:</strong> $75-200K per audit (depending on portfolio size and complexity)</li>
+              <li><strong>Frequency:</strong> Annual (tied to audit cycle), plus ad-hoc for interim reporting</li>
+              <li><strong>Scope:</strong> Principal market determination, pricing source evaluation, NAV calculation review</li>
+            </ul>
+            
+            <h4>Value Proposition</h4>
+            <ul class="checklist">
+              <li>Audit independence maintained (valuation specialist is separate from audit team)</li>
+              <li>Accelerates audit completion (removes pricing bottleneck)</li>
+              <li>Reduces audit risk (independent valuation support)</li>
+            </ul>
+            
+            <div class="revenue-box">
+              <strong>12-Month Revenue Potential:</strong> $750K-2M (assuming 10-15 audit support engagements)
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">3. Portfolio Valuation for Crypto Funds <span class="badge badge-revenue">High Revenue</span></div>
+            
+            <h4>Service Description</h4>
+            <p>Monthly or quarterly NAV calculations for crypto hedge funds, venture funds, and asset managers. Includes pricing for liquid assets, valuation models for illiquid tokens, and administrator support.</p>
+            
+            <h4>Revenue Model</h4>
+            <ul class="checklist">
+              <li><strong>Pricing:</strong> $100-300K annually for monthly NAV (based on AUM and complexity)</li>
+              <li><strong>Frequency:</strong> Monthly or quarterly recurring</li>
+              <li><strong>Scope:</strong> Liquid crypto pricing, illiquid token valuation (Level 2/3), DeFi position valuation</li>
+            </ul>
+            
+            <h4>Key Differentiators</h4>
+            <ul class="checklist">
+              <li>Brand credibility (Deloitte name critical for institutional LPs)</li>
+              <li>Integration with fund audit (seamless handoff to audit team)</li>
+              <li>Ability to value complex instruments (options, derivatives, DeFi positions)</li>
+            </ul>
+            
+            <div class="revenue-box">
+              <strong>12-Month Revenue Potential:</strong> $500K-1.5M (assuming 5-10 fund clients at $100-150K each)
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">4. Purchase Price Allocation (M&A) <span class="badge badge-strategic">Strategic</span></div>
+            
+            <h4>Service Description</h4>
+            <p>Valuation of digital assets, customer relationships, and technology for M&A transactions involving crypto companies (exchanges, wallets, protocols).</p>
+            
+            <h4>Revenue Model</h4>
+            <ul class="checklist">
+              <li><strong>Pricing:</strong> $200-500K+ per transaction (based on deal size)</li>
+              <li><strong>Frequency:</strong> Project-based (lumpy revenue)</li>
+              <li><strong>Scope:</strong> Crypto asset valuation, intangible asset identification, goodwill allocation</li>
+            </ul>
+            
+            <div class="info-box">
+              <strong>Note:</strong> Requires more specialized expertise (DCF modeling, intangible asset valuation). Consider as Year 2 expansion after building core capabilities.
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">5. Tokenization Valuation <span class="badge badge-strategic">Emerging</span></div>
+            
+            <h4>Service Description</h4>
+            <p>Valuation for real-world asset tokenization (real estate, commodities, art). Includes underlying asset appraisal validation and token pricing framework.</p>
+            
+            <h4>Revenue Model</h4>
+            <ul class="checklist">
+              <li><strong>Pricing:</strong> $50-200K per tokenization project</li>
+              <li><strong>Frequency:</strong> Project-based (growing market)</li>
+              <li><strong>Scope:</strong> Underlying asset valuation, token economics review, pricing mechanism validation</li>
+            </ul>
+            
+            <div class="warning-box">
+              <strong>Opportunity:</strong> Dubai is a hub for tokenization initiatives (DIFC, DMCC). High growth potential but requires cross-practice collaboration (real estate, art, commodities valuation).
+            </div>
+          </div>
+        </section>
+        
+        <section id="services">
+          <h2>Service Portfolio & Delivery Model</h2>
+          
+          <h3>Core Services (Year 1 Focus)</h3>
+          <div class="three-column">
+            <div class="card">
+              <h4>Pricing Services</h4>
+              <ul class="checklist">
+                <li>Fair value pricing (BTC, ETH, major tokens)</li>
+                <li>Principal market determination</li>
+                <li>Pricing source evaluation</li>
+                <li>Level 1/2/3 classification</li>
+              </ul>
+            </div>
+            
+            <div class="card">
+              <h4>Valuation Advisory</h4>
+              <ul class="checklist">
+                <li>Valuation methodology selection</li>
+                <li>Illiquid token valuation (Level 3)</li>
+                <li>DeFi position valuation</li>
+                <li>Impairment testing support</li>
+              </ul>
+            </div>
+            
+            <div class="card">
+              <h4>Reporting Support</h4>
+              <ul class="checklist">
+                <li>IFRS 13 disclosure review</li>
+                <li>NAV calculation</li>
+                <li>Investor reporting</li>
+                <li>Regulatory filing support</li>
+              </ul>
+            </div>
+          </div>
+          
+          <h3 id="pricing">Pricing Models</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Service Type</th>
+                <th>Pricing Approach</th>
+                <th>Typical Range</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>PoR Pricing Support</strong></td>
+                <td>Fixed fee per PoR cycle</td>
+                <td>$50-150K per quarter</td>
+              </tr>
+              <tr>
+                <td><strong>Audit Fair Value Support</strong></td>
+                <td>Fixed fee or hourly (capped)</td>
+                <td>$75-200K per audit</td>
+              </tr>
+              <tr>
+                <td><strong>Fund NAV Services</strong></td>
+                <td>Annual retainer (monthly deliverables)</td>
+                <td>$100-300K per year</td>
+              </tr>
+              <tr>
+                <td><strong>Ad-hoc Valuation</strong></td>
+                <td>Hourly or project-based</td>
+                <td>$30-75K per project</td>
+              </tr>
+              <tr>
+                <td><strong>M&A / PPA</strong></td>
+                <td>% of deal value or fixed fee</td>
+                <td>$200-500K+ per transaction</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        
+        <section id="go-to-market">
+          <h2>Go-to-Market Strategy</h2>
+          
+          <div class="card">
+            <div class="card-header">Target Client Segments (Priority Order)</div>
+            
+            <h4>1. Existing Audit Clients (Warmest Lead Source)</h4>
+            <ul class="checklist">
+              <li>VASPs with upcoming PoR attestations</li>
+              <li>Corporates holding BTC/ETH on balance sheet</li>
+              <li>Crypto funds requiring audit support</li>
+            </ul>
+            <p><strong>Approach:</strong> Partner with audit teams; position as value-added service to strengthen audit relationship.</p>
+            
+            <h4>2. VARA-Licensed Entities (Regulatory Driver)</h4>
+            <ul class="checklist">
+              <li>Newly licensed VASPs requiring initial fair value framework</li>
+              <li>Established exchanges expanding asset coverage</li>
+              <li>Tokenization platforms launching new products</li>
+            </ul>
+            <p><strong>Approach:</strong> Attend VARA events; direct outreach to compliance and finance teams.</p>
+            
+            <h4>3. Crypto-Native Funds (High-Value Recurring)</h4>
+            <ul class="checklist">
+              <li>Hedge funds requiring monthly NAV</li>
+              <li>Venture funds with token portfolios</li>
+              <li>Asset managers launching crypto products</li>
+            </ul>
+            <p><strong>Approach:</strong> Target fund administrators and prime brokers for referrals.</p>
+            
+            <h4>4. Traditional Institutions (Emerging Opportunity)</h4>
+            <ul class="checklist">
+              <li>Banks offering crypto custody services</li>
+              <li>Family offices allocating to digital assets</li>
+              <li>Real estate firms exploring tokenization</li>
+            </ul>
+            <p><strong>Approach:</strong> Leverage existing Deloitte relationships; educate on crypto valuation needs.</p>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">Key Messages & Positioning</div>
+            
+            <h4>Value Proposition</h4>
+            <p><strong>"Independent, defensible digital asset valuations from the trusted Deloitte brand."</strong></p>
+            
+            <h4>Key Differentiators</h4>
+            <ul class="checklist">
+              <li><strong>Brand & Credibility:</strong> Deloitte name critical for institutional clients and regulators</li>
+              <li><strong>Integrated Service:</strong> Seamless collaboration with audit, tax, and advisory</li>
+              <li><strong>Technical Depth:</strong> Blockchain specialists support complex on-chain valuation needs</li>
+              <li><strong>IFRS 13 Expertise:</strong> Proven fair value methodology applied to digital assets</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+    
+    function updateActiveLinks() {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-link');
+      const sidebarLinks = document.querySelectorAll('.sidebar-link');
+      
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.pageYOffset >= sectionTop - 150) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+      
+      sidebarLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+    
+    window.addEventListener('scroll', updateActiveLinks);
+    window.addEventListener('load', updateActiveLinks);
+  </script>
+</body>
+</html>

@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VASP Audit Partner Walkthrough • Deloitte</title>
+  <style>
+    :root {
+      --deloitte-green: #86c232;
+      --bg-dark: #0f172a;
+      --bg-darker: #020617;
+      --text-primary: #ffffff;
+      --text-secondary: #e2e8f0;
+      --text-muted: #94a3b8;
+      --card-bg: #ffffff;
+      --border-subtle: rgba(148, 163, 184, 0.2);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Professional container */
+    .presentation {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+      position: relative;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--border-subtle);
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0 0 0.5rem 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .header .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .header .brand-dot {
+      width: 12px;
+      height: 12px;
+      background: var(--deloitte-green);
+      border-radius: 50%;
+    }
+
+    /* Slide container */
+    .slide-container {
+      position: relative;
+      min-height: 600px;
+      margin-bottom: 2rem;
+    }
+
+    .slide {
+      display: none;
+      background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .slide.active {
+      display: block;
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Slide layouts */
+    .slide-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 3px solid var(--deloitte-green);
+    }
+
+    .slide-header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0 0 0.5rem 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .slide-header .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    /* Two-column layout */
+    .slide-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .slide-content.single-column {
+      grid-template-columns: 1fr;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .content-section {
+      padding: 1.5rem;
+    }
+
+    .content-section h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 0 0 1rem 0;
+      border-left: 4px solid var(--deloitte-green);
+      padding-left: 1rem;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .content-section p {
+      color: var(--text-secondary);
+      margin: 0 0 1rem 0;
+    }
+
+    .content-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .content-section li {
+      color: var(--text-secondary);
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .content-section li:before {
+      content: "→";
+      color: var(--deloitte-green);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    /* Visual elements */
+    .visual-element {
+      background: linear-gradient(135deg, rgba(134, 194, 50, 0.1) 0%, rgba(134, 194, 50, 0.05) 100%);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      border: 2px solid var(--border-subtle);
+      backdrop-filter: blur(10px);
+    }
+    
+    .visual-element h3, .visual-element h4 {
+      color: var(--text-primary);
+    }
+    
+    .visual-element p {
+      color: var(--text-secondary);
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 2rem;
+      align-items: center;
+      margin: 2rem 0;
+    }
+
+    .comparison-item {
+      background: linear-gradient(135deg, rgba(241, 245, 249, 0.1) 0%, rgba(226, 232, 240, 0.1) 100%);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      border: 2px solid var(--border-subtle);
+      backdrop-filter: blur(10px);
+    }
+    
+    .comparison-item h3, .comparison-item h4 {
+      color: var(--text-primary);
+    }
+    
+    .comparison-item p {
+      color: var(--text-secondary);
+    }
+    
+    .comparison-item ul {
+      color: var(--text-secondary);
+    }
+
+    .comparison-item.traditional {
+      border-color: #f59e0b;
+      background: linear-gradient(135deg, rgba(254, 243, 199, 0.15) 0%, rgba(254, 215, 170, 0.15) 100%);
+    }
+
+    .comparison-item.blockchain {
+      border-color: var(--deloitte-green);
+      background: linear-gradient(135deg, rgba(240, 253, 244, 0.15) 0%, rgba(220, 252, 231, 0.15) 100%);
+    }
+
+    .comparison-arrow {
+      font-size: 2rem;
+      color: var(--deloitte-green);
+      font-weight: bold;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, var(--deloitte-green) 0%, #9bbc34 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(134, 194, 50, 0.2);
+    }
+
+    .highlight-box h4 {
+      margin: 0 0 1rem 0;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .highlight-box p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Navigation */
+    .navigation {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 50px;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      border: 1px solid var(--border-subtle);
+      z-index: 1000;
+    }
+
+    .nav-button {
+      background: var(--deloitte-green);
+      color: var(--bg-dark);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .nav-button:hover {
+      background: #9bbc34;
+      transform: translateY(-2px);
+    }
+
+    .nav-button:disabled {
+      background: var(--text-muted);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .slide-counter {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      padding: 0 1rem;
+      white-space: nowrap;
+    }
+
+    .progress-bar {
+      width: 200px;
+      height: 4px;
+      background: rgba(148, 163, 184, 0.3);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--deloitte-green);
+      transition: width 0.3s ease;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .presentation {
+        padding: 1rem;
+      }
+
+      .slide-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .slide {
+        padding: 2rem;
+      }
+
+      .navigation {
+        bottom: 1rem;
+        padding: 0.75rem 1.5rem;
+        gap: 1rem;
+      }
+
+      .progress-bar {
+        width: 100px;
+      }
+    }
+
+    /* Animations */
+    .fade-in {
+      animation: contentFadeIn 0.8s ease-out;
+    }
+
+    @keyframes contentFadeIn {
+      from { 
+        opacity: 0; 
+        transform: translateY(15px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
+    }
+
+    .slide-in-left {
+      animation: slideInLeft 0.6s ease-out;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .slide-in-right {
+      animation: slideInRight 0.6s ease-out;
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Particle background */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      background: var(--deloitte-green);
+      border-radius: 50%;
+      opacity: 0.1;
+      animation: float 15s infinite linear;
+    }
+
+    .particle:nth-child(odd) {
+      background: rgba(134, 194, 50, 0.08);
+      animation-duration: 20s;
+    }
+
+    .particle:nth-child(3n) {
+      background: rgba(226, 232, 240, 0.05);
+      animation-duration: 25s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.1;
+      }
+      90% {
+        opacity: 0.1;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .particle.small { width: 4px; height: 4px; }
+    .particle.medium { width: 8px; height: 8px; }
+    .particle.large { width: 12px; height: 12px; }
+  </style>
+</head>
+<body>
+  <!-- Particle background -->
+  <div class="particles" id="particles"></div>
+  
+  <div class="presentation">
+    <!-- Header -->
+    <header class="header">
+      <h1>VASP Audit Partner Walkthrough</h1>
+      <div class="subtitle">
+        <span class="brand-dot"></span>
+        <span>Strategic Overview • 15 Minutes • Deloitte Digital Assets Practice</span>
+      </div>
+    </header>
+
+    <!-- Slide Container -->
+    <div class="slide-container" id="slideContainer">
+      
+      <!-- Slide 1: Welcome & Agenda -->
+      <div class="slide active" data-slide="1">
+        <div class="slide-header">
+          <h2>Welcome to VASP Auditing</h2>
+          <div class="subtitle">A strategic overview for audit partners</div>
+        </div>
+        <div class="slide-content">
+          <div class="content-section slide-in-left">
+            <h3>Today's Journey</h3>
+            <ul>
+              <li>VASP ecosystem overview</li>
+              <li>Your role as audit partner</li>
+              <li>Traditional vs. blockchain audit evidence</li>
+              <li>Risk assessment frameworks</li>
+              <li>Client value proposition</li>
+              <li>Implementation roadmap</li>
+            </ul>
+            <div class="highlight-box">
+              <h4>Strategic Focus</h4>
+              <p>Partner-level coordination and client relationship management—not technical implementation details.</p>
+            </div>
+          </div>
+          <div class="visual-element slide-in-right">
+            <h3>VASP Market in MENA</h3>
+            <div style="width: 60px; height: 60px; background: var(--deloitte-green); border-radius: 12px; margin: 1rem auto; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">VARA</div>
+            <p><strong>VARA-regulated entities</strong></p>
+            <p style="color: var(--deloitte-green); font-weight: 600; font-size: 1.1rem;">Growing regulatory clarity = Audit opportunity</p>
+            <p>Digital asset platforms need specialized audit expertise for compliance and investor confidence.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: VASP Ecosystem Overview -->
+      <div class="slide" data-slide="2">
+        <div class="slide-header">
+          <h2>Complete VASP Audit Ecosystem</h2>
+          <div class="subtitle">Comprehensive visual overview of all audit streams and partner coordination</div>
+        </div>
+        <div class="slide-content single-column">
+          <!-- Central VASP Platform -->
+          <div style="text-align: center; margin: 2rem 0;">
+            <div style="display: inline-block; background: linear-gradient(135deg, var(--deloitte-green) 0%, #9bbc34 100%); padding: 2rem 3rem; border-radius: 20px; color: white; font-size: 1.5rem; font-weight: bold; box-shadow: 0 10px 30px rgba(134, 194, 50, 0.3);">
+              VASP PLATFORM
+              <div style="font-size: 1rem; font-weight: normal; margin-top: 0.5rem; opacity: 0.9;">Exchange • Custody • Trading</div>
+            </div>
+          </div>
+
+          <!-- Audit Streams Diagram -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin: 3rem 0; position: relative;">
+            
+            <!-- Left Column: Technical Audits -->
+            <div>
+              <h3 style="text-align: center; color: var(--deloitte-green); margin-bottom: 2rem; border-bottom: 2px solid var(--deloitte-green); padding-bottom: 0.5rem;">Technical Audit Streams</h3>
+              
+              <div class="comparison-item" style="margin-bottom: 1.5rem; border-color: #6366f1;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                  <div style="width: 40px; height: 40px; background: #6366f1; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">SC</div>
+                  <h4 style="color: #6366f1; margin: 0;">Smart Contract Audit</h4>
+                </div>
+                <ul style="font-size: 0.9rem; margin: 0; padding-left: 0;">
+                  <li>Code vulnerability assessment</li>
+                  <li>Security penetration testing</li>
+                  <li>Gas optimization review</li>
+                </ul>
+              </div>
+
+              <div class="comparison-item" style="margin-bottom: 1.5rem; border-color: #9333ea;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                  <div style="width: 40px; height: 40px; background: #9333ea; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">SOC</div>
+                  <h4 style="color: #9333ea; margin: 0;">SOC 2 Type II</h4>
+                </div>
+                <ul style="font-size: 0.9rem; margin: 0; padding-left: 0;">
+                  <li>Information security controls</li>
+                  <li>Data processing integrity</li>
+                  <li>System availability testing</li>
+                </ul>
+              </div>
+
+              <div class="comparison-item" style="border-color: #ef4444;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                  <div style="width: 40px; height: 40px; background: #ef4444; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">AML</div>
+                  <h4 style="color: #ef4444; margin: 0;">AML Compliance</h4>
+                </div>
+                <ul style="font-size: 0.9rem; margin: 0; padding-left: 0;">
+                  <li>Transaction monitoring systems</li>
+                  <li>KYC process validation</li>
+                  <li>Suspicious activity reporting</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Right Column: Financial Audits -->
+            <div>
+              <h3 style="text-align: center; color: var(--deloitte-green); margin-bottom: 2rem; border-bottom: 2px solid var(--deloitte-green); padding-bottom: 0.5rem;">Financial Audit Streams</h3>
+              
+              <div class="comparison-item" style="margin-bottom: 1.5rem; border-color: #f59e0b;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                  <div style="width: 40px; height: 40px; background: #f59e0b; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">FS</div>
+                  <h4 style="color: #f59e0b; margin: 0;">Financial Statements</h4>
+                </div>
+                <ul style="font-size: 0.9rem; margin: 0; padding-left: 0;">
+                  <li>Digital asset valuation</li>
+                  <li>Revenue recognition (trading fees)</li>
+                  <li>Blockchain-enhanced evidence</li>
+                </ul>
+              </div>
+
+              <div class="comparison-item" style="margin-bottom: 1.5rem; border-color: #059669;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                  <div style="width: 40px; height: 40px; background: #059669; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">PoR</div>
+                  <h4 style="color: #059669; margin: 0;">Proof of Reserves</h4>
+                </div>
+                <ul style="font-size: 0.9rem; margin: 0; padding-left: 0;">
+                  <li>Asset custody verification</li>
+                  <li>Liability reconciliation</li>
+                  <li>Solvency attestation</li>
+                </ul>
+              </div>
+
+              <div class="comparison-item" style="border-color: #dc2626;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                  <div style="width: 40px; height: 40px; background: #dc2626; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">REG</div>
+                  <h4 style="color: #dc2626; margin: 0;">VARA Regulatory</h4>
+                </div>
+                <ul style="font-size: 0.9rem; margin: 0; padding-left: 0;">
+                  <li>License compliance validation</li>
+                  <li>Capital adequacy assessment</li>
+                  <li>Governance framework review</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Connecting Lines -->
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10;">
+              <div style="width: 60px; height: 4px; background: var(--deloitte-green); position: relative;">
+                <div style="position: absolute; right: -8px; top: -6px; width: 0; height: 0; border-left: 8px solid var(--deloitte-green); border-top: 7px solid transparent; border-bottom: 7px solid transparent;"></div>
+                <div style="position: absolute; left: -8px; top: -6px; width: 0; height: 0; border-right: 8px solid var(--deloitte-green); border-top: 7px solid transparent; border-bottom: 7px solid transparent;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Partner Coordination Box -->
+          <div class="highlight-box" style="margin-top: 3rem;">
+            <h4>Partner Coordination & Integration</h4>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 1.5rem; text-align: left;">
+              <div>
+                <strong>► Team Orchestration</strong><br>
+                <small style="opacity: 0.9;">Coordinate 6+ specialist teams across technical and financial domains</small>
+              </div>
+              <div>
+                <strong>► Risk Integration</strong><br>
+                <small style="opacity: 0.9;">Synthesize findings across all streams for comprehensive risk assessment</small>
+              </div>
+              <div>
+                <strong>► Client Communication</strong><br>
+                <small style="opacity: 0.9;">Present unified audit opinion and strategic recommendations to board</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Traditional vs Blockchain Evidence -->
+      <div class="slide" data-slide="3">
+        <div class="slide-header">
+          <h2>Revolutionary Evidence Quality</h2>
+          <div class="subtitle">From periodic sampling to complete population testing</div>
+        </div>
+        <div class="slide-content">
+          <div class="content-section slide-in-left">
+            <div class="comparison-item traditional">
+              <h3>Traditional Evidence</h3>
+              <ul style="text-align: left;">
+                <li>Monthly bank confirmations</li>
+                <li>Sample testing (5-10%)</li>
+                <li>Manual reconciliations</li>
+                <li>Point-in-time verification</li>
+              </ul>
+              <p style="margin-top: 1.5rem; font-style: italic; color: #92400e;">
+                <strong>Your oversight:</strong> Review sampling methodology, sign confirmation letters
+              </p>
+            </div>
+          </div>
+          <div class="content-section slide-in-right">
+            <div class="comparison-item blockchain">
+              <h3>Blockchain Evidence</h3>
+              <ul style="text-align: left;">
+                <li>Real-time blockchain reading</li>
+                <li>Complete population (100%)</li>
+                <li>Cryptographic proof</li>
+                <li>Continuous monitoring</li>
+              </ul>
+              <p style="margin-top: 1.5rem; font-style: italic; color: #166534;">
+                <strong>Your oversight:</strong> Review COINIA reports, validate coverage completeness
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="highlight-box">
+          <h4>Partner Impact</h4>
+          <p>Higher audit quality with lower sampling risk. Your focus shifts from evidence gathering methodology to evidence interpretation and client communication.</p>
+        </div>
+      </div>
+
+      <!-- Slide 4: Risk Assessment Framework -->
+      <div class="slide" data-slide="4">
+        <div class="slide-header">
+          <h2>VASP Risk Assessment</h2>
+          <div class="subtitle">Traditional risks enhanced with digital asset-specific considerations</div>
+        </div>
+        <div class="slide-content">
+          <div class="content-section slide-in-left">
+            <h3>Traditional Risk Categories</h3>
+            <div style="display: grid; gap: 1rem; margin: 1.5rem 0;">
+              <div style="background: rgba(245, 158, 11, 0.2); padding: 1.5rem; border-radius: 12px; border-left: 6px solid #f59e0b; border: 2px solid rgba(245, 158, 11, 0.3);">
+                <strong style="color: #f59e0b; font-size: 1.1rem;">Credit Risk:</strong> 
+                <span style="color: var(--text-primary); margin-left: 0.5rem;">Counterparty defaults</span>
+              </div>
+              <div style="background: rgba(245, 158, 11, 0.2); padding: 1.5rem; border-radius: 12px; border-left: 6px solid #f59e0b; border: 2px solid rgba(245, 158, 11, 0.3);">
+                <strong style="color: #f59e0b; font-size: 1.1rem;">Market Risk:</strong> 
+                <span style="color: var(--text-primary); margin-left: 0.5rem;">Price volatility</span>
+              </div>
+              <div style="background: rgba(245, 158, 11, 0.2); padding: 1.5rem; border-radius: 12px; border-left: 6px solid #f59e0b; border: 2px solid rgba(245, 158, 11, 0.3);">
+                <strong style="color: #f59e0b; font-size: 1.1rem;">Operational Risk:</strong> 
+                <span style="color: var(--text-primary); margin-left: 0.5rem;">System failures</span>
+              </div>
+            </div>
+          </div>
+          <div class="content-section slide-in-right">
+            <h3>Digital Asset-Specific Risks</h3>
+            <div style="display: grid; gap: 1rem; margin: 1.5rem 0;">
+              <div style="background: rgba(239, 68, 68, 0.2); padding: 1.5rem; border-radius: 12px; border-left: 6px solid #ef4444; border: 2px solid rgba(239, 68, 68, 0.3);">
+                <strong style="color: #ef4444; font-size: 1.1rem;">Private Key Risk:</strong> 
+                <span style="color: var(--text-primary); margin-left: 0.5rem;">Loss = total loss</span>
+              </div>
+              <div style="background: rgba(239, 68, 68, 0.2); padding: 1.5rem; border-radius: 12px; border-left: 6px solid #ef4444; border: 2px solid rgba(239, 68, 68, 0.3);">
+                <strong style="color: #ef4444; font-size: 1.1rem;">Smart Contract Risk:</strong> 
+                <span style="color: var(--text-primary); margin-left: 0.5rem;">Code vulnerabilities</span>
+              </div>
+              <div style="background: rgba(239, 68, 68, 0.2); padding: 1.5rem; border-radius: 12px; border-left: 6px solid #ef4444; border: 2px solid rgba(239, 68, 68, 0.3);">
+                <strong style="color: #ef4444; font-size: 1.1rem;">Regulatory Risk:</strong> 
+                <span style="color: var(--text-primary); margin-left: 0.5rem;">Unclear guidance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="highlight-box">
+          <h4>Partner Decision Points</h4>
+          <p>Set VASP-specific materiality thresholds, assess custody provider credentials, and determine appropriate specialist resource allocation.</p>
+        </div>
+      </div>
+
+      <!-- Slide 5: Custody & Security Models -->
+      <div class="slide" data-slide="5">
+        <div class="slide-header">
+          <h2>Custody Models</h2>
+          <div class="subtitle">Traditional custody principles with cryptographic execution</div>
+        </div>
+        <div class="slide-content">
+          <div class="content-section slide-in-left">
+            <h3>Familiar Concepts</h3>
+            <div class="visual-element">
+              <div style="width: 50px; height: 50px; background: var(--deloitte-green); border-radius: 8px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 1.2rem;">BANK</div>
+              <h4>Bank Vault = Cold Storage</h4>
+              <p>95% of assets stored offline in secure hardware</p>
+              <br>
+              <div style="width: 50px; height: 50px; background: #f59e0b; border-radius: 8px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 1.2rem;">HOT</div>
+              <h4>Cash Register = Hot Wallet</h4>
+              <p>5% operational funds for daily transactions</p>
+            </div>
+          </div>
+          <div class="content-section slide-in-right">
+            <h3>Partner Assessment Focus</h3>
+            <ul>
+              <li>Custody provider credentials</li>
+              <li>Insurance coverage adequacy</li>
+              <li>Multi-signature controls</li>
+              <li>Key generation processes</li>
+              <li>Segregation evidence</li>
+            </ul>
+            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 12px; border: 2px solid var(--deloitte-green); margin-top: 2rem;">
+              <h4 style="color: var(--deloitte-green); margin-top: 0;">Key Management = Signature Cards</h4>
+              <p style="color: #166534; margin-bottom: 0;">Assess key management like you would traditional signature authorization matrices.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Client Value Proposition -->
+      <div class="slide" data-slide="6">
+        <div class="slide-header">
+          <h2>Client Value Communication</h2>
+          <div class="subtitle">Position your client as a market leader through regulatory confidence</div>
+        </div>
+        <div class="slide-content single-column">
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem 0;">
+            <div class="comparison-item" style="text-align: center;">
+              <div style="width: 50px; height: 50px; background: var(--deloitte-green); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">REG</div>
+              <h4>Regulatory Confidence</h4>
+              <p>VARA compliance validation</p>
+              <p><strong>Partner message:</strong> "We provide regulatory comfort others can't"</p>
+            </div>
+            <div class="comparison-item" style="text-align: center;">
+              <div style="width: 50px; height: 50px; background: var(--deloitte-green); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">DATA</div>
+              <h4>Risk Insights</h4>
+              <p>Real-time risk visibility</p>
+              <p><strong>Partner message:</strong> "Enhanced operational intelligence"</p>
+            </div>
+            <div class="comparison-item" style="text-align: center;">
+              <div style="width: 50px; height: 50px; background: var(--deloitte-green); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">LEAD</div>
+              <h4>Market Differentiation</h4>
+              <p>First-mover advantage</p>
+              <p><strong>Partner message:</strong> "Future-proof audit approach"</p>
+            </div>
+          </div>
+          <div class="highlight-box">
+            <h4>Board-Level Communication</h4>
+            <p>Your role: Present regulatory confidence to board, share operational improvement insights, and position client as market leader in the competitive VASP space.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Next Steps -->
+      <div class="slide" data-slide="7">
+        <div class="slide-header">
+          <h2>Your Next Steps</h2>
+          <div class="subtitle">Moving from strategic overview to tactical implementation</div>
+        </div>
+        <div class="slide-content">
+          <div class="content-section slide-in-left">
+            <h3>Immediate Actions</h3>
+            <ul>
+              <li>Review VARA regulatory requirements</li>
+              <li>Assess current team capabilities</li>
+              <li>Identify potential VASP clients</li>
+              <li>Schedule technical team training</li>
+            </ul>
+            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--deloitte-green); margin-top: 2rem;">
+              <h4 style="color: var(--deloitte-green); margin-top: 0;">Ready to Start?</h4>
+              <p style="color: #166534; margin-bottom: 0;">Contact our digital assets team for detailed implementation support and training schedules.</p>
+            </div>
+          </div>
+          <div class="content-section slide-in-right">
+            <h3>Follow-up Resources</h3>
+            <ul>
+              <li>Technical training sessions</li>
+              <li>Detailed audit procedures</li>
+              <li>COINIA tool demonstrations</li>
+              <li>Client pitch materials</li>
+            </ul>
+            <div class="visual-element">
+              <div style="width: 60px; height: 60px; background: var(--deloitte-green); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 1.5rem;">GO</div>
+              <h4>Strategic Opportunity</h4>
+              <p>Position your practice at the forefront of digital asset auditing in the MENA region.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Complete VASP Audit Process Flow -->
+      <div class="slide" data-slide="8">
+        <div class="slide-header">
+          <h2>Complete VASP Audit Process Flow</h2>
+          <div class="subtitle">End-to-end audit methodology covering all Deloitte considerations</div>
+        </div>
+        <div class="slide-content single-column">
+          
+          <!-- Process Flow Diagram -->
+          <div style="position: relative; padding: 2rem 0;">
+            
+            <!-- Phase 1: Planning & Risk Assessment -->
+            <div style="margin-bottom: 3rem;">
+              <div style="text-align: center; margin-bottom: 2rem;">
+                <div style="display: inline-block; background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%); color: white; padding: 0.75rem 2rem; border-radius: 25px; font-weight: bold;">
+                  PHASE 1: PLANNING & RISK ASSESSMENT
+                </div>
+              </div>
+              
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem;">
+                <div style="background: rgba(59, 130, 246, 0.1); border: 2px solid #3b82f6; border-radius: 12px; padding: 1.5rem; text-align: center;">
+                  <div style="width: 40px; height: 40px; background: #3b82f6; border-radius: 8px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">SCOPE</div>
+                  <h4 style="color: #3b82f6; margin: 0 0 0.5rem 0; font-size: 1rem;">Entity Understanding</h4>
+                  <p style="font-size: 0.85rem; margin: 0; color: var(--text-secondary);">Business model, regulatory status, technology stack</p>
+                </div>
+                <div style="background: rgba(59, 130, 246, 0.1); border: 2px solid #3b82f6; border-radius: 12px; padding: 1.5rem; text-align: center;">
+                  <div style="width: 40px; height: 40px; background: #3b82f6; border-radius: 8px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">RISK</div>
+                  <h4 style="color: #3b82f6; margin: 0 0 0.5rem 0; font-size: 1rem;">Risk Assessment</h4>
+                  <p style="font-size: 0.85rem; margin: 0; color: var(--text-secondary);">Key risks, materiality, control environment</p>
+                </div>
+                <div style="background: rgba(59, 130, 246, 0.1); border: 2px solid #3b82f6; border-radius: 12px; padding: 1.5rem; text-align: center;">
+                  <div style="width: 40px; height: 40px; background: #3b82f6; border-radius: 8px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">TEAM</div>
+                  <h4 style="color: #3b82f6; margin: 0 0 0.5rem 0; font-size: 1rem;">Team Assembly</h4>
+                  <p style="font-size: 0.85rem; margin: 0; color: var(--text-secondary);">Blockchain specialists, financial auditors, tech experts</p>
+                </div>
+                <div style="background: rgba(59, 130, 246, 0.1); border: 2px solid #3b82f6; border-radius: 12px; padding: 1.5rem; text-align: center;">
+                  <div style="width: 40px; height: 40px; background: #3b82f6; border-radius: 8px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">VARA</div>
+                  <h4 style="color: #3b82f6; margin: 0 0 0.5rem 0; font-size: 1rem;">VARA Compliance</h4>
+                  <p style="font-size: 0.85rem; margin: 0; color: var(--text-secondary);">License conditions, regulatory requirements</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phase 2: Evidence Gathering -->
+            <div style="margin-bottom: 3rem;">
+              <div style="text-align: center; margin-bottom: 2rem;">
+                <div style="display: inline-block; background: linear-gradient(135deg, var(--deloitte-green) 0%, #9bbc34 100%); color: white; padding: 0.75rem 2rem; border-radius: 25px; font-weight: bold;">
+                  PHASE 2: EVIDENCE GATHERING & TESTING
+                </div>
+              </div>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                
+                <!-- Technical Stream -->
+                <div style="background: rgba(134, 194, 50, 0.05); border: 2px solid var(--deloitte-green); border-radius: 16px; padding: 2rem;">
+                  <h4 style="color: var(--deloitte-green); text-align: center; margin-bottom: 1.5rem; border-bottom: 2px solid var(--deloitte-green); padding-bottom: 0.5rem;">Technical Evidence Stream</h4>
+                  
+                  <div style="display: grid; gap: 1rem;">
+                    <div style="background: rgba(134, 194, 50, 0.1); padding: 1rem; border-radius: 8px; border-left: 4px solid var(--deloitte-green);">
+                      <strong style="color: var(--deloitte-green);">Blockchain Analysis</strong><br>
+                      <small style="color: var(--text-secondary);">COINIA extraction, wallet verification, transaction testing</small>
+                    </div>
+                    <div style="background: rgba(134, 194, 50, 0.1); padding: 1rem; border-radius: 8px; border-left: 4px solid var(--deloitte-green);">
+                      <strong style="color: var(--deloitte-green);">Smart Contract Review</strong><br>
+                      <small style="color: var(--text-secondary);">Code audit, vulnerability assessment, upgrade controls</small>
+                    </div>
+                    <div style="background: rgba(134, 194, 50, 0.1); padding: 1rem; border-radius: 8px; border-left: 4px solid var(--deloitte-green);">
+                      <strong style="color: var(--deloitte-green);">Infrastructure Testing</strong><br>
+                      <small style="color: var(--text-secondary);">SOC 2 controls, penetration testing, backup procedures</small>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Financial Stream -->
+                <div style="background: rgba(245, 158, 11, 0.05); border: 2px solid #f59e0b; border-radius: 16px; padding: 2rem;">
+                  <h4 style="color: #f59e0b; text-align: center; margin-bottom: 1.5rem; border-bottom: 2px solid #f59e0b; padding-bottom: 0.5rem;">Financial Evidence Stream</h4>
+                  
+                  <div style="display: grid; gap: 1rem;">
+                    <div style="background: rgba(245, 158, 11, 0.1); padding: 1rem; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                      <strong style="color: #f59e0b;">Asset Verification</strong><br>
+                      <small style="color: var(--text-secondary);">Proof of reserves, custody confirmations, valuation testing</small>
+                    </div>
+                    <div style="background: rgba(245, 158, 11, 0.1); padding: 1rem; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                      <strong style="color: #f59e0b;">Revenue Recognition</strong><br>
+                      <small style="color: var(--text-secondary);">Trading fees, staking rewards, transaction volumes</small>
+                    </div>
+                    <div style="background: rgba(245, 158, 11, 0.1); padding: 1rem; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                      <strong style="color: #f59e0b;">Financial Reporting</strong><br>
+                      <small style="color: var(--text-secondary);">IFRS compliance, fair value measurements, disclosures</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phase 3: Compliance & Regulatory -->
+            <div style="margin-bottom: 3rem;">
+              <div style="text-align: center; margin-bottom: 2rem;">
+                <div style="display: inline-block; background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); color: white; padding: 0.75rem 2rem; border-radius: 25px; font-weight: bold;">
+                  PHASE 3: COMPLIANCE & REGULATORY VALIDATION
+                </div>
+              </div>
+              
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+                <div style="background: rgba(220, 38, 38, 0.1); border: 2px solid #dc2626; border-radius: 12px; padding: 1.5rem; text-align: center;">
+                  <div style="width: 40px; height: 40px; background: #dc2626; border-radius: 8px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">AML</div>
+                  <h4 style="color: #dc2626; margin: 0 0 0.5rem 0; font-size: 1rem;">AML/CTF Testing</h4>
+                  <p style="font-size: 0.85rem; margin: 0; color: var(--text-secondary);">KYC procedures, transaction monitoring, suspicious activity reporting</p>
+                </div>
+                <div style="background: rgba(220, 38, 38, 0.1); border: 2px solid #dc2626; border-radius: 12px; padding: 1.5rem; text-align: center;">
+                  <div style="width: 40px; height: 40px; background: #dc2626; border-radius: 8px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">GOV</div>
+                  <h4 style="color: #dc2626; margin: 0 0 0.5rem 0; font-size: 1rem;">Governance Review</h4>
+                  <p style="font-size: 0.85rem; margin: 0; color: var(--text-secondary);">Board oversight, risk management, operational procedures</p>
+                </div>
+                <div style="background: rgba(220, 38, 38, 0.1); border: 2px solid #dc2626; border-radius: 12px; padding: 1.5rem; text-align: center;">
+                  <div style="width: 40px; height: 40px; background: #dc2626; border-radius: 8px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">CAP</div>
+                  <h4 style="color: #dc2626; margin: 0 0 0.5rem 0; font-size: 1rem;">Capital Adequacy</h4>
+                  <p style="font-size: 0.85rem; margin: 0; color: var(--text-secondary);">Minimum capital requirements, stress testing, liquidity buffers</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phase 4: Integration & Reporting -->
+            <div>
+              <div style="text-align: center; margin-bottom: 2rem;">
+                <div style="display: inline-block; background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%); color: white; padding: 0.75rem 2rem; border-radius: 25px; font-weight: bold;">
+                  PHASE 4: INTEGRATION & REPORTING
+                </div>
+              </div>
+              
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
+                <div style="background: rgba(124, 58, 237, 0.1); border: 2px solid #7c3aed; border-radius: 12px; padding: 1.5rem; text-align: center;">
+                  <div style="width: 40px; height: 40px; background: #7c3aed; border-radius: 8px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">INTEG</div>
+                  <h4 style="color: #7c3aed; margin: 0 0 0.5rem 0; font-size: 0.9rem;">Findings Integration</h4>
+                  <p style="font-size: 0.8rem; margin: 0; color: var(--text-secondary);">Consolidate technical and financial findings</p>
+                </div>
+                <div style="background: rgba(124, 58, 237, 0.1); border: 2px solid #7c3aed; border-radius: 12px; padding: 1.5rem; text-align: center;">
+                  <div style="width: 40px; height: 40px; background: #7c3aed; border-radius: 8px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">OPIN</div>
+                  <h4 style="color: #7c3aed; margin: 0 0 0.5rem 0; font-size: 0.9rem;">Audit Opinion</h4>
+                  <p style="font-size: 0.8rem; margin: 0; color: var(--text-secondary);">Formulate comprehensive audit conclusion</p>
+                </div>
+                <div style="background: rgba(124, 58, 237, 0.1); border: 2px solid #7c3aed; border-radius: 12px; padding: 1.5rem; text-align: center;">
+                  <div style="width: 40px; height: 40px; background: #7c3aed; border-radius: 8px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">RPT</div>
+                  <h4 style="color: #7c3aed; margin: 0 0 0.5rem 0; font-size: 0.9rem;">Report Delivery</h4>
+                  <p style="font-size: 0.8rem; margin: 0; color: var(--text-secondary);">Management letter, board presentation</p>
+                </div>
+                <div style="background: rgba(124, 58, 237, 0.1); border: 2px solid #7c3aed; border-radius: 12px; padding: 1.5rem; text-align: center;">
+                  <div style="width: 40px; height: 40px; background: #7c3aed; border-radius: 8px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">VARA</div>
+                  <h4 style="color: #7c3aed; margin: 0 0 0.5rem 0; font-size: 0.9rem;">VARA Submission</h4>
+                  <p style="font-size: 0.8rem; margin: 0; color: var(--text-secondary);">Regulatory filing and compliance confirmation</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Process Flow Arrows -->
+            <div style="position: absolute; left: 50%; top: 12%; width: 4px; height: 12%; background: linear-gradient(to bottom, #3b82f6, var(--deloitte-green)); transform: translateX(-50%);"></div>
+            <div style="position: absolute; left: 50%; top: 37%; width: 4px; height: 12%; background: linear-gradient(to bottom, var(--deloitte-green), #dc2626); transform: translateX(-50%);"></div>
+            <div style="position: absolute; left: 50%; top: 62%; width: 4px; height: 12%; background: linear-gradient(to bottom, #dc2626, #7c3aed); transform: translateX(-50%);"></div>
+          </div>
+
+          <!-- Partner Oversight Box -->
+          <div class="highlight-box" style="margin-top: 2rem;">
+            <h4>Partner Leadership Throughout Process</h4>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 1rem; text-align: left;">
+              <div>
+                <strong>► Strategic Oversight</strong><br>
+                <small style="opacity: 0.9;">Quality reviews, risk assessment validation, resource allocation</small>
+              </div>
+              <div>
+                <strong>► Client Management</strong><br>
+                <small style="opacity: 0.9;">Board communications, VARA liaison, stakeholder updates</small>
+              </div>
+              <div>
+                <strong>► Team Coordination</strong><br>
+                <small style="opacity: 0.9;">Cross-functional integration, timeline management, deliverable review</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+      <button class="nav-button" id="prevBtn" disabled>← Previous</button>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill" style="width: 12.5%"></div>
+      </div>
+      <div class="slide-counter">
+        <span id="currentSlide">1</span> of <span id="totalSlides">8</span>
+      </div>
+      <button class="nav-button" id="nextBtn">Next →</button>
+    </div>
+  </div>
+
+  <script>
+    class PresentationManager {
+      constructor() {
+        this.currentSlide = 1;
+        this.totalSlides = 8;
+        this.initializeElements();
+        this.bindEvents();
+        this.updateUI();
+      }
+
+      initializeElements() {
+        this.slides = document.querySelectorAll('.slide');
+        this.prevBtn = document.getElementById('prevBtn');
+        this.nextBtn = document.getElementById('nextBtn');
+        this.currentSlideSpan = document.getElementById('currentSlide');
+        this.totalSlidesSpan = document.getElementById('totalSlides');
+        this.progressFill = document.getElementById('progressFill');
+      }
+
+      bindEvents() {
+        this.prevBtn.addEventListener('click', () => this.previousSlide());
+        this.nextBtn.addEventListener('click', () => this.nextSlide());
+        
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft') this.previousSlide();
+          if (e.key === 'ArrowRight') this.nextSlide();
+        });
+      }
+
+      showSlide(slideNumber) {
+        this.slides.forEach(slide => slide.classList.remove('active'));
+        const targetSlide = document.querySelector(`[data-slide="${slideNumber}"]`);
+        if (targetSlide) {
+          targetSlide.classList.add('active');
+        }
+      }
+
+      previousSlide() {
+        if (this.currentSlide > 1) {
+          this.currentSlide--;
+          this.showSlide(this.currentSlide);
+          this.updateUI();
+        }
+      }
+
+      nextSlide() {
+        if (this.currentSlide < this.totalSlides) {
+          this.currentSlide++;
+          this.showSlide(this.currentSlide);
+          this.updateUI();
+        }
+      }
+
+      updateUI() {
+        this.currentSlideSpan.textContent = this.currentSlide;
+        this.totalSlidesSpan.textContent = this.totalSlides;
+        
+        const progressPercent = (this.currentSlide / this.totalSlides) * 100;
+        this.progressFill.style.width = `${progressPercent}%`;
+        
+        this.prevBtn.disabled = this.currentSlide === 1;
+        this.nextBtn.disabled = this.currentSlide === this.totalSlides;
+      }
+    }
+
+    // Particle animation system
+    class ParticleSystem {
+      constructor() {
+        this.container = document.getElementById('particles');
+        this.particles = [];
+        this.createParticles();
+        this.animate();
+      }
+
+      createParticles() {
+        const particleCount = 15;
+        for (let i = 0; i < particleCount; i++) {
+          this.createParticle();
+        }
+      }
+
+      createParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Random size
+        const sizes = ['small', 'medium', 'large'];
+        particle.classList.add(sizes[Math.floor(Math.random() * sizes.length)]);
+        
+        // Random horizontal position
+        particle.style.left = Math.random() * 100 + '%';
+        
+        // Random animation delay
+        particle.style.animationDelay = Math.random() * 15 + 's';
+        
+        this.container.appendChild(particle);
+        this.particles.push(particle);
+      }
+
+      animate() {
+        setInterval(() => {
+          // Occasionally add new particles
+          if (Math.random() < 0.1 && this.particles.length < 20) {
+            this.createParticle();
+          }
+          
+          // Remove old particles
+          this.particles = this.particles.filter(particle => {
+            if (particle.offsetTop < -100) {
+              particle.remove();
+              return false;
+            }
+            return true;
+          });
+        }, 2000);
+      }
+    }
+
+    // Initialize presentation when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      new PresentationManager();
+      new ParticleSystem();
+    });
+  </script>
+</body>
+</html>

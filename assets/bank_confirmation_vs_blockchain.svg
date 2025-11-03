@@ -1,0 +1,53 @@
+<svg width="1080" height="620" viewBox="0 0 1080 620" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title{font:700 32px Segoe UI, Arial}
+      .label{font:600 20px Segoe UI, Arial}
+      .small{font:500 16px Segoe UI, Arial}
+      .bank{fill:#f0f9ff;stroke:#1e40af;stroke-width:3;rx:12;ry:12}
+      .crypto{fill:#fef3c7;stroke:#d97706;stroke-width:3;rx:12;ry:12}
+    </style>
+  </defs>
+  
+  <text x="540" y="50" text-anchor="middle" class="title">Bank Confirmation vs Blockchain Verification</text>
+  
+  <!-- BANK CONFIRMATION -->
+  <rect x="60" y="120" width="440" height="420" class="bank"/>
+  <text x="280" y="160" text-anchor="middle" class="label">Traditional Bank Audit</text>
+  
+  <text x="90" y="200" class="small" font-weight="600">Step 1: Send Letter to Bank</text>
+  <text x="110" y="230" class="small">"Dear Bank, does Client ABC have</text>
+  <text x="110" y="255" class="small">$10 million with you?"</text>
+  
+  <text x="90" y="295" class="small" font-weight="600">Step 2: Wait for Reply</text>
+  <text x="110" y="325" class="small">2-4 weeks for response</text>
+  <text x="110" y="350" class="small">Bank sends signed letter back</text>
+  
+  <text x="90" y="390" class="small" font-weight="600">Step 3: Trust the Bank</text>
+  <text x="110" y="420" class="small">Bank says yes = we believe it</text>
+  <text x="110" y="445" class="small">Can't verify ourselves</text>
+  
+  <text x="90" y="485" class="small" font-weight="600">Issues:</text>
+  <text x="110" y="515" class="small">Slow, relies on third party trust</text>
+  
+  <!-- BLOCKCHAIN VERIFICATION -->
+  <rect x="580" y="120" width="440" height="420" class="crypto"/>
+  <text x="800" y="160" text-anchor="middle" class="label">Blockchain Audit (VASP)</text>
+  
+  <text x="610" y="200" class="small" font-weight="600">Step 1: Ask for Proof</text>
+  <text x="630" y="230" class="small">"Sign this message from your</text>
+  <text x="630" y="255" class="small">wallet address RIGHT NOW"</text>
+  
+  <text x="610" y="295" class="small" font-weight="600">Step 2: Instant Verification</text>
+  <text x="630" y="325" class="small">Check blockchain in 10 seconds</text>
+  <text x="630" y="350" class="small">Public ledger = anyone can see</text>
+  
+  <text x="610" y="390" class="small" font-weight="600">Step 3: Verify YOURSELF</text>
+  <text x="630" y="420" class="small">WE check the blockchain directly</text>
+  <text x="630" y="445" class="small">No need to trust anyone else</text>
+  
+  <text x="610" y="485" class="small" font-weight="600">Benefits:</text>
+  <text x="630" y="515" class="small">Instant, cryptographically certain</text>
+
+  <text x="540" y="590" text-anchor="middle" class="small" fill="#4a5568" font-style="italic">Blockchain = Public ledger we can verify ourselves (no waiting for letters)</text>
+</svg>

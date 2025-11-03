@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Assets AI Team | New Practice Opportunity</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    nav a.active::after {
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #2c3e50;
+      background: linear-gradient(135deg, #0b1020 0%, #0f172a 100%);
+      background: #86c232;
+    }
+    /* Subtle Deloitte-green ambient dots */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(rgba(134,194,50,0.08) 2px, transparent 2px),
+        radial-gradient(rgba(134,194,50,0.06) 1.5px, transparent 1.5px);
+      background-size: 50px 50px, 50px 50px;
+      background-position: 0 0, 25px 25px;
+      animation: drift 45s linear infinite;
+    }
+    @keyframes drift {
+      0% { background-position: 0 0, 25px 25px; }
+      100% { background-position: 1200px 0, 1225px 25px; }
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      background: #ffffff;
+      min-height: 100vh;
+      box-shadow: 0 0 40px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 1;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+      color: white;
+      padding: 2.5rem 3rem;
+      border-bottom: 4px solid #86c232;
+    }
+    
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+    
+    .deloitte-badge {
+      display: inline-block;
+      background: #86c232;
+      color: #0d1b2a;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+    
+    nav {
+      background: #f8f9fa;
+      padding: 1rem 3rem;
+      border-bottom: 1px solid #e0e0e0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: #415a77;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+    
+    nav a:hover, nav a.active {
+      color: #86c232;
+    }
+    
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #86c232;
+    }
+    
+    main {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 0;
+    }
+    
+    aside {
+      background: #f8f9fa;
+      padding: 2rem 1.5rem;
+      border-right: 1px solid #e0e0e0;
+      height: calc(100vh - 280px);
+      overflow-y: auto;
+      position: sticky;
+      top: 60px;
+    }
+    
+    aside h3 {
+      color: #0d1b2a;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      border-bottom: 2px solid #86c232;
+      padding-bottom: 0.5rem;
+    }
+    
+    aside ul {
+      list-style: none;
+    }
+    
+    aside li {
+      margin-bottom: 0.5rem;
+    }
+    
+    aside a {
+      text-decoration: none;
+      color: #415a77;
+      display: block;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      transition: all 0.3s;
+      font-size: 0.95rem;
+    }
+    
+    aside a:hover {
+      background: #e9f6da;
+      color: #2e7d32;
+      padding-left: 1rem;
+    }
+    
+    aside a.active {
+      background: #86c232;
+      color: #0d1b2a;
+      font-weight: 600;
+    }
+    
+    .content {
+      padding: 3rem;
+    }
+    
+    section {
+      margin-bottom: 4rem;
+      scroll-margin-top: 80px;
+    }
+    
+    h2 {
+      color: #0d1b2a;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+        border-left: 5px solid #86c232;
+      padding-left: 1rem;
+    }
+    
+    h3 {
+      color: #1b263b;
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem 0;
+    }
+    
+    h4 {
+      color: #415a77;
+      font-size: 1.2rem;
+      margin: 1.5rem 0 0.75rem 0;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+    
+    .card {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+    
+    .card-header {
+      background: linear-gradient(135deg, #2e7d32 0%, #86c232 100%);
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 8px 8px 0 0;
+      margin: -2rem -2rem 1.5rem -2rem;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    
+    .highlight-box {
+      background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+      border-left: 5px solid #66bb6a;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    
+    .warning-box {
+      background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+      border-left: 5px solid #ff9800;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    
+    .critical-box {
+      background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+      border-left: 5px solid #f44336;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    
+    .info-box {
+      background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+      border-left: 5px solid #2196f3;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    
+    .revenue-box {
+      background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+      border-left: 5px solid #9c27b0;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    
+    ul.checklist {
+      list-style: none;
+      margin: 1rem 0;
+    }
+    
+    ul.checklist li {
+      padding: 0.75rem 0 0.75rem 2.5rem;
+      position: relative;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    
+    ul.checklist li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      width: 28px;
+      height: 28px;
+        background: #86c232;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .three-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    
+    thead {
+      background: linear-gradient(135deg, #6d28d9 0%, #4f46e5 100%);
+      color: white;
+    }
+    
+    th {
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+    
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    tbody tr:hover {
+      background: #f8f9fa;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin: 0.25rem;
+    }
+    
+    .badge-revenue {
+      background: #e9f6da;
+      color: #2e7d32;
+    }
+    
+    .badge-quick {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+    
+    .badge-strategic {
+      background: #f1f8e9;
+      color: #2e7d32;
+    }
+    
+    @media (max-width: 1024px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+      
+      aside {
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+      }
+      
+      .two-column, .three-column {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-bg" aria-hidden="true"></div>
+  <div class="container">
+    <header>
+      <h1>Digital Assets & AI Assurance Team</h1>
+      <p>Building a specialized practice for blockchain and AI audit</p>
+      <span class="deloitte-badge">Deloitte Consulting & Assurance</span>
+    </header>
+    
+    <nav id="mainNav">
+      <ul>
+  <li><a href="#tldr" class="nav-link">Summary</a></li>
+        <li><a href="#opportunity" class="nav-link">Market Opportunity</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#roadmap" class="nav-link">Roadmap</a></li>
+      </ul>
+    </nav>
+    
+    <main>
+      <aside>
+        <h3>Quick Navigation</h3>
+        <ul>
+          <li><a href="#tldr" class="sidebar-link">Summary</a></li>
+          <li><a href="#opportunity" class="sidebar-link">Why Build This Team?</a></li>
+          <li><a href="#revenue-model" class="sidebar-link">Revenue Model</a></li>
+          <li><a href="#services" class="sidebar-link">Service Portfolio</a></li>
+          <li><a href="#roadmap" class="sidebar-link">12-Month Roadmap</a></li>
+        </ul>
+      </aside>
+      
+      <div class="content">
+        <section id="tldr">
+          <h2>Summary: Why Build a Digital Assets & AI Team?</h2>
+          
+          <div class="revenue-box">
+            <h3 style="margin-top:0;">Business Case in 3 Numbers</h3>
+            <ol style="margin-left:2rem;font-size:1.15rem;">
+              <li><strong>$10-20M</strong> addressable market in MENA (Year 1-2)</li>
+              <li><strong>$1.0-1.5M</strong> base revenue target (Year 1) from lean team of 4-6 people</li>
+              <li><strong>$700K-900K</strong> investment required (fully loaded cost for 12 months)</li>
+            </ol>
+            <p style="margin-top:1rem;"><strong>ROI: 1.5-2.5x in Year 1 (base)</strong></p>
+          </div>
+          
+          <div class="two-column">
+            <div class="card">
+              <div class="card-header">Top 3 Revenue Drivers</div>
+              <ol style="margin-left:2rem;">
+                  <li><strong>VASP Audit Premiums:</strong> $100-250K incremental per client (blockchain specialist support)</li>
+                  <li><strong>SOC 2 for Crypto Platforms:</strong> $100-250K per engagement, recurring annually</li>
+                  <li><strong>Smart Contract Audits:</strong> $75-150K per protocol (starting rates)</li>
+              </ol>
+            </div>
+            
+            <div class="card">
+              <div class="card-header">Why Now?</div>
+              <ul class="checklist">
+                <li>VARA regulations create compliance demand</li>
+                <li>Limited competition (few firms have crypto expertise)</li>
+                <li>Cross-sell into existing Deloitte audit base</li>
+                <li>First-mover advantage in MENA market</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="highlight-box">
+            <h4>The Opportunity</h4>
+            <p><strong>Build a standalone profit center</strong> that supports existing audit engagements while capturing new revenue streams (SOC 2, smart contract audits, advisory). <strong>Minimal cannibalization risk</strong> (most services are additive, not substitutive).</p>
+          </div>
+        </section>
+        
+        <section id="opportunity">
+          <h2>Market Opportunity & Strategic Rationale</h2>
+          
+          <h3>Why Build vs. Bolt-On?</h3>
+          <div class="two-column">
+            <div class="card">
+              <div class="card-header">Bolt-On Approach (Current State)</div>
+              <h4>Pros:</h4>
+              <ul class="checklist">
+                <li>Lower upfront investment</li>
+                <li>Flexible resource allocation</li>
+                <li>Test market before committing</li>
+              </ul>
+              
+              <h4>Cons:</h4>
+              <ul style="margin-left:2rem;color:#d32f2f;">
+                <li>Capacity constraints (blockchain specialists pulled in multiple directions)</li>
+                <li>Inconsistent service delivery (ad-hoc resourcing)</li>
+                <li>Limited brand recognition as crypto specialist</li>
+                <li>Difficult to attract top talent (no clear career path)</li>
+                <li>Revenue leakage (opportunities missed due to bandwidth)</li>
+              </ul>
+            </div>
+            
+            <div class="card">
+              <div class="card-header">Dedicated Team Approach (Proposed)</div>
+              <h4>Pros:</h4>
+              <ul class="checklist">
+                <li>Scalable delivery model (clear capacity and pricing)</li>
+                <li>Brand leadership (Deloitte Digital Assets & AI team)</li>
+                <li>Attract top talent (dedicated career path)</li>
+                <li>Cross-sell engine (audit, SOC 2, advisory, valuation)</li>
+                <li>Knowledge institutionalization (methodology, tools, IP)</li>
+              </ul>
+              
+              <h4>Cons:</h4>
+              <ul style="margin-left:2rem;color:#d32f2f;">
+                <li>Higher fixed costs (FTE commitment)</li>
+                <li>Ramp-up period (6-12 months to full productivity)</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="revenue-box">
+            <h4>Strategic Decision</h4>
+            <p><strong>Recommendation: Build a dedicated team.</strong> Market demand and revenue potential justify investment. The bolt‑on approach creates opportunity cost due to capacity constraints.</p>
+          </div>
+        </section>
+        
+        <section id="revenue-model">
+          <h2>Revenue Model & Market Sizing</h2>
+          
+          <h3>MENA Market Addressable by Service Line</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Service Line</th>
+                <th>Target Clients</th>
+                <th>Avg Fee</th>
+                <th>Annual Market</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>VASP Audit (Premium)</strong></td>
+                <td>50-75 VASPs</td>
+                <td>$200-500K incremental</td>
+                <td>$10-37.5M</td>
+              </tr>
+              <tr>
+                <td><strong>SOC 2 Type II</strong></td>
+                <td>100-150 platforms</td>
+                <td>$150-400K</td>
+                <td>$15-60M</td>
+              </tr>
+              <tr>
+                <td><strong>Smart Contract Audits</strong></td>
+                <td>200-300 protocols</td>
+                <td>$100-300K</td>
+                <td>$20-90M</td>
+              </tr>
+              <tr>
+                <td><strong>Blockchain Forensics</strong></td>
+                <td>Ad-hoc (disputes, hacks)</td>
+                <td>$50-200K per case</td>
+                <td>$5-20M</td>
+              </tr>
+              <tr>
+                <td><strong>AI Assurance (Emerging)</strong></td>
+                <td>50-100 AI platforms</td>
+                <td>$100-250K</td>
+                <td>$5-25M</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div class="info-box">
+            <h4>Total Addressable Market: $55-232.5M</h4>
+            <p><strong>Deloitte Realistic Capture (Year 1-2):</strong> 5-10% market share = $2.75-23M</p>
+            <p><strong>Base Year 1 Target:</strong> $1.0-1.5M with a lean 4-6 person team</p>
+          </div>
+          
+          <h3>Base Revenue Breakdown (Year 1 Base Target: $1.0-1.5M)</h3>
+          <div class="card">
+            <table>
+              <thead>
+                <tr>
+                  <th>Service</th>
+                  <th>Engagements</th>
+                  <th>Avg Fee</th>
+                  <th>Revenue</th>
+                  <th>% of Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>VASP Audit Premium</td>
+                  <td>2-3</td>
+                  <td>$175K</td>
+                  <td>$0.35-0.525M</td>
+                  <td>30-40%</td>
+                </tr>
+                <tr>
+                  <td>SOC 2 Type II</td>
+                  <td>1-2</td>
+                  <td>$175K</td>
+                  <td>$0.175-0.35M</td>
+                  <td>20-30%</td>
+                </tr>
+                <tr>
+                  <td>Smart Contract Audits</td>
+                  <td>1-2</td>
+                  <td>$100K</td>
+                  <td>$0.1-0.2M</td>
+                  <td>10-15%</td>
+                </tr>
+                <tr>
+                  <td>Forensics / Advisory</td>
+                  <td>2-3</td>
+                  <td>$60K</td>
+                  <td>$0.12-0.18M</td>
+                  <td>10-15%</td>
+                </tr>
+                <tr>
+                  <td>AI Assurance (Pilot)</td>
+                  <td>0-1</td>
+                  <td>$75K</td>
+                  <td>$0-0.075M</td>
+                  <td>0-5%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        
+        <section id="services">
+          <h2>Service Portfolio</h2>
+          
+          <div class="card">
+            <div class="card-header">1. VASP Audit Premiums <span class="badge badge-revenue">Core Revenue</span></div>
+            
+            <h4>Service Description</h4>
+            <p>Provide blockchain specialists to support traditional audit teams on VASP engagements. Services include blockchain verification, proof of reserves, cryptographic testing, and on-chain analytics.</p>
+            
+            <h4>Pricing Model</h4>
+            <ul class="checklist">
+              <li><strong>Time & Materials:</strong> $200-350/hour for blockchain specialists (premium to standard audit rates)</li>
+              <li><strong>Fixed Fee Add-On:</strong> $200-500K incremental to base audit fee (depending on complexity)</li>
+              <li><strong>Recurring:</strong> Annual audit cycle ensures recurring revenue</li>
+            </ul>
+            
+            <h4>Deliverables</h4>
+            <ul class="checklist">
+              <li>Blockchain verification workpapers (COINIA evidence)</li>
+              <li>Proof of Reserves attestation report</li>
+              <li>Blockchain reliability assessment memo</li>
+              <li>On-chain transaction testing documentation</li>
+            </ul>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">2. SOC 2 Type II for Crypto Platforms <span class="badge badge-quick">Quick Win</span></div>
+            
+            <h4>Service Description</h4>
+            <p>Assess security, availability, and confidentiality controls for cryptocurrency exchanges, wallets, and DeFi platforms. Critical for platforms serving institutional clients or seeking insurance coverage.</p>
+            
+            <h4>Pricing Model</h4>
+            <ul class="checklist">
+              <li><strong>SOC 2 Type I:</strong> $75-150K (point-in-time assessment)</li>
+              <li><strong>SOC 2 Type II:</strong> $150-400K (6-12 month operating effectiveness)</li>
+              <li><strong>Recurring:</strong> Annual re-attestation required</li>
+            </ul>
+            
+            <h4>Why High Demand?</h4>
+            <ul class="checklist">
+              <li>Institutional clients (banks, funds) require SOC 2 before custody relationships</li>
+              <li>Cyber insurance providers mandate SOC 2 for coverage</li>
+              <li>VARA encourages third-party assurance over controls</li>
+              <li>Limited competitors with crypto-specific SOC 2 experience</li>
+            </ul>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">3. Smart Contract Audits <span class="badge badge-strategic">High Growth</span></div>
+            
+            <h4>Service Description</h4>
+            <p>Code review and security assessment for smart contracts (DeFi protocols, NFT platforms, tokenization). Identify vulnerabilities, assess logic errors, and provide remediation recommendations.</p>
+            
+            <h4>Pricing Model</h4>
+            <ul class="checklist">
+              <li><strong>Simple Contracts:</strong> $50-100K (ERC-20 tokens, basic NFTs)</li>
+              <li><strong>Complex Protocols:</strong> $150-300K (DeFi, multi-sig, governance)</li>
+              <li><strong>Retainer Model:</strong> Ongoing monitoring and re-audits for protocol upgrades</li>
+            </ul>
+            
+            <h4>Competitive Landscape</h4>
+            <p>Dominated by specialized firms (Trail of Bits, Consensys Diligence, OpenZeppelin). <strong>Deloitte opportunity:</strong> Combine code review with financial audit (integrated assurance for tokenized assets).</p>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">4. Blockchain Forensics & Investigations</div>
+            
+            <h4>Service Description</h4>
+            <p>Trace stolen funds, investigate hacks, support litigation and dispute resolution. Leverage on-chain analytics tools (Chainalysis, Elliptic) and forensic accounting expertise.</p>
+            
+            <h4>Pricing Model</h4>
+            <ul class="checklist">
+              <li><strong>Hourly:</strong> $250-500/hour (forensics premium)</li>
+              <li><strong>Project-Based:</strong> $50-200K+ depending on scope</li>
+              <li><strong>Success Fee:</strong> Optional for asset recovery engagements</li>
+            </ul>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">5. AI Assurance (Emerging) <span class="badge badge-strategic">Future Growth</span></div>
+            
+            <h4>Service Description</h4>
+            <p>Audit AI models for bias, fairness, explainability, and compliance. Assess data governance, model validation, and ethical AI frameworks. Emerging demand from regulated AI applications.</p>
+            
+            <h4>Why Pair with Digital Assets?</h4>
+            <ul class="checklist">
+              <li>Many crypto platforms use AI (trading algorithms, fraud detection, KYC automation)</li>
+              <li>Shared technical skillset (data science, cryptography, software audit)</li>
+              <li>Regulatory convergence (VARA, EU AI Act require assurance)</li>
+            </ul>
+          </div>
+        </section>
+        
+        <section id="roadmap">
+          <h2>12-Month Roadmap</h2>
+          
+          <div class="card">
+            <div class="card-header">Q1: Foundation (Months 1-3)</div>
+            <h4>Key Activities:</h4>
+            <ul class="checklist">
+            <li><strong>Hiring:</strong> Recruit 1 Senior Manager (Blockchain) and 1 Blockchain Specialist</li>
+              <li><strong>Methodology:</strong> Develop SOC 2 crypto playbook, smart contract audit framework</li>
+              <li><strong>Tools:</strong> Procure COINIA licenses, Chainalysis/Elliptic subscriptions, code review tools</li>
+            <li><strong>Quick Wins:</strong> 1-2 pilot engagements with existing audit clients (PoR support)</li>
+            </ul>
+            
+            <h4>Base Target:</h4>
+            <p><strong>$100-150K</strong> (mostly VASP audit support)</p>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">Q2: Scale Delivery (Months 4-6)</div>
+            <h4>Key Activities:</h4>
+            <ul class="checklist">
+                <li><strong>Team Expansion:</strong> Add 1 IT Audit Senior</li>
+                <li><strong>BD Push:</strong> Target 3-5 SOC 2 prospects, attend VARA events, publish thought leadership</li>
+                <li><strong>Engagement Ramp:</strong> Deliver 1-2 SOC 2 engagements, 1 smart contract audit</li>
+              <li><strong>Training:</strong> Upskill internal staff on blockchain fundamentals</li>
+            </ul>
+            
+            <h4>Base Target:</h4>
+            <p><strong>$250-350K</strong> (cumulative: $350-500K)</p>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">Q3: Diversify Services (Months 7-9)</div>
+            <h4>Key Activities:</h4>
+            <ul class="checklist">
+              <li><strong>New Services Launch:</strong> Smart contract audits, blockchain forensics</li>
+                <li><strong>Team Expansion:</strong> Add 1 Blockchain Specialist (if demand warrants)</li>
+              <li><strong>Brand Building:</strong> Case studies, client testimonials, conference speaking</li>
+              <li><strong>Cross-Sell:</strong> Package audit + SOC 2 + advisory for VASP clients</li>
+            </ul>
+            
+            <h4>Base Target:</h4>
+            <p><strong>$300-450K</strong> (cumulative: $650-950K)</p>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">Q4: Optimize & Plan Year 2 (Months 10-12)</div>
+            <h4>Key Activities:</h4>
+            <ul class="checklist">
+              <li><strong>Year-End Surge:</strong> Audit season support, Q4 PoR engagements</li>
+              <li><strong>AI Assurance Pilot:</strong> 1-2 AI model validation projects</li>
+              <li><strong>Team Optimization:</strong> Assess utilization, adjust staffing model</li>
+                <li><strong>Year 2 Planning:</strong> Set targets for $4-6M revenue (2-3x growth)</li>
+            </ul>
+            
+            <h4>Base Target:</h4>
+              <p><strong>$400-600K</strong> (cumulative: <strong>$1.05-1.55M</strong>)</p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+    
+    function updateActiveLinks() {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-link');
+      const sidebarLinks = document.querySelectorAll('.sidebar-link');
+      
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.pageYOffset >= sectionTop - 150) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+      
+      sidebarLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+    
+    window.addEventListener('scroll', updateActiveLinks);
+    window.addEventListener('load', updateActiveLinks);
+  </script>
+</body>
+</html>

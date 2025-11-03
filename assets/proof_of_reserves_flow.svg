@@ -1,0 +1,49 @@
+<svg width="1080" height="720" viewBox="0 0 1080 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title{font:700 28px Segoe UI, Arial}
+      .label{font:600 18px Segoe UI, Arial}
+      .small{font:500 14px Segoe UI, Arial}
+      .box{fill:#f0fff4;stroke:#2f855a;stroke-width:2;rx:10;ry:10}
+      .link{stroke:#2f855a;stroke-width:2;marker-end:url(#arrow)}
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2f855a"/>
+    </marker>
+  </defs>
+
+  <text x="540" y="50" text-anchor="middle" class="title">Proof of Reserves (PoR) Audit Flow</text>
+
+  <rect x="80" y="120" width="280" height="120" class="box"/>
+  <text x="220" y="150" text-anchor="middle" class="label">1. Asset Verification</text>
+  <text x="100" y="180" class="small">• Obtain wallet address inventory</text>
+  <text x="100" y="204" class="small">• Signed message from each address</text>
+  
+  <rect x="400" y="120" width="280" height="120" class="box"/>
+  <text x="540" y="150" text-anchor="middle" class="label">2. On-chain Balances</text>
+  <text x="420" y="180" class="small">• Query chain at period-end block</text>
+  <text x="420" y="204" class="small">• Reconcile to books</text>
+
+  <rect x="720" y="120" width="280" height="120" class="box"/>
+  <text x="860" y="150" text-anchor="middle" class="label">3. Liabilities (Merkle)</text>
+  <text x="740" y="180" class="small">• Build Merkle tree of customer balances</text>
+  <text x="740" y="204" class="small">• Compute root hash</text>
+
+  <rect x="240" y="300" width="280" height="120" class="box"/>
+  <text x="380" y="330" text-anchor="middle" class="label">4. Reserve Ratio</text>
+  <text x="260" y="360" class="small">Reserve = Assets Held / Customer Liabilities</text>
+  <text x="260" y="384" class="small">Target ≥ 100%</text>
+
+  <rect x="560" y="300" width="280" height="120" class="box"/>
+  <text x="700" y="330" text-anchor="middle" class="label">5. Attestation</text>
+  <text x="580" y="360" class="small">• ISAE 3000 report</text>
+  <text x="580" y="384" class="small">• Customer verifiability</text>
+
+  <line x1="360" y1="180" x2="400" y2="180" class="link"/>
+  <line x1="680" y1="180" x2="720" y2="180" class="link"/>
+  <line x1="220" y1="240" x2="380" y2="300" class="link"/>
+  <line x1="860" y1="240" x2="700" y2="300" class="link"/>
+  <line x1="520" y1="360" x2="560" y2="360" class="link"/>
+
+  <text x="540" y="650" text-anchor="middle" class="small" fill="#22543d">Risks: omitted addresses, stale balances, excluded liabilities, incorrect Merkle construction</text>
+</svg>

@@ -1,0 +1,18 @@
+# Exclude large files and documents
+*.pdf
+*.pptx
+*.zip
+
+# Exclude development files
+node_modules/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Keep only essential web files
+!index.html
+!deloitte_vara_faq.html
+!audit_visual_clean.html
+!README.md
+!setup-guide.md
+!.github/

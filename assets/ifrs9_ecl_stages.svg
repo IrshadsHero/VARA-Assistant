@@ -1,0 +1,223 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550">
+  <!-- IFRS 9 ECL Three Stages -->
+  <defs>
+    <linearGradient id="stage1Grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4caf50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#66bb6a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stage2Grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff9800;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffa726;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stage3Grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f44336;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ef5350;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Title -->
+  <text x="450" y="35" font-family="Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="middle" fill="#1a237e">
+    IFRS 9 Expected Credit Loss (ECL) Staging for Crypto Lending
+  </text>
+  
+  <!-- Stage 1 -->
+  <g transform="translate(30, 80)">
+    <rect x="0" y="0" width="260" height="400" fill="url(#stage1Grad)" stroke="#2e7d32" stroke-width="3" rx="10"/>
+    
+    <text x="130" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">
+      Stage 1
+    </text>
+    <text x="130" y="60" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">
+      Performing
+    </text>
+    
+    <rect x="15" y="80" width="230" height="2" fill="white" opacity="0.5"/>
+    
+    <text x="20" y="110" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Criteria:
+    </text>
+    <text x="20" y="135" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • No significant increase in
+    </text>
+    <text x="30" y="152" font-family="Arial, sans-serif" font-size="12" fill="white">
+      credit risk since origination
+    </text>
+    <text x="20" y="172" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Payments current
+    </text>
+    <text x="20" y="192" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Collateral adequate
+    </text>
+    
+    <rect x="15" y="210" width="230" height="2" fill="white" opacity="0.5"/>
+    
+    <text x="20" y="235" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      ECL Recognition:
+    </text>
+    <text x="20" y="260" font-family="Arial, sans-serif" font-size="13" fill="white" font-weight="bold">
+      12-Month ECL
+    </text>
+    <text x="20" y="280" font-family="Arial, sans-serif" font-size="11" fill="white">
+      (Expected losses from default
+    </text>
+    <text x="20" y="295" font-family="Arial, sans-serif" font-size="11" fill="white">
+      events within next 12 months)
+    </text>
+    
+    <rect x="15" y="315" width="230" height="2" fill="white" opacity="0.5"/>
+    
+    <text x="20" y="340" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Example:
+    </text>
+    <text x="20" y="362" font-family="Arial, sans-serif" font-size="11" fill="white">
+      Loan: 10 BTC
+    </text>
+    <text x="20" y="378" font-family="Arial, sans-serif" font-size="11" fill="white">
+      Collateral: 15 BTC (150% LTV)
+    </text>
+    <text x="20" y="394" font-family="Arial, sans-serif" font-size="11" fill="white">
+      Status: Current, no delays
+    </text>
+  </g>
+  
+  <!-- Stage 2 -->
+  <g transform="translate(320, 80)">
+    <rect x="0" y="0" width="260" height="400" fill="url(#stage2Grad)" stroke="#f57c00" stroke-width="3" rx="10"/>
+    
+    <text x="130" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">
+      Stage 2
+    </text>
+    <text x="130" y="60" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">
+      Underperforming
+    </text>
+    
+    <rect x="15" y="80" width="230" height="2" fill="white" opacity="0.5"/>
+    
+    <text x="20" y="110" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Criteria:
+    </text>
+    <text x="20" y="135" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Significant increase in
+    </text>
+    <text x="30" y="152" font-family="Arial, sans-serif" font-size="12" fill="white">
+      credit risk since origination
+    </text>
+    <text x="20" y="172" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • &gt; 30 days past due OR
+    </text>
+    <text x="20" y="192" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Collateral ratio deteriorated
+    </text>
+    
+    <rect x="15" y="210" width="230" height="2" fill="white" opacity="0.5"/>
+    
+    <text x="20" y="235" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      ECL Recognition:
+    </text>
+    <text x="20" y="260" font-family="Arial, sans-serif" font-size="13" fill="white" font-weight="bold">
+      Lifetime ECL
+    </text>
+    <text x="20" y="280" font-family="Arial, sans-serif" font-size="11" fill="white">
+      (Expected losses over
+    </text>
+    <text x="20" y="295" font-family="Arial, sans-serif" font-size="11" fill="white">
+      entire life of the asset)
+    </text>
+    
+    <rect x="15" y="315" width="230" height="2" fill="white" opacity="0.5"/>
+    
+    <text x="20" y="340" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Example:
+    </text>
+    <text x="20" y="362" font-family="Arial, sans-serif" font-size="11" fill="white">
+      Loan: 10 BTC
+    </text>
+    <text x="20" y="378" font-family="Arial, sans-serif" font-size="11" fill="white">
+      Collateral: 11 BTC (110% LTV)
+    </text>
+    <text x="20" y="394" font-family="Arial, sans-serif" font-size="11" fill="white">
+      Status: 45 days overdue
+    </text>
+  </g>
+  
+  <!-- Stage 3 -->
+  <g transform="translate(610, 80)">
+    <rect x="0" y="0" width="260" height="400" fill="url(#stage3Grad)" stroke="#c62828" stroke-width="3" rx="10"/>
+    
+    <text x="130" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">
+      Stage 3
+    </text>
+    <text x="130" y="60" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">
+      Credit-Impaired
+    </text>
+    
+    <rect x="15" y="80" width="230" height="2" fill="white" opacity="0.5"/>
+    
+    <text x="20" y="110" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Criteria:
+    </text>
+    <text x="20" y="135" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Objective evidence of
+    </text>
+    <text x="30" y="152" font-family="Arial, sans-serif" font-size="12" fill="white">
+      impairment
+    </text>
+    <text x="20" y="172" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • &gt; 90 days past due OR
+    </text>
+    <text x="20" y="192" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Collateral liquidated/seized
+    </text>
+    
+    <rect x="15" y="210" width="230" height="2" fill="white" opacity="0.5"/>
+    
+    <text x="20" y="235" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      ECL Recognition:
+    </text>
+    <text x="20" y="260" font-family="Arial, sans-serif" font-size="13" fill="white" font-weight="bold">
+      Lifetime ECL
+    </text>
+    <text x="20" y="280" font-family="Arial, sans-serif" font-size="11" fill="white">
+      + Interest revenue on
+    </text>
+    <text x="20" y="295" font-family="Arial, sans-serif" font-size="11" fill="white">
+      net carrying amount
+    </text>
+    
+    <rect x="15" y="315" width="230" height="2" fill="white" opacity="0.5"/>
+    
+    <text x="20" y="340" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Example:
+    </text>
+    <text x="20" y="362" font-family="Arial, sans-serif" font-size="11" fill="white">
+      Loan: 10 BTC
+    </text>
+    <text x="20" y="378" font-family="Arial, sans-serif" font-size="11" fill="white">
+      Collateral: 7 BTC (70% LTV)
+    </text>
+    <text x="20" y="394" font-family="Arial, sans-serif" font-size="11" fill="white">
+      Status: 120 days overdue
+    </text>
+  </g>
+  
+  <!-- Arrows showing progression -->
+  <g>
+    <path d="M 290 280 L 310 280" stroke="#1a237e" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    <path d="M 580 280 L 600 280" stroke="#1a237e" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  </g>
+  
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1a237e" />
+    </marker>
+  </defs>
+  
+  <!-- Bottom note -->
+  <rect x="30" y="495" width="840" height="45" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" rx="5"/>
+  <text x="450" y="515" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0d47a1" font-weight="bold">
+    Key Audit Focus: Assess staging criteria, test PD/LGD models, validate collateral values at reporting date
+  </text>
+  <text x="450" y="532" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#1565c0">
+    Crypto-specific risk: High collateral volatility requires frequent revaluation and margin call monitoring
+  </text>
+</svg>

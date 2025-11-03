@@ -1,0 +1,58 @@
+<svg width="1080" height="540" viewBox="0 0 1080 540" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title{font:700 32px Segoe UI, Arial}
+      .label{font:600 20px Segoe UI, Arial}
+      .small{font:500 16px Segoe UI, Arial}
+      .analogy{fill:#fef3c7;stroke:#f59e0b;stroke-width:3;rx:12;ry:12}
+    </style>
+  </defs>
+  
+  <text x="540" y="50" text-anchor="middle" class="title">Simple Analogies for Crypto Audit Concepts</text>
+  
+  <!-- ROW 1 -->
+  <rect x="60" y="100" width="300" height="180" class="analogy"/>
+  <text x="210" y="135" text-anchor="middle" class="label">Hot Wallet</text>
+  <text x="80" y="170" class="small">Like a CASH REGISTER</text>
+  <text x="80" y="200" class="small">Just enough money for</text>
+  <text x="80" y="225" class="small">the day. Easy to steal,</text>
+  <text x="80" y="250" class="small">so keep it small.</text>
+  
+  <rect x="390" y="100" width="300" height="180" class="analogy"/>
+  <text x="540" y="135" text-anchor="middle" class="label">Cold Wallet</text>
+  <text x="410" y="170" class="small">Like a SAFE DEPOSIT BOX</text>
+  <text x="410" y="200" class="small">Most money locked away.</text>
+  <text x="410" y="225" class="small">Hard to access, very</text>
+  <text x="410" y="250" class="small">secure (offline).</text>
+  
+  <rect x="720" y="100" width="300" height="180" class="analogy"/>
+  <text x="870" y="135" text-anchor="middle" class="label">Blockchain</text>
+  <text x="740" y="170" class="small">Like a PUBLIC LEDGER</text>
+  <text x="740" y="200" class="small">Everyone can see every</text>
+  <text x="740" y="225" class="small">transaction. Can't erase</text>
+  <text x="740" y="250" class="small">or fake entries.</text>
+  
+  <!-- ROW 2 -->
+  <rect x="60" y="310" width="300" height="180" class="analogy"/>
+  <text x="210" y="345" text-anchor="middle" class="label">Proof of Reserves</text>
+  <text x="80" y="380" class="small">Like COUNTING THE VAULT</text>
+  <text x="80" y="410" class="small">Does the bank have enough</text>
+  <text x="80" y="435" class="small">cash to pay all depositors?</text>
+  <text x="80" y="460" class="small">PoR = crypto vault count.</text>
+  
+  <rect x="390" y="310" width="300" height="180" class="analogy"/>
+  <text x="540" y="345" text-anchor="middle" class="label">Private Key</text>
+  <text x="410" y="380" class="small">Like a MASTER PASSWORD</text>
+  <text x="410" y="410" class="small">If you lose it, money is</text>
+  <text x="410" y="435" class="small">GONE FOREVER. No bank</text>
+  <text x="410" y="460" class="small">to call for help.</text>
+  
+  <rect x="720" y="310" width="300" height="180" class="analogy"/>
+  <text x="870" y="345" text-anchor="middle" class="label">Smart Contract</text>
+  <text x="740" y="380" class="small">Like a VENDING MACHINE</text>
+  <text x="740" y="410" class="small">Code = rules. Put money in,</text>
+  <text x="740" y="435" class="small">automatic action happens.</text>
+  <text x="740" y="460" class="small">No humans needed.</text>
+
+  <text x="540" y="520" text-anchor="middle" class="small" fill="#92400e" font-style="italic">Think of crypto like traditional banking, but everything is digital and automatic</text>
+</svg>

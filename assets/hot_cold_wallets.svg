@@ -1,0 +1,103 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title{font:700 32px Segoe UI, Arial; fill:#1a202c}
+      .subtitle{font:600 20px Segoe UI, Arial; fill:#2d3748}
+      .label{font:600 16px Segoe UI, Arial}
+      .small{font:500 14px Segoe UI, Arial; fill:#4a5568}
+      .tiny{font:400 12px Segoe UI, Arial; fill:#718096}
+      .hot-box{fill:#fff5f5;stroke:#e53e3e;stroke-width:3;rx:12;ry:12}
+      .cold-box{fill:#ebf8ff;stroke:#3182ce;stroke-width:3;rx:12;ry:12}
+      .wallet{fill:#ffffff;stroke:#4a5568;stroke-width:2;rx:8;ry:8}
+      .arrow{stroke:#4a5568;stroke-width:2;fill:none;marker-end:url(#arrowhead)}
+      .percent{font:700 36px Segoe UI, Arial}
+      .flow{fill:none;stroke:#48bb78;stroke-width:2;stroke-dasharray:5 5}
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#4a5568"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" class="title">Hot and Cold Wallet Architecture</text>
+  <text x="600" y="70" text-anchor="middle" class="tiny">Typical VASP custody structure with security controls</text>
+
+  <!-- Hot Wallet Section -->
+  <rect x="50" y="120" width="500" height="520" class="hot-box"/>
+  <text x="300" y="155" text-anchor="middle" class="subtitle" fill="#c53030">HOT WALLET (Online)</text>
+  
+  <!-- Hot wallet percentage -->
+  <text x="300" y="210" text-anchor="middle" class="percent" fill="#e53e3e">2-5%</text>
+  <text x="300" y="235" text-anchor="middle" class="tiny">of total assets</text>
+  
+  <!-- Hot wallet boxes -->
+  <rect x="80" y="260" width="190" height="80" class="wallet"/>
+  <text x="175" y="290" text-anchor="middle" class="label" fill="#2d3748">Web Wallet</text>
+  <text x="85" y="315" class="tiny">• Real-time withdrawals</text>
+  <text x="85" y="332" class="tiny">• API-connected</text>
+  
+  <rect x="310" y="260" width="190" height="80" class="wallet"/>
+  <text x="405" y="290" text-anchor="middle" class="label" fill="#2d3748">Mobile Wallet</text>
+  <text x="315" y="315" class="tiny">• User transactions</text>
+  <text x="315" y="332" class="tiny">• 24/7 availability</text>
+
+  <!-- Hot wallet controls -->
+  <rect x="80" y="370" width="420" height="240" style="fill:#fffbf0;stroke:#d69e2e;stroke-width:2;rx:8;ry:8"/>
+  <text x="290" y="395" text-anchor="middle" class="label" fill="#744210">Security Controls</text>
+  
+  <text x="95" y="425" class="small">Velocity Limits:</text>
+  <text x="110" y="445" class="tiny">• Max $X per transaction</text>
+  <text x="110" y="460" class="tiny">• Max $Y per hour/day</text>
+  
+  <text x="95" y="490" class="small">Address Whitelisting:</text>
+  <text x="110" y="510" class="tiny">• Pre-approved destinations</text>
+  <text x="110" y="525" class="tiny">• Time-locked changes</text>
+  
+  <text x="95" y="555" class="small">Monitoring:</text>
+  <text x="110" y="575" class="tiny">• Real-time alerts</text>
+  <text x="110" y="590" class="tiny">• Auto-sweep to cold (hourly)</text>
+
+  <!-- Cold Wallet Section -->
+  <rect x="650" y="120" width="500" height="520" class="cold-box"/>
+  <text x="900" y="155" text-anchor="middle" class="subtitle" fill="#2c5282">COLD WALLET (Offline)</text>
+  
+  <!-- Cold wallet percentage -->
+  <text x="900" y="210" text-anchor="middle" class="percent" fill="#3182ce">95-98%</text>
+  <text x="900" y="235" text-anchor="middle" class="tiny">of total assets</text>
+  
+  <!-- Cold wallet boxes -->
+  <rect x="680" y="260" width="190" height="80" class="wallet"/>
+  <text x="775" y="290" text-anchor="middle" class="label" fill="#2d3748">Hardware Wallet</text>
+  <text x="685" y="315" class="tiny">• Multi-sig (3-of-5)</text>
+  <text x="685" y="332" class="tiny">• Air-gapped</text>
+  
+  <rect x="910" y="260" width="190" height="80" class="wallet"/>
+  <text x="1005" y="290" text-anchor="middle" class="label" fill="#2d3748">Vault / HSM</text>
+  <text x="915" y="315" class="tiny">• Physical vault</text>
+  <text x="915" y="332" class="tiny">• Geo-distributed</text>
+
+  <!-- Cold wallet controls -->
+  <rect x="680" y="370" width="420" height="240" style="fill:#f0f9ff;stroke:#3182ce;stroke-width:2;rx:8;ry:8"/>
+  <text x="890" y="395" text-anchor="middle" class="label" fill="#1e40af">Security Controls</text>
+  
+  <text x="695" y="425" class="small">Access Control:</text>
+  <text x="710" y="445" class="tiny">• Dual control / 4-eyes rule</text>
+  <text x="710" y="460" class="tiny">• Video surveillance</text>
+  
+  <text x="695" y="490" class="small">Physical Security:</text>
+  <text x="710" y="510" class="tiny">• Vault or safe deposit box</text>
+  <text x="710" y="525" class="tiny">• Tamper-evident seals</text>
+  
+  <text x="695" y="555" class="small">Key Management:</text>
+  <text x="710" y="575" class="tiny">• Encrypted backups</text>
+  <text x="710" y="590" class="tiny">• Recovery procedures tested</text>
+
+  <!-- Flow arrows -->
+  <path d="M 550 300 L 650 300" class="flow" marker-end="url(#arrowhead)"/>
+  <text x="600" y="290" text-anchor="middle" class="tiny" fill="#48bb78">Auto sweep</text>
+  
+  <path d="M 650 340 L 550 340" class="flow" marker-end="url(#arrowhead)"/>
+  <text x="600" y="360" text-anchor="middle" class="tiny" fill="#48bb78">Manual replenish</text>
+  <text x="600" y="375" text-anchor="middle" class="tiny" fill="#48bb78">(multi-sig approval)</text>
+
+</svg>
