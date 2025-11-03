@@ -4,7 +4,7 @@ A comprehensive AI-powered assistant for VARA (Virtual Assets Regulatory Authori
 
 ## 🚀 Live Demo
 
-Visit: [https://your-username.github.io/vara-ai-assistant/](https://your-username.github.io/vara-ai-assistant/)
+Visit: [https://irshadshero.github.io/VARA-Assistant/](https://irshadshero.github.io/VARA-Assistant/)
 
 ## 📋 Features
 
