@@ -1,6 +1,6 @@
 # VARA AI Assistant
 
-A comprehensive AI-powered assistant for VARA (Virtual Assets Regulatory Authority) regulations, built specifically for Deloitte Digital Assets practice.
+A professional AI assistant for VARA (Virtual Assets Regulatory Authority) compliance and regulations, built for Deloitte's Digital Assets team with full Gemini API integration and serverless backend.
 
 ## 🚀 Live Demo
 

@@ -1,0 +1,23 @@
+{
+  "name": "vara-assistant",
+  "version": "1.0.0",
+  "description": "VARA AI Assistant with Gemini API integration",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'No build step required'",
+    "dev": "echo 'Development server not configured'"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  },
+  "keywords": [
+    "VARA",
+    "AI",
+    "Assistant",
+    "Deloitte",
+    "Gemini",
+    "Regulatory"
+  ],
+  "author": "Deloitte Digital Assets Team",
+  "license": "MIT"
+}
