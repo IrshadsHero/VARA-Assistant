@@ -1000,7 +1000,529 @@ Minimum Capital Requirement = Higher of:
                 </div>
             </section>
 
-            <!-- Add more sections for Governance, AML/CTF, Reporting, and Penalties... -->
+            <!-- Governance Framework Section -->
+            <section id="governance" class="faq-section">
+                <h2 class="section-title">Governance Framework</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        What governance structure must VASPs establish under VARA regulations?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>VASPs must establish a robust governance framework comprising a Board of Directors, management structure, and comprehensive policies covering all aspects of VA operations.</p>
+
+                        <h4>Board Composition Requirements:</h4>
+                        <ul>
+                            <li><strong>Minimum 3 directors</strong> with majority being independent</li>
+                            <li><strong>Chairman</strong> must be independent and separate from CEO</li>
+                            <li><strong>Board committees:</strong> Audit, Risk, Nomination & Remuneration</li>
+                            <li><strong>Fit & proper criteria</strong> for all board members</li>
+                        </ul>
+
+                        <h4>Key Management Functions:</h4>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Function</th>
+                                    <th>Requirements</th>
+                                    <th>Approval Needed</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>CEO/Managing Director</td>
+                                    <td>Senior management experience, fit & proper</td>
+                                    <td>VARA approval</td>
+                                </tr>
+                                <tr>
+                                    <td>Chief Risk Officer</td>
+                                    <td>Independent reporting to Board</td>
+                                    <td>VARA approval</td>
+                                </tr>
+                                <tr>
+                                    <td>Compliance Officer</td>
+                                    <td>AML/CTF expertise, independence</td>
+                                    <td>VARA approval</td>
+                                </tr>
+                                <tr>
+                                    <td>Chief Technology Officer</td>
+                                    <td>Cybersecurity and VA technology expertise</td>
+                                    <td>Board approval</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="warning">
+                            <div class="warning-icon">!</div>
+                            <div>
+                                <strong>Audit Focus:</strong> Review board meeting minutes, committee charters, and management reporting structures. Verify independence requirements and proper segregation of duties.
+                            </div>
+                        </div>
+
+                        <div class="reference">
+                            <div class="reference-icon">📖</div>
+                            <h4>Reference: VARA Rulebook Chapter 4</h4>
+                            <a href="https://www.vara.ae/media/kwqhqiaw/draft-vara-rulebook.pdf" class="reference-link" target="_blank">
+                                Section 4.1-4.3 - Governance Structure, Pages 35-42
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        What policies and procedures must VASPs maintain?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>VASPs must maintain comprehensive written policies covering all operational areas, reviewed annually and approved by the Board.</p>
+
+                        <div class="code-block">
+Required Policy Framework:
+• Risk Management Policy & Procedures
+• AML/CTF Policy & Customer Due Diligence
+• Cybersecurity & Information Security Policy
+• Business Continuity & Disaster Recovery Plan
+• Outsourcing Policy & Vendor Management
+• Conflicts of Interest Policy
+• Market Conduct & Fair Treatment Policy
+• Technology Governance & Change Management
+• Capital Management & Stress Testing Policy
+• Customer Asset Protection & Custody Policy
+                        </div>
+
+                        <h4>Policy Management Requirements:</h4>
+                        <ul>
+                            <li><strong>Annual review</strong> and Board approval</li>
+                            <li><strong>Version control</strong> and change documentation</li>
+                            <li><strong>Staff training</strong> on all applicable policies</li>
+                            <li><strong>Exception reporting</strong> and breach management</li>
+                            <li><strong>Regular testing</strong> of business continuity plans</li>
+                        </ul>
+
+                        <div class="reference">
+                            <div class="reference-icon">📖</div>
+                            <h4>Reference: VARA Rulebook Chapter 4</h4>
+                            <a href="https://www.vara.ae/media/kwqhqiaw/draft-vara-rulebook.pdf" class="reference-link" target="_blank">
+                                Section 4.4 - Policies & Procedures, Pages 43-48
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AML/CTF Compliance Section -->
+            <section id="aml-compliance" class="faq-section">
+                <h2 class="section-title">AML/CTF Compliance</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        What are the AML/CTF requirements for VASPs in Dubai?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>VASPs must comply with comprehensive AML/CTF requirements including customer due diligence, transaction monitoring, suspicious activity reporting, and sanctions screening.</p>
+
+                        <h4>Customer Due Diligence (CDD) Requirements:</h4>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Customer Type</th>
+                                    <th>Standard CDD</th>
+                                    <th>Enhanced Due Diligence (EDD)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Individual Retail</td>
+                                    <td>ID verification, address confirmation</td>
+                                    <td>Source of funds, PEP screening</td>
+                                </tr>
+                                <tr>
+                                    <td>Corporate Entities</td>
+                                    <td>Registration docs, beneficial ownership</td>
+                                    <td>Business model verification, UBO verification</td>
+                                </tr>
+                                <tr>
+                                    <td>High-Risk Jurisdictions</td>
+                                    <td>N/A - EDD Required</td>
+                                    <td>Additional verification, senior approval</td>
+                                </tr>
+                                <tr>
+                                    <td>VASPs & Exchanges</td>
+                                    <td>License verification, compliance attestation</td>
+                                    <td>On-site visits, ongoing monitoring</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="code-block">
+Transaction Monitoring Thresholds:
+• Cash Transactions: AED 40,000 (≈ USD 11,000)
+• VA Transactions: AED 15,000 (≈ USD 4,000) 
+• Cross-border transfers: AED 3,500 (≈ USD 1,000)
+• Suspicious Activity: Any amount
+• PEP Transactions: Enhanced monitoring regardless of amount
+                        </div>
+
+                        <div class="warning">
+                            <div class="warning-icon">!</div>
+                            <div>
+                                <strong>Audit Focus:</strong> Test AML transaction monitoring systems, review customer risk assessments, and verify suspicious transaction reporting procedures and timelines.
+                            </div>
+                        </div>
+
+                        <div class="reference">
+                            <div class="reference-icon">📖</div>
+                            <h4>Reference: VARA AML/CTF Rulebook</h4>
+                            <a href="https://www.vara.ae/media/p24bznqj/aml-cft-rulebook.pdf" class="reference-link" target="_blank">
+                                Chapters 3-6 - CDD and Transaction Monitoring
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How must VASPs handle suspicious transaction reporting and sanctions screening?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>VASPs must implement robust systems for detecting, investigating, and reporting suspicious activities while maintaining comprehensive sanctions screening capabilities.</p>
+
+                        <h4>Suspicious Transaction Reporting Requirements:</h4>
+                        <ul>
+                            <li><strong>Initial report:</strong> Within 3 business days of detection</li>
+                            <li><strong>Follow-up reports:</strong> Additional information within 21 days</li>
+                            <li><strong>Reporting authority:</strong> UAE Financial Intelligence Unit (FIU)</li>
+                            <li><strong>Tipping-off prohibition:</strong> Cannot inform customer of STR filing</li>
+                        </ul>
+
+                        <h4>Sanctions Screening Framework:</h4>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Sanctions List</th>
+                                    <th>Update Frequency</th>
+                                    <th>Screening Scope</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>UN Security Council</td>
+                                    <td>Real-time</td>
+                                    <td>All customers and transactions</td>
+                                </tr>
+                                <tr>
+                                    <td>UAE National Lists</td>
+                                    <td>Daily</td>
+                                    <td>All customers and transactions</td>
+                                </tr>
+                                <tr>
+                                    <td>US OFAC</td>
+                                    <td>Real-time</td>
+                                    <td>USD transactions and US persons</td>
+                                </tr>
+                                <tr>
+                                    <td>EU Sanctions</td>
+                                    <td>Daily</td>
+                                    <td>EUR transactions and EU persons</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="reference">
+                            <div class="reference-icon">📖</div>
+                            <h4>Reference: VARA AML/CTF Rulebook</h4>
+                            <a href="https://www.vara.ae/media/p24bznqj/aml-cft-rulebook.pdf" class="reference-link" target="_blank">
+                                Chapters 7-8 - STR and Sanctions Compliance
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reporting Obligations Section -->
+            <section id="reporting" class="faq-section">
+                <h2 class="section-title">Reporting Obligations</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        What are the ongoing reporting requirements for VASPs?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>VASPs must submit various regulatory reports to VARA on a periodic basis, covering financial condition, operational metrics, compliance status, and risk management.</p>
+
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Report Type</th>
+                                    <th>Frequency</th>
+                                    <th>Submission Deadline</th>
+                                    <th>Key Content</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Financial Returns</td>
+                                    <td>Monthly</td>
+                                    <td>15 business days</td>
+                                    <td>P&L, Balance Sheet, Capital ratios</td>
+                                </tr>
+                                <tr>
+                                    <td>Capital Adequacy Report</td>
+                                    <td>Monthly</td>
+                                    <td>15 business days</td>
+                                    <td>Capital calculations, stress test results</td>
+                                </tr>
+                                <tr>
+                                    <td>Operational Metrics</td>
+                                    <td>Quarterly</td>
+                                    <td>30 business days</td>
+                                    <td>Transaction volumes, customer numbers</td>
+                                </tr>
+                                <tr>
+                                    <td>Risk Management Report</td>
+                                    <td>Quarterly</td>
+                                    <td>30 business days</td>
+                                    <td>Risk register, incidents, mitigation</td>
+                                </tr>
+                                <tr>
+                                    <td>AML/CTF Compliance Report</td>
+                                    <td>Semi-annually</td>
+                                    <td>45 business days</td>
+                                    <td>STRs, training, policy updates</td>
+                                </tr>
+                                <tr>
+                                    <td>Annual Audited Accounts</td>
+                                    <td>Annually</td>
+                                    <td>4 months after year-end</td>
+                                    <td>Full audited financial statements</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>Ad-hoc Reporting Requirements:</h4>
+                        <ul>
+                            <li><strong>Material incidents:</strong> Within 24 hours</li>
+                            <li><strong>Cybersecurity breaches:</strong> Within 72 hours</li>
+                            <li><strong>Significant losses:</strong> Within 5 business days</li>
+                            <li><strong>Key personnel changes:</strong> Prior notification required</li>
+                            <li><strong>Changes to business model:</strong> Prior VARA approval</li>
+                        </ul>
+
+                        <div class="warning">
+                            <div class="warning-icon">!</div>
+                            <div>
+                                <strong>Audit Focus:</strong> Verify accuracy and completeness of regulatory reports, test data integrity from source systems, and review report submission controls.
+                            </div>
+                        </div>
+
+                        <div class="reference">
+                            <div class="reference-icon">📖</div>
+                            <h4>Reference: VARA Rulebook Chapter 11</h4>
+                            <a href="https://www.vara.ae/media/kwqhqiaw/draft-vara-rulebook.pdf" class="reference-link" target="_blank">
+                                Section 11.1-11.4 - Regulatory Reporting, Pages 95-102
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        What data and records must VASPs maintain for regulatory purposes?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>VASPs must maintain comprehensive records of all transactions, customer interactions, and business activities for specified retention periods.</p>
+
+                        <div class="code-block">
+Record Retention Requirements:
+
+Customer Records: 7 years after account closure
+• CDD documentation and verification records
+• Risk assessments and periodic reviews
+• Customer correspondence and complaints
+
+Transaction Records: 7 years after completion
+• All VA transaction details and confirmations  
+• Order books and trade execution records
+• Cross-border transfer documentation
+• Wallet addresses and blockchain references
+
+Compliance Records: 7 years after creation
+• AML/CTF training records
+• Suspicious transaction reports and investigations
+• Sanctions screening results and alerts
+• Internal audit reports and findings
+
+Financial Records: 7 years after year-end
+• General ledger and supporting documentation
+• Capital adequacy calculations
+• Stress testing models and results
+• Management accounts and board reports
+                        </div>
+
+                        <h4>Data Quality Standards:</h4>
+                        <ul>
+                            <li><strong>Accuracy:</strong> Records must be complete and error-free</li>
+                            <li><strong>Accessibility:</strong> Available to VARA within 24 hours</li>
+                            <li><strong>Security:</strong> Encrypted and access-controlled storage</li>
+                            <li><strong>Immutability:</strong> Protected against unauthorized changes</li>
+                            <li><strong>Backup:</strong> Regular backups with tested recovery procedures</li>
+                        </ul>
+
+                        <div class="reference">
+                            <div class="reference-icon">📖</div>
+                            <h4>Reference: VARA Rulebook Chapter 11</h4>
+                            <a href="https://www.vara.ae/media/kwqhqiaw/draft-vara-rulebook.pdf" class="reference-link" target="_blank">
+                                Section 11.5 - Record Keeping, Pages 103-106
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Penalties & Enforcement Section -->
+            <section id="penalties" class="faq-section">
+                <h2 class="section-title">Penalties & Enforcement</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        What enforcement powers does VARA have and what penalties can be imposed?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>VARA has comprehensive enforcement powers including the ability to impose administrative penalties, suspend licenses, and take criminal enforcement action for serious breaches.</p>
+
+                        <h4>Administrative Penalties:</h4>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Violation Category</th>
+                                    <th>Financial Penalty Range</th>
+                                    <th>Additional Sanctions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Operating without License</td>
+                                    <td>AED 1M - 10M</td>
+                                    <td>Cease operations order</td>
+                                </tr>
+                                <tr>
+                                    <td>Capital Adequacy Breach</td>
+                                    <td>AED 100K - 1M</td>
+                                    <td>Business restrictions</td>
+                                </tr>
+                                <tr>
+                                    <td>AML/CTF Non-compliance</td>
+                                    <td>AED 500K - 5M</td>
+                                    <td>Enhanced monitoring</td>
+                                </tr>
+                                <tr>
+                                    <td>Market Conduct Violations</td>
+                                    <td>AED 250K - 2.5M</td>
+                                    <td>Public censure</td>
+                                </tr>
+                                <tr>
+                                    <td>Reporting Failures</td>
+                                    <td>AED 50K - 500K</td>
+                                    <td>Increased reporting frequency</td>
+                                </tr>
+                                <tr>
+                                    <td>Governance Deficiencies</td>
+                                    <td>AED 100K - 1M</td>
+                                    <td>Management changes required</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>Enforcement Process:</h4>
+                        <ul>
+                            <li><strong>Investigation:</strong> VARA conducts thorough examination</li>
+                            <li><strong>Notice:</strong> Written notice of alleged violations</li>
+                            <li><strong>Response:</strong> 30 days to provide written response</li>
+                            <li><strong>Hearing:</strong> Opportunity for oral hearing if requested</li>
+                            <li><strong>Decision:</strong> Written decision with reasoning</li>
+                            <li><strong>Appeal:</strong> Right to appeal to ADGM Courts</li>
+                        </ul>
+
+                        <div class="warning">
+                            <div class="warning-icon">!</div>
+                            <div>
+                                <strong>Criminal Enforcement:</strong> Serious violations including fraud, market manipulation, or terrorist financing may result in criminal prosecution with imprisonment up to 10 years.
+                            </div>
+                        </div>
+
+                        <div class="reference">
+                            <div class="reference-icon">📖</div>
+                            <h4>Reference: VARA Regulation & ADGM Courts Act</h4>
+                            <a href="https://www.vara.ae/media/kwqhqiaw/draft-vara-rulebook.pdf" class="reference-link" target="_blank">
+                                Chapter 12 - Enforcement & Penalties, Pages 107-115
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How can VASPs ensure compliance and avoid regulatory penalties?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>VASPs should implement comprehensive compliance frameworks, conduct regular self-assessments, and maintain proactive engagement with VARA to minimize regulatory risks.</p>
+
+                        <div class="code-block">
+Best Practice Compliance Framework:
+
+Governance & Oversight
+✓ Independent board oversight with qualified directors
+✓ Clear management accountability and reporting lines  
+✓ Regular board and committee meetings with proper documentation
+✓ Annual compliance certification by senior management
+
+Risk Management
+✓ Comprehensive risk assessment and regular updates
+✓ Effective risk monitoring and reporting systems
+✓ Adequate capital buffers above minimum requirements
+✓ Regular stress testing and scenario analysis
+
+Operational Controls  
+✓ Robust transaction monitoring and suspicious activity detection
+✓ Effective customer due diligence and ongoing monitoring
+✓ Comprehensive staff training and competency assessments
+✓ Regular internal audits and management testing
+
+Regulatory Engagement
+✓ Timely and accurate regulatory reporting
+✓ Proactive communication on material issues
+✓ Constructive engagement during examinations
+✓ Implementation of regulatory feedback and recommendations
+                        </div>
+
+                        <h4>Early Warning Indicators:</h4>
+                        <ul>
+                            <li><strong>Capital ratios</strong> approaching minimum thresholds</li>
+                            <li><strong>Significant operational losses</strong> or business disruptions</li>
+                            <li><strong>High staff turnover</strong> in key risk and compliance roles</li>
+                            <li><strong>Increased customer complaints</strong> or regulatory inquiries</li>
+                            <li><strong>IT security incidents</strong> or system outages</li>
+                            <li><strong>AML alert backlogs</strong> or investigation delays</li>
+                        </ul>
+
+                        <div class="reference">
+                            <div class="reference-icon">📖</div>
+                            <h4>Reference: VARA Guidance Notes</h4>
+                            <a href="https://www.vara.ae/en/about/publications" class="reference-link" target="_blank">
+                                Compliance Best Practices & Industry Guidance
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
         </main>
     </div>
