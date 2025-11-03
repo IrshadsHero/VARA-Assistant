@@ -1021,32 +1021,60 @@
                     return;
                 }
 
+                textElement.textContent = 'Testing connection...';
+                
                 try {
-                    // Use CORS proxy for connection test as well
-                    const proxyUrl = 'https://corsproxy.io/?';
+                    // Try a simple test call with the same proxy logic
+                    const proxyOptions = [
+                        'https://api.allorigins.win/raw?url=',
+                        'https://cors-anywhere.herokuapp.com/',
+                        'https://corsproxy.io/?',
+                        'https://thingproxy.freeboard.io/fetch/'
+                    ];
+
                     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${this.apiKey}`;
                     
-                    const response = await fetch(proxyUrl + encodeURIComponent(apiUrl), {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            contents: [{
-                                parts: [{
-                                    text: "Test connection"
-                                }]
-                            }]
-                        })
-                    });
+                    for (let i = 0; i < proxyOptions.length; i++) {
+                        try {
+                            let fetchUrl;
+                            
+                            if (proxyOptions[i].includes('allorigins')) {
+                                fetchUrl = proxyOptions[i] + encodeURIComponent(apiUrl);
+                            } else if (proxyOptions[i].includes('corsproxy')) {
+                                fetchUrl = proxyOptions[i] + encodeURIComponent(apiUrl);
+                            } else {
+                                fetchUrl = proxyOptions[i] + apiUrl;
+                            }
+                            
+                            const response = await fetch(fetchUrl, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({
+                                    contents: [{
+                                        parts: [{
+                                            text: "Test connection"
+                                        }]
+                                    }]
+                                })
+                            });
 
-                    if (response.ok) {
-                        statusElement.className = 'api-status connected';
-                        indicatorElement.textContent = '🟢';
-                        textElement.textContent = 'Connected to Gemini API';
-                    } else {
-                        throw new Error('API connection failed');
+                            if (response.ok) {
+                                statusElement.className = 'api-status connected';
+                                indicatorElement.textContent = '🟢';
+                                textElement.textContent = 'Connected to Gemini API';
+                                return; // Success, exit the loop
+                            }
+                        } catch (error) {
+                            // Try next proxy
+                            continue;
+                        }
                     }
+                    
+                    // All proxies failed
+                    throw new Error('All connection attempts failed');
+                    
                 } catch (error) {
                     statusElement.className = 'api-status disconnected';
                     indicatorElement.textContent = '🔴';
@@ -1177,37 +1205,69 @@
                     ]
                 };
 
-                // Use CORS proxy to bypass browser restrictions
-                const proxyUrl = 'https://corsproxy.io/?';
+                // Multiple CORS proxy options
+                const proxyOptions = [
+                    'https://api.allorigins.win/raw?url=',
+                    'https://cors-anywhere.herokuapp.com/',
+                    'https://corsproxy.io/?',
+                    'https://thingproxy.freeboard.io/fetch/'
+                ];
+
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${this.apiKey}`;
                 
-                const response = await fetch(proxyUrl + encodeURIComponent(apiUrl), {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(requestData)
-                });
+                // Try each proxy until one works
+                for (let i = 0; i < proxyOptions.length; i++) {
+                    try {
+                        let fetchUrl;
+                        
+                        if (proxyOptions[i].includes('allorigins')) {
+                            // allorigins requires special formatting
+                            fetchUrl = proxyOptions[i] + encodeURIComponent(apiUrl);
+                        } else if (proxyOptions[i].includes('corsproxy')) {
+                            fetchUrl = proxyOptions[i] + encodeURIComponent(apiUrl);
+                        } else {
+                            fetchUrl = proxyOptions[i] + apiUrl;
+                        }
+                        
+                        console.log(`Trying proxy ${i + 1}:`, proxyOptions[i]);
+                        
+                        const response = await fetch(fetchUrl, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(requestData)
+                        });
 
-                if (!response.ok) {
-                    const errorData = await response.text();
-                    throw new Error(`API request failed: ${response.status} - ${errorData}`);
-                }
+                        if (!response.ok) {
+                            throw new Error(`HTTP ${response.status}`);
+                        }
 
-                const data = await response.json();
-                console.log('API Response:', data); // Debug logging
-                
-                // Check if response has expected format
-                if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
-                    throw new Error('Unexpected API response format');
+                        const data = await response.json();
+                        console.log('API Response:', data);
+                        
+                        // Check if response has expected format
+                        if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
+                            throw new Error('Unexpected API response format');
+                        }
+                        
+                        // Handle potential content filtering
+                        if (data.candidates[0].finishReason === 'SAFETY') {
+                            throw new Error('Response was filtered due to safety concerns');
+                        }
+                        
+                        return data.candidates[0].content.parts[0].text;
+                        
+                    } catch (error) {
+                        console.log(`Proxy ${i + 1} failed:`, error.message);
+                        if (i === proxyOptions.length - 1) {
+                            // All proxies failed
+                            throw new Error(`All CORS proxies failed. Last error: ${error.message}`);
+                        }
+                        // Try next proxy
+                        continue;
+                    }
                 }
-                
-                // Handle potential content filtering
-                if (data.candidates[0].finishReason === 'SAFETY') {
-                    throw new Error('Response was filtered due to safety concerns');
-                }
-                
-                return data.candidates[0].content.parts[0].text;
             }
 
             addMessage(content, sender) {
