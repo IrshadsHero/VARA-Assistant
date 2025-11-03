@@ -989,7 +989,13 @@
             }
 
             getAPIKey() {
-                // Try to get from localStorage first (for development)
+                // Option 1: Replace 'YOUR_GEMINI_API_KEY_HERE' with your actual API key
+                // const hardcodedKey = 'YOUR_GEMINI_API_KEY_HERE';
+                // if (hardcodedKey && hardcodedKey !== 'YOUR_GEMINI_API_KEY_HERE') {
+                //     return hardcodedKey;
+                // }
+                
+                // Option 2: Try to get from localStorage first (current method)
                 let apiKey = localStorage.getItem('gemini_api_key');
                 
                 if (!apiKey) {
@@ -1111,8 +1117,20 @@
                     this.addMessage(response, 'assistant');
                 } catch (error) {
                     this.removeLoadingMessage(loadingId);
-                    this.addMessage('Sorry, I encountered an error. Please check your API key and try again.', 'assistant');
-                    console.error('API Error:', error);
+                    console.error('API Error Details:', error);
+                    
+                    let errorMessage = 'Sorry, I encountered an error. ';
+                    if (error.message.includes('403')) {
+                        errorMessage += 'API key may be invalid or doesn\'t have access to Gemini Pro.';
+                    } else if (error.message.includes('429')) {
+                        errorMessage += 'Too many requests. Please wait a moment and try again.';
+                    } else if (error.message.includes('400')) {
+                        errorMessage += 'There was an issue with the request format.';
+                    } else {
+                        errorMessage += `Error: ${error.message}`;
+                    }
+                    
+                    this.addMessage(errorMessage, 'assistant');
                 }
             }
 
@@ -1138,16 +1156,47 @@
                             temperature: 0.3,
                             topK: 20,
                             topP: 0.8,
-                            maxOutputTokens: 1024
-                        }
+                            maxOutputTokens: 2048
+                        },
+                        safetySettings: [
+                            {
+                                category: "HARM_CATEGORY_HARASSMENT",
+                                threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                            },
+                            {
+                                category: "HARM_CATEGORY_HATE_SPEECH", 
+                                threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                            },
+                            {
+                                category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                                threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                            },
+                            {
+                                category: "HARM_CATEGORY_DANGEROUS_CONTENT",
+                                threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                            }
+                        ]
                     })
                 });
 
                 if (!response.ok) {
-                    throw new Error(`API request failed: ${response.status}`);
+                    const errorData = await response.text();
+                    throw new Error(`API request failed: ${response.status} - ${errorData}`);
                 }
 
                 const data = await response.json();
+                console.log('API Response:', data); // Debug logging
+                
+                // Check if response has expected format
+                if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
+                    throw new Error('Unexpected API response format');
+                }
+                
+                // Handle potential content filtering
+                if (data.candidates[0].finishReason === 'SAFETY') {
+                    throw new Error('Response was filtered due to safety concerns');
+                }
+                
                 return data.candidates[0].content.parts[0].text;
             }
 
