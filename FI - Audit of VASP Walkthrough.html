@@ -83,8 +83,10 @@
       padding: 3rem;
       box-shadow: 0 20px 40px rgba(0,0,0,0.3);
       position: relative;
-      overflow: hidden;
+      overflow-y: auto;
+      overflow-x: hidden;
       border: 1px solid var(--border-subtle);
+      max-height: 80vh;
     }
 
     .slide.active {
@@ -95,6 +97,25 @@
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Custom scrollbar for slides */
+    .slide::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .slide::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+    }
+
+    .slide::-webkit-scrollbar-thumb {
+      background: var(--deloitte-green);
+      border-radius: 4px;
+    }
+
+    .slide::-webkit-scrollbar-thumb:hover {
+      background: #9bbc34;
     }
 
     /* Slide layouts */
@@ -1304,7 +1325,8 @@
         
         document.addEventListener('keydown', (e) => {
           if (e.key === 'ArrowLeft') this.previousSlide();
-          if (e.key === 'ArrowRight' || e.key === 'Enter') this.nextSlide();
+          if (e.key === 'ArrowRight') this.nextSlide();
+          if (e.key === 'Enter') this.scrollDown();
         });
       }
 
@@ -1329,6 +1351,28 @@
           this.currentSlide++;
           this.showSlide(this.currentSlide);
           this.updateUI();
+        }
+      }
+
+      scrollDown() {
+        // Get the active slide
+        const activeSlide = document.querySelector('.slide.active');
+        if (activeSlide) {
+          // Calculate scroll amount (viewport height / 3 for gradual scrolling)
+          const scrollAmount = window.innerHeight / 3;
+          
+          // Get current scroll position within the slide
+          const currentScroll = activeSlide.scrollTop;
+          const maxScroll = activeSlide.scrollHeight - activeSlide.clientHeight;
+          
+          // Calculate new scroll position
+          const newScroll = Math.min(currentScroll + scrollAmount, maxScroll);
+          
+          // Smooth scroll to new position
+          activeSlide.scrollTo({
+            top: newScroll,
+            behavior: 'smooth'
+          });
         }
       }
 
