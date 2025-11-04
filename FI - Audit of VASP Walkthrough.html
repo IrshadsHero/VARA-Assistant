@@ -1236,7 +1236,7 @@
         
         document.addEventListener('keydown', (e) => {
           if (e.key === 'ArrowLeft') this.previousSlide();
-          if (e.key === 'ArrowRight') this.nextSlide();
+          if (e.key === 'ArrowRight' || e.key === 'Enter') this.nextSlide();
         });
       }
 
